@@ -1,0 +1,63 @@
+\doxysection{C\+:/\+Users/juicy/\+Documents/\+Git\+Hub/romi/\+BNO055.py File Reference}
+\hypertarget{_b_n_o055_8py}{}\label{_b_n_o055_8py}\index{C:/Users/juicy/Documents/GitHub/romi/BNO055.py@{C:/Users/juicy/Documents/GitHub/romi/BNO055.py}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055.\+BNO055}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_b_n_o055}{BNO055}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_ae2f45800dcc7616436cd33d4f1c55bd4}{BNO055.\+i2c\+\_\+addy}} = 0x28
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a02dae703391755ed0005324193dc0db0}{BNO055.\+ndof\+\_\+mode}} = 0x0c
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a77c5e6a347f3f46dee8db81c68ced183}{BNO055.\+imu\+\_\+mode}} = 0x08
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a5651bec067bb559963934057b82f5a83}{BNO055.\+config\+\_\+mode}} = 0x00
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a67db30efbfe7a1a69659ce07c836b679}{BNO055.\+mode\+\_\+reg}} = 0x3D
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a4c40b45243cc5be97acd36d755f03f3f}{BNO055.\+calib\+\_\+sts\+\_\+reg}} = 0x35
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a397b8808ed1ed660af117ce07f484762}{BNO055.\+\_\+trigger\+\_\+reg}} = 0x3F
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_ac3c0b2cae19cfaba5296a33208dab9dc}{BNO055.\+unit\+\_\+sel}} = 0x3B
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a55bc6915c2b3496733f6d780dfc2ee92}{BNO055.\+accel\+\_\+offs\+\_\+reg}} = 0x55
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a0ce61c6609dfa6a1b362eebb39c3e9c6}{BNO055.\+mag\+\_\+offs\+\_\+reg}} = 0x5B
+\item 
+int \mbox{\hyperlink{namespace_b_n_o055_a82286f19fe78e297d59deb061312af36}{BNO055.\+gyro\+\_\+offs\+\_\+reg}} = 0x61
+\item 
+list \mbox{\hyperlink{namespace_b_n_o055_ad13773990c0ce60984f7c74e79e8d604}{BNO055.\+eul\+\_\+data\+\_\+x}} = \mbox{[}0x1b, 0x1a\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_b_n_o055_a69fb95294d6dd32b5dceab737d950ff3}{BNO055.\+eul\+\_\+data\+\_\+y}} = \mbox{[}0x1d, 0x1c\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_b_n_o055_ae202b68e404e4df43033e56ae76caa95}{BNO055.\+eul\+\_\+data\+\_\+z}} = \mbox{[}0x1f, 0x1e\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_b_n_o055_a0f982ed17f2e25bc698891cea5328898}{BNO055.\+gyro\+\_\+data\+\_\+x}} = \mbox{[}0x15, 0x14\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_b_n_o055_a79eb51cdd445cde4f89b1a576fcfcf0f}{BNO055.\+gyro\+\_\+data\+\_\+y}} = \mbox{[}0x17, 0x16\mbox{]}
+\item 
+list \mbox{\hyperlink{namespace_b_n_o055_a64c2d1691e6f9b81c38cf970ad730107}{BNO055.\+gyro\+\_\+data\+\_\+z}} = \mbox{[}0x19, 0x18\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_a604a3a10f1816cce68837ffd8ad86272}{BNO055.\+imu}} = \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}(1, pyb.\+I2\+C.\+CONTROLLER, \mbox{\hyperlink{namespace_b_n_o055_a77c5e6a347f3f46dee8db81c68ced183}{imu\+\_\+mode}})
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_afc178664958839900b827cc6e22bcac8}{BNO055.\+calib\+\_\+sts}} = imu.\+get\+\_\+calib\+\_\+sts()
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_aa776f4be7542d5b3cdb57d3e3a7dbc50}{BNO055.\+calib\+\_\+coeffs}} = imu.\+get\+\_\+calib\+\_\+coeffs()
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_a052c7d5d06f87ba915d4ceae719d9bfb}{BNO055.\+e\+\_\+angs}} = imu.\+get\+\_\+e\+\_\+angs()
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_a97d8ea820204f56a4c964204c2580cad}{BNO055.\+heading}} = imu.\+get\+\_\+heading()
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_a88b3988e923c8b6b371d657ac54e5170}{BNO055.\+omegas}} = imu.\+get\+\_\+omegas()
+\item 
+\mbox{\hyperlink{namespace_b_n_o055_ac13fb16282b544358f6d0881fd608ad2}{BNO055.\+yaw\+\_\+rate}} = imu.\+get\+\_\+yaw\+\_\+rate()
+\end{DoxyCompactItemize}

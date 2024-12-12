@@ -1,0 +1,140 @@
+\doxysection{L3\+\_\+\+L6206.\+py}
+\hypertarget{_l3___l6206_8py_source}{}\label{_l3___l6206_8py_source}\index{C:/Users/juicy/Documents/GitHub/romi/L3\_L6206.py@{C:/Users/juicy/Documents/GitHub/romi/L3\_L6206.py}}
+\mbox{\hyperlink{_l3___l6206_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00001}\mbox{\hyperlink{namespace_l3___l6206}{00001}}\ \textcolor{comment}{\#\ -\/*-\/\ coding:\ utf-\/8\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ \ \ \ L6206.py}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ \ \ \ A\ driver\ for\ one\ channel\ of\ the\ L6206.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @details\ \ \ \ This\ file\ includes\ a\ class\ that\ interfaces\ with\ a\ motor\ using\ the\ L6206\ motor\ driver}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @author\ \ \ \ \ Lili\ Boyer-\/Quick,\ Julian\ Rubinstein}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @created\ \ \ \ Thu\ Oct\ \ 3\ 2024\ 08:49:28}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00008}00008\ \textcolor{stringliteral}{\ \ \ \ @modified\ \ \ Sun\ Oct\ 20\ 2024\ 13:51:00}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00009}00009\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00011}00011\ \textcolor{keyword}{from}\ pyb\ \textcolor{keyword}{import}\ Pin,\ Timer}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00012}00012\ \textcolor{keyword}{from}\ time\ \textcolor{keyword}{import}\ sleep\_ms}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00015}\mbox{\hyperlink{class_l3___l6206_1_1_l6206}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00016}00016\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ \ \ \ \ A\ driver\ class\ for\ one\ channel\ of\ the\ L6206.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @details\ \ \ \ Objects\ of\ this\ class\ can\ be\ used\ to\ apply\ PWM\ to\ a\ given}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DC\ motor\ on\ one\ channel\ of\ the\ L6206\ from\ ST\ Microelectronics.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00022}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5fa514af371ab27266c73990e54823d4}{00022}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5fa514af371ab27266c73990e54823d4}{\_\_init\_\_}}(self,\ PWM\_tim,\ PWM\_tim\_ch,\ IN1\_pin,\ IN2\_pin,\ EN\_pin,\ dir):}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00024}00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @brief\ \ \ \ \ \ Initializes\ and\ returns\ an\ object\ associated\ with\ a\ DC\ motor.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00025}00025\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ Set\ pin\ modes\ and\ configure\ two\ timer\ channels\ for\ PWM}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00026}00026\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ PWM\_tim\ sets\ PWM\ timer}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00027}00027\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ PWM\_tim\_ch\ sets\ PWN\ timer\ channel}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00028}00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ IN1\_pin\ sets\ motor\ pin\ 1}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ IN2\_pin\ sets\ motor\ pin\ 2}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ EN\_pin\ sets\ motor\ enable\ pin}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ dir\ sets\ default\ motor\ direction\ (1\ for\ CW,\ 0\ for\ CCW)}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00034}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}{00034}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}{EN}}\ =\ Pin(EN\_pin,\ Pin.OUT\_OD,\ pull=Pin.PULL\_UP)\ \ \textcolor{comment}{\#\ create\ a\ class\ attribute,\ OD=open\ drain}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ set\ up\ channel\ 1}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00037}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{00037}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{IN1}}\ =\ Pin(IN1\_pin,\ Pin.OUT\_OD,}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pull=Pin.PULL\_UP)\ \ \textcolor{comment}{\#\ this\ pin\ now\ needs\ to\ be\ a\ toggle\ to\ work\ w/\ the\ romi\ motors}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ self.PWM\_CH1\ =\ PWM\_tim.channel(1,\ pin=self.IN1,\ mode=Timer.PWM)}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ set\ up\ channel\ 2}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00041}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe}{00041}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe}{IN2}}\ =\ Pin(IN2\_pin,\ Pin.OUT\_OD)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00042}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{00042}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{PWM\_CH2}}\ =\ PWM\_tim.channel(PWM\_tim\_ch,\ pin=self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe}{IN2}},\ mode=Timer.PWM)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00044}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{00044}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}}\ =\ 0}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00045}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_af1519c64cddb5fedf512bd3e85744ca0}{00045}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_af1519c64cddb5fedf512bd3e85744ca0}{direction}}\ =\ dir}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}{EN}}.low()\ \ \textcolor{comment}{\#\ disable\ motor\ on\ init}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00048}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a0ead429c4bf4995df1d216ce28837e38}{00048}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a0ead429c4bf4995df1d216ce28837e38}{set\_duty}}(self,\ duty):}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @brief\ \ \ \ \ \ Set\ the\ PWM\ duty\ cycle\ for\ the\ DC\ motor.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ This\ method\ sets\ the\ duty\ cycle\ to\ be\ sent\ to\ the\ L6206.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00052}00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ Positive\ values\ cause\ effort\ in\ the\ CCW\ direction.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00053}00053\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ Negative\ values\ cause\ effort\ in\ the\ CW\ direction.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00054}00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @param\ \ \ \ \ \ duty\ is\ the\ duty\ cycle\ of\ the\ PWM\ signal\ sent\ to\ the\ L6206}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00055}00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ -\/100\ <=\ duty\ <=\ 100:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}}\ =\ duty}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ bool(self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_af1519c64cddb5fedf512bd3e85744ca0}{direction}}):}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ duty\ >=\ 0:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{PWM\_CH2}}.pulse\_width\_percent(abs(self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}}))\ \ \textcolor{comment}{\#\ manipulate\ class\ attribute}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{IN1}}.high()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{PWM\_CH2}}.pulse\_width\_percent(abs(self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}}))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{IN1}}.low()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ duty\ >=\ 0:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{PWM\_CH2}}.pulse\_width\_percent(abs(self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}}))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{IN1}}.low()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{PWM\_CH2}}.pulse\_width\_percent(abs(self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}}))\ \ \textcolor{comment}{\#\ manipulate\ class\ attribute}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{IN1}}.high()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ ValueError(\textcolor{stringliteral}{"{}Duty\ cycle\ out\ of\ range"{}})}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00075}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a87acf6e04d5364fd5cda8ba03d508d31}{00075}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a87acf6e04d5364fd5cda8ba03d508d31}{enable}}(self):}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00077}00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @brief\ \ \ \ \ \ Enable\ the\ motor\ associated\ with\ the\ given\ L6206\ object.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00078}00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ This\ method\ sets\ the\ enable\ pin\ associated\ with\ one}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00079}00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ output\ of\ the\ L6206\ high\ in\ order\ to\ enable\ that\ motor.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}{EN}}.high()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00083}\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a183a8f00819132af99c0017e93abfc20}{00083}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a183a8f00819132af99c0017e93abfc20}{disable}}(self):}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @brief\ \ \ \ \ \ Disable\ the\ motor\ associated\ with\ the\ given\ L6206\ object.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00086}00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ This\ method\ sets\ the\ enable\ pin\ associated\ with\ one}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00087}00087\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ @details\ \ \ \ output\ of\ the\ L6206\ low\ in\ order\ to\ disable\ that\ motor.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00088}00088\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}{EN}}.low()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00092}00092\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{'\_\_main\_\_'}:}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00093}00093\ \ \ \ \ \textcolor{comment}{\#\ Any\ code\ within\ the\ if\ \_\_name\_\_\ ==\ '\_\_main\_\_'\ block\ will\ only\ run\ when\ the}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00094}00094\ \ \ \ \ \textcolor{comment}{\#\ script\ is\ executed\ as\ a\ standalone\ program.\ If\ the\ script\ is\ imported\ as}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00095}00095\ \ \ \ \ \textcolor{comment}{\#\ a\ module\ the\ code\ block\ will\ not\ run.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00097}00097\ \ \ \ \ \textcolor{comment}{\#\ MOTOR\ A}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00098}\mbox{\hyperlink{namespace_l3___l6206_a83e2cbad7ada09f0cb9aaaa79cd25cb8}{00098}}\ \ \ \ \ direction\ =\ bool(int(input(\textcolor{stringliteral}{"{}Motor\ A:\ Enter\ 1\ for\ forward\ or\ 0\ for\ reverse:\ "{}})))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00099}\mbox{\hyperlink{namespace_l3___l6206_a732aac30e33c674af1bc67c2aa0c02f5}{00099}}\ \ \ \ \ duty\ =\ float(input(\textcolor{stringliteral}{"{}Enter\ duty\ cycle:\ "{}}))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00101}00101\ \ \ \ \ \textcolor{comment}{\#\ Create\ a\ timer\ object\ to\ use\ for\ motor\ control}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00102}\mbox{\hyperlink{namespace_l3___l6206_a866b17d8ffd09cb15c385f989b618f99}{00102}}\ \ \ \ \ tim\_A\ =\ Timer(3,\ freq=20\_000)\ \ \textcolor{comment}{\#\ n=3\ is\ timer\ channel\ number}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00104}00104\ \ \ \ \ \textcolor{comment}{\#\ Create\ an\ L6206\ driver\ object.\ You\ will\ need\ to\ modify\ the\ code\ to\ facilitate}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00105}00105\ \ \ \ \ \textcolor{comment}{\#\ passing\ in\ the\ pins\ and\ timer\ objects\ needed\ to\ run\ the\ motors.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00106}\mbox{\hyperlink{namespace_l3___l6206_a06db2de3947ed7502299d58ab335b583}{00106}}\ \ \ \ \ mot\_A\ =\ \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(tim\_A,\ Pin.cpu.B4,\ Pin.cpu.B5,\ Pin.cpu.A10)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00108}00108\ \ \ \ \ \textcolor{comment}{\#\ Set\ the\ duty\ cycle\ of\ the\ first\ L6206\ channel}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00109}00109\ \ \ \ \ mot\_A.set\_duty(duty,\ direction)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00111}00111\ \ \ \ \ \textcolor{comment}{\#\ MOTOR\ B}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00112}00112\ \ \ \ \ direction\ =\ bool(int(input(\textcolor{stringliteral}{"{}Motor\ B:\ Enter\ 1\ for\ forward\ or\ 0\ for\ reverse:\ "{}})))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00113}00113\ \ \ \ \ duty\ =\ float(input(\textcolor{stringliteral}{"{}Enter\ duty\ cycle:\ "{}}))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00115}00115\ \ \ \ \ \textcolor{comment}{\#\ Create\ a\ timer\ object\ to\ use\ for\ motor\ control}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00116}\mbox{\hyperlink{namespace_l3___l6206_a7326275869cb54129713796d6108e974}{00116}}\ \ \ \ \ tim\_B\ =\ Timer(2,\ freq=20\_000)\ \ \textcolor{comment}{\#\ n=2\ is\ timer\ channel\ number}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00118}00118\ \ \ \ \ \textcolor{comment}{\#\ Create\ an\ L6206\ driver\ object.\ You\ will\ need\ to\ modify\ the\ code\ to\ facilitate}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00119}00119\ \ \ \ \ \textcolor{comment}{\#\ passing\ in\ the\ pins\ and\ timer\ objects\ needed\ to\ run\ the\ motors.}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00120}\mbox{\hyperlink{namespace_l3___l6206_aac9ec54a0831040cf1245688f22f5a90}{00120}}\ \ \ \ \ mot\_B\ =\ \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(tim\_B,\ Pin.cpu.A0,\ Pin.cpu.A1,\ Pin.cpu.C1)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00122}00122\ \ \ \ \ \textcolor{comment}{\#\ Set\ the\ duty\ cycle\ of\ the\ first\ L6206\ channel}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00123}00123\ \ \ \ \ mot\_B.set\_duty(duty,\ direction)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00125}00125\ \ \ \ \ \textcolor{comment}{\#\ set\ motor\ to\ turn\ off\ after\ [duration]}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00126}\mbox{\hyperlink{namespace_l3___l6206_aaa558585e394e301f7f69bec86f96fa0}{00126}}\ \ \ \ \ duration\ =\ int(input(\textcolor{stringliteral}{"{}Enter\ duration\ in\ milliseconds:\ "{}}))}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00127}00127\ \ \ \ \ \textcolor{comment}{\#\ Enable\ the\ L6206\ driver}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00128}00128\ \ \ \ \ mot\_A.enable()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00129}00129\ \ \ \ \ \textcolor{comment}{\#\ Enable\ the\ L6206\ driver}}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00130}00130\ \ \ \ \ mot\_B.enable()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00132}00132\ \ \ \ \ sleep\_ms(duration)}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00133}00133\ \ \ \ \ mot\_A.disable()}
+\DoxyCodeLine{\Hypertarget{_l3___l6206_8py_source_l00134}00134\ \ \ \ \ mot\_B.disable()}
+
+\end{DoxyCode}

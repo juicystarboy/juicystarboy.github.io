@@ -1,0 +1,124 @@
+\doxysection{line.\+py}
+\hypertarget{line_8py_source}{}\label{line_8py_source}\index{C:/Users/juicy/Documents/GitHub/romi/line.py@{C:/Users/juicy/Documents/GitHub/romi/line.py}}
+\mbox{\hyperlink{line_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00001}\mbox{\hyperlink{namespaceline}{00001}}\ \textcolor{comment}{\#\ -\/*-\/\ coding:\ utf-\/8\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00003}00003\ \textcolor{stringliteral}{Created\ on\ Fri\ Nov\ 22\ 12:26:36\ 2024}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00004}00004\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00005}00005\ \textcolor{stringliteral}{@author:\ lbq11}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00006}00006\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00007}00007\ \textcolor{keyword}{from}\ pyb\ \textcolor{keyword}{import}\ Pin,\ ADC}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00008}00008\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00010}00010\ \textcolor{comment}{\#\ line\ follower\ pin\ assignments}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00012}00012\ \textcolor{comment}{\#\ ctrl\ pins}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00013}\mbox{\hyperlink{namespaceline_adb08d2c512dcc29a1b63f5a41352b835}{00013}}\ ctrl\_even\ =\ Pin(Pin.cpu.C4,\ Pin.OUT\_PP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00014}\mbox{\hyperlink{namespaceline_a70cad57c4d3c9fb0e93b7f57ba63b4d2}{00014}}\ ctrl\_odd\ =\ Pin(Pin.cpu.C3,\ Pin.OUT\_PP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00016}00016\ \textcolor{comment}{\#\ sensor\ outputs}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00017}00017\ \textcolor{stringliteral}{'''\ make\ more\ robust\ to\ allow\ feed\ in\ of\ pin\ nums,\ move\ this\ to\ init'''}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00018}\mbox{\hyperlink{namespaceline_a52756d20a6d213c7c9addb1c7f34e1d4}{00018}}\ snsr\_0\ =\ Pin(Pin.cpu.A5,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00019}\mbox{\hyperlink{namespaceline_a9a5f6e722bfae6d195cd43e6c369f998}{00019}}\ snsr\_1\ =\ Pin(Pin.cpu.C0,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00020}\mbox{\hyperlink{namespaceline_a5b4984ac8e326dceb8643d60ece6b42d}{00020}}\ snsr\_2\ =\ Pin(Pin.cpu.A4,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00021}\mbox{\hyperlink{namespaceline_a7da5c2b4c4547f56450b972501467f8c}{00021}}\ snsr\_3\ =\ Pin(Pin.cpu.B0,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00022}\mbox{\hyperlink{namespaceline_a99151753bb75d5f692c6acbbd4cebfd9}{00022}}\ snsr\_4\ =\ Pin(Pin.cpu.C1,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00023}\mbox{\hyperlink{namespaceline_aaeb24c2f9f233e9c7caa3682ad10dcec}{00023}}\ snsr\_5\ =\ Pin(Pin.cpu.A7,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00024}\mbox{\hyperlink{namespaceline_a0acf9c0be01e2f8ffb16bfa6290730c4}{00024}}\ snsr\_6\ =\ Pin(Pin.cpu.A6,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00025}\mbox{\hyperlink{namespaceline_a6f1aa8b6f866c3092c95ce99135015d0}{00025}}\ snsr\_7\ =\ Pin(Pin.cpu.A9,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00027}\mbox{\hyperlink{namespaceline_a7bb3c334dbb8d3112a79d44384d47c30}{00027}}\ pins\ =\ [snsr\_0,\ snsr\_1,\ snsr\_2,\ snsr\_3,\ snsr\_4,\ snsr\_5,\ snsr\_6,\ snsr\_7]}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00030}\mbox{\hyperlink{classline_1_1_line___follower}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classline_1_1_line___follower}{Line\_Follower}}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00031}\mbox{\hyperlink{classline_1_1_line___follower_a921a9e8e0bf2f7869ef5e1041909facf}{00031}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classline_1_1_line___follower_a921a9e8e0bf2f7869ef5e1041909facf}{\_\_init\_\_}}(self,\ pins):}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ self.snsr\_pins\ =\ [snsr\_0,\ snsr\_1,\ snsr\_2,\ snsr\_3,\ snsr\_4,\ snsr\_5,\ snsr\_6,\ snsr\_7]}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00033}\mbox{\hyperlink{classline_1_1_line___follower_a685b0f9594a4a372cf215145c264295a}{00033}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classline_1_1_line___follower_a685b0f9594a4a372cf215145c264295a}{snsr\_pins}}\ =\ pins}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00035}\mbox{\hyperlink{classline_1_1_line___follower_a00efd765d8b57b273a033cb88a4216ff}{00035}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classline_1_1_line___follower_a00efd765d8b57b273a033cb88a4216ff}{enable\_leds}}(self,\ ctrl\_set):\ \ \textcolor{comment}{\#\ crtil\_set\ refers\ to\ ctrl\ even/odd}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ ctrl\_set.high()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00038}\mbox{\hyperlink{classline_1_1_line___follower_a3490e4cefff3de535ebe734ff98c6c88}{00038}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classline_1_1_line___follower_a3490e4cefff3de535ebe734ff98c6c88}{disable\_leds}}(self,\ ctrl\_set):}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ ctrl\_set.low()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00041}\mbox{\hyperlink{classline_1_1_line___follower_a30cb72ee9d1dad4ca6c5d76f85eb95a4}{00041}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classline_1_1_line___follower_a30cb72ee9d1dad4ca6c5d76f85eb95a4}{snsr\_set}}(self):}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ snsr\_init\_vals\ =\ []}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ pin\ \textcolor{keywordflow}{in}\ self.\mbox{\hyperlink{classline_1_1_line___follower_a685b0f9594a4a372cf215145c264295a}{snsr\_pins}}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ pin.init(Pin.OUT\_PP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ pin.high()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ time.sleep\_us(60)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ pin\ \textcolor{keywordflow}{in}\ self.\mbox{\hyperlink{classline_1_1_line___follower_a685b0f9594a4a372cf215145c264295a}{snsr\_pins}}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ pin.low()}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ pin.init(Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ adc\ =\ ADC(pin)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_init\_vals.append(int(adc.read()))}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print\ (f'\ snsr\_init\_vals\ =\ \{snsr\_init\_vals\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ snsr\_init\_vals\ \ \textcolor{comment}{\#\ return\ the\ initial\ pin\ values\ once\ discharging\ starts}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00055}\mbox{\hyperlink{classline_1_1_line___follower_aec93a24f5f00d168c95548fb6505e137}{00055}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classline_1_1_line___follower_aec93a24f5f00d168c95548fb6505e137}{snsr\_read}}(self,\ snsr\_init\_vals,\ thresh):}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ adcs\ =\ []}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ threshold\ =\ thresh\ \ \textcolor{comment}{\#\ was\ 0.85\ based\ on\ excel,\ lowered\ to\ .2,\ then\ to\ 0.3\ based\ on\ new\ testing.\ all\ that\ to\ get\ back\ to\ basically\ my\ original\ value\ of\ 0.35\ lol}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ pin\ \textcolor{keywordflow}{in}\ self.\mbox{\hyperlink{classline_1_1_line___follower_a685b0f9594a4a372cf215145c264295a}{snsr\_pins}}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ adc\ =\ ADC(pin)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ adcs.append(adc)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ raw\_vals\ =\ []}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_values\ =\ 0b0}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ adc\ \textcolor{keywordflow}{in}\ adcs:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ val\ =\ int(adc.read())}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ raw\_vals.append(val)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'raw\ vals\ =\ \{raw\_vals\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ init\_val\ \textcolor{keywordflow}{in}\ enumerate(snsr\_init\_vals):}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ snsr\_init\_vals[i]\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light\_ratio\ =\ raw\_vals[i]\ /\ snsr\_init\_vals[i]}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light\_ratio\ =\ 0}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'LR\ =\ \{light\_ratio\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ light\_ratio\ <=\ threshold:\ \ \textcolor{comment}{\#\ white}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light\_val\ =\ 0}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ threshold\ <\ light\_ratio\ <\ 1:\ \ \textcolor{comment}{\#\ black}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light\_val\ =\ 1}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{'light\ ratio\ out\ of\ range'})}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light\_val\ =\ 0}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_values\ =\ light\_val\ <<\ i\ |\ snsr\_values}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'raw\ vals\ =\ \{raw\_vals\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ snsr\_values\ \&\ 0b01111110\ \textcolor{comment}{\#<<\ 1,\ no\ longer\ needed\ bc\ have\ all\ snsrs}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00085}\mbox{\hyperlink{classline_1_1_line___follower_a0f0c6452296c95abb7537191a216cd6a}{00085}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classline_1_1_line___follower_a0f0c6452296c95abb7537191a216cd6a}{all\_pins\_input}}(self):\ \ \textcolor{comment}{\#\ fail\ safe\ func}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ pin\ \textcolor{keywordflow}{in}\ self.\mbox{\hyperlink{classline_1_1_line___follower_a685b0f9594a4a372cf215145c264295a}{snsr\_pins}}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ adc\ =\ ADC(pin)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00091}00091\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{'\_\_main\_\_'}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00093}\mbox{\hyperlink{namespaceline_a3f38ee719e411e232945679c72d62746}{00093}}\ \ \ \ \ snsr\ =\ \mbox{\hyperlink{classline_1_1_line___follower}{Line\_Follower}}()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00095}00095\ \ \ \ \ snsr.disable(ctrl\_even)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00096}00096\ \ \ \ \ snsr.disable(ctrl\_odd)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00097}00097\ \ \ \ \ \textcolor{comment}{\#\ print(f'cntrl\ even\ =\ \{ctrl\_even.value()\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00098}00098\ \ \ \ \ \textcolor{comment}{\#\ print(f'cntrl\ odd\ =\ \{ctrl\_odd.value()\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00100}\mbox{\hyperlink{namespaceline_a768d91106f4e8a6b11e33298899f3d6a}{00100}}\ \ \ \ \ snsr\_init\_vals\ =\ snsr.snsr\_set()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00101}00101\ \ \ \ \ \textcolor{comment}{\#\ print(f'init\_vals\ =\ \{snsr\_init\_vals\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00102}\mbox{\hyperlink{namespaceline_a3aa1d07daf23f29249f1f503da5493a8}{00102}}\ \ \ \ \ start\ =\ time.ticks\_us()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00105}\mbox{\hyperlink{namespaceline_a4db940208031eb9f6c0a1f3e9ac94c01}{00105}}\ \ \ \ \ \ \ \ \ \ \ \ \ dt\ =\ time.ticks\_diff(time.ticks\_us(),\ start)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ dt\ >\ 100000:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00107}\mbox{\hyperlink{namespaceline_abe74f2d6946f8a2bb736e13699dc1d7f}{00107}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsrs\ =\ snsr.snsr\_read(snsr\_init\_vals)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{'\{bin(snsrs)\}'})}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time.sleep\_us(500)}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print\ ('reset')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ time.ticks\_us()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_init\_vals\ =\ snsr.snsr\_set()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'init\_vals\ =\ \{snsr\_init\_vals\}')}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ KeyboardInterrupt:}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ snsr.all\_pins\_input()}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{line_8py_source_l00118}00118\ }
+
+\end{DoxyCode}

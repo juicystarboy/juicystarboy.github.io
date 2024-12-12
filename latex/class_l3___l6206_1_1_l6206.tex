@@ -1,0 +1,182 @@
+\doxysection{L3\+\_\+\+L6206.\+L6206 Class Reference}
+\hypertarget{class_l3___l6206_1_1_l6206}{}\label{class_l3___l6206_1_1_l6206}\index{L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5fa514af371ab27266c73990e54823d4}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, PWM\+\_\+tim, PWM\+\_\+tim\+\_\+ch, IN1\+\_\+pin, IN2\+\_\+pin, EN\+\_\+pin, dir)
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a0ead429c4bf4995df1d216ce28837e38}{set\+\_\+duty}} (self, \mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}})
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a87acf6e04d5364fd5cda8ba03d508d31}{enable}} (self)
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a183a8f00819132af99c0017e93abfc20}{disable}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}{EN}} = Pin(EN\+\_\+pin, Pin.\+OUT\+\_\+\+OD, pull=Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}{IN1}}
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe}{IN2}} = Pin(IN2\+\_\+pin, Pin.\+OUT\+\_\+\+OD)
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}{PWM\+\_\+\+CH2}} = PWM\+\_\+tim.\+channel(PWM\+\_\+tim\+\_\+ch, pin=self.\+IN2, mode=Timer.\+PWM)
+\item 
+int \mbox{\hyperlink{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}{duty}} = 0
+\item 
+\mbox{\hyperlink{class_l3___l6206_1_1_l6206_af1519c64cddb5fedf512bd3e85744ca0}{direction}} = dir
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @brief      A driver class for one channel of the L6206.
+    @details    Objects of this class can be used to apply PWM to a given
+                DC motor on one channel of the L6206 from ST Microelectronics.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00015}{15}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_l3___l6206_1_1_l6206_a5fa514af371ab27266c73990e54823d4}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_a5fa514af371ab27266c73990e54823d4} 
+L3\+\_\+\+L6206.\+L6206.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{PWM\+\_\+tim}{, }\item[{}]{PWM\+\_\+tim\+\_\+ch}{, }\item[{}]{IN1\+\_\+pin}{, }\item[{}]{IN2\+\_\+pin}{, }\item[{}]{EN\+\_\+pin}{, }\item[{}]{dir}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief      Initializes and returns an object associated with a DC motor.
+    @details    Set pin modes and configure two timer channels for PWM
+    @param      PWM_tim sets PWM timer
+    @param      PWM_tim_ch sets PWN timer channel
+    @param      IN1_pin sets motor pin 1
+    @param      IN2_pin sets motor pin 2
+    @param      EN_pin sets motor enable pin
+    @param      dir sets default motor direction (1 for CW, 0 for CCW)
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00022}{22}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_l3___l6206_1_1_l6206_a183a8f00819132af99c0017e93abfc20}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!disable@{disable}}
+\index{disable@{disable}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_a183a8f00819132af99c0017e93abfc20} 
+L3\+\_\+\+L6206.\+L6206.\+disable (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief      Disable the motor associated with the given L6206 object.
+    @details    This method sets the enable pin associated with one
+    @details    output of the L6206 low in order to disable that motor.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00083}{83}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_a87acf6e04d5364fd5cda8ba03d508d31}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!enable@{enable}}
+\index{enable@{enable}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_a87acf6e04d5364fd5cda8ba03d508d31} 
+L3\+\_\+\+L6206.\+L6206.\+enable (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief      Enable the motor associated with the given L6206 object.
+    @details    This method sets the enable pin associated with one
+    @details    output of the L6206 high in order to enable that motor.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00075}{75}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_a0ead429c4bf4995df1d216ce28837e38}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!set\_duty@{set\_duty}}
+\index{set\_duty@{set\_duty}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{set\_duty()}{set\_duty()}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_a0ead429c4bf4995df1d216ce28837e38} 
+L3\+\_\+\+L6206.\+L6206.\+set\+\_\+duty (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{duty}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief      Set the PWM duty cycle for the DC motor.
+    @details    This method sets the duty cycle to be sent to the L6206.
+    @details    Positive values cause effort in the CCW direction.
+    @details    Negative values cause effort in the CW direction.
+    @param      duty is the duty cycle of the PWM signal sent to the L6206
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00048}{48}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_l3___l6206_1_1_l6206_af1519c64cddb5fedf512bd3e85744ca0}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!direction@{direction}}
+\index{direction@{direction}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_af1519c64cddb5fedf512bd3e85744ca0} 
+L3\+\_\+\+L6206.\+L6206.\+direction = dir}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00045}{45}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!duty@{duty}}
+\index{duty@{duty}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{duty}{duty}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_aa53cdb6300b19bb3ae34bba0d6655a42} 
+L3\+\_\+\+L6206.\+L6206.\+duty = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00044}{44}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!EN@{EN}}
+\index{EN@{EN}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{EN}{EN}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_aa2448ef9d7614c6a16a007b144cf97b0} 
+L3\+\_\+\+L6206.\+L6206.\+EN = Pin(EN\+\_\+pin, Pin.\+OUT\+\_\+\+OD, pull=Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00034}{34}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!IN1@{IN1}}
+\index{IN1@{IN1}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{IN1}{IN1}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_ab12c5f44299e97060c315c8603ec62bf} 
+L3\+\_\+\+L6206.\+L6206.\+IN1}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ Pin(IN1\_pin,\ Pin.OUT\_OD,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pull=Pin.PULL\_UP)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00037}{37}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!IN2@{IN2}}
+\index{IN2@{IN2}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{IN2}{IN2}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe} 
+L3\+\_\+\+L6206.\+L6206.\+IN2 = Pin(IN2\+\_\+pin, Pin.\+OUT\+\_\+\+OD)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00041}{41}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de}\index{L3\_L6206.L6206@{L3\_L6206.L6206}!PWM\_CH2@{PWM\_CH2}}
+\index{PWM\_CH2@{PWM\_CH2}!L3\_L6206.L6206@{L3\_L6206.L6206}}
+\doxysubsubsection{\texorpdfstring{PWM\_CH2}{PWM\_CH2}}
+{\footnotesize\ttfamily \label{class_l3___l6206_1_1_l6206_a5ebe9ea5b3f662377508fab9e0b974de} 
+L3\+\_\+\+L6206.\+L6206.\+PWM\+\_\+\+CH2 = PWM\+\_\+tim.\+channel(PWM\+\_\+tim\+\_\+ch, pin=self.\+IN2, mode=Timer.\+PWM)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00042}{42}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/juicy/\+Documents/\+Git\+Hub/romi/\mbox{\hyperlink{_l3___l6206_8py}{L3\+\_\+\+L6206.\+py}}\end{DoxyCompactItemize}

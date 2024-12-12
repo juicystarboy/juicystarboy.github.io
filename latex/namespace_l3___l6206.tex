@@ -1,0 +1,107 @@
+\doxysection{L3\+\_\+\+L6206 Namespace Reference}
+\hypertarget{namespace_l3___l6206}{}\label{namespace_l3___l6206}\index{L3\_L6206@{L3\_L6206}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_a83e2cbad7ada09f0cb9aaaa79cd25cb8}{direction}} = bool(int(input("{}Motor A\+: Enter 1 for forward or 0 for reverse\+: "{})))
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_a732aac30e33c674af1bc67c2aa0c02f5}{duty}} = float(input("{}Enter duty cycle\+: "{}))
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_a866b17d8ffd09cb15c385f989b618f99}{tim\+\_\+A}} = Timer(3, freq=20\+\_\+000)
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_a06db2de3947ed7502299d58ab335b583}{mot\+\_\+A}} = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespace_l3___l6206_a866b17d8ffd09cb15c385f989b618f99}{tim\+\_\+A}}, Pin.\+cpu.\+B4, Pin.\+cpu.\+B5, Pin.\+cpu.\+A10)
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_a7326275869cb54129713796d6108e974}{tim\+\_\+B}} = Timer(2, freq=20\+\_\+000)
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_aac9ec54a0831040cf1245688f22f5a90}{mot\+\_\+B}} = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespace_l3___l6206_a7326275869cb54129713796d6108e974}{tim\+\_\+B}}, Pin.\+cpu.\+A0, Pin.\+cpu.\+A1, Pin.\+cpu.\+C1)
+\item 
+\mbox{\hyperlink{namespace_l3___l6206_aaa558585e394e301f7f69bec86f96fa0}{duration}} = int(input("{}Enter duration in milliseconds\+: "{}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file       L6206.py
+    @brief      A driver for one channel of the L6206.
+    @details    This file includes a class that interfaces with a motor using the L6206 motor driver
+    @author     Lili Boyer-Quick, Julian Rubinstein
+    @created    Thu Oct  3 2024 08:49:28
+    @modified   Sun Oct 20 2024 13:51:00
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_l3___l6206_a83e2cbad7ada09f0cb9aaaa79cd25cb8}\index{L3\_L6206@{L3\_L6206}!direction@{direction}}
+\index{direction@{direction}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_a83e2cbad7ada09f0cb9aaaa79cd25cb8} 
+L3\+\_\+\+L6206.\+direction = bool(int(input("{}Motor A\+: Enter 1 for forward or 0 for reverse\+: "{})))}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00098}{98}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{namespace_l3___l6206_aaa558585e394e301f7f69bec86f96fa0}\index{L3\_L6206@{L3\_L6206}!duration@{duration}}
+\index{duration@{duration}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_aaa558585e394e301f7f69bec86f96fa0} 
+L3\+\_\+\+L6206.\+duration = int(input("{}Enter duration in milliseconds\+: "{}))}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00126}{126}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{namespace_l3___l6206_a732aac30e33c674af1bc67c2aa0c02f5}\index{L3\_L6206@{L3\_L6206}!duty@{duty}}
+\index{duty@{duty}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{duty}{duty}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_a732aac30e33c674af1bc67c2aa0c02f5} 
+L3\+\_\+\+L6206.\+duty = float(input("{}Enter duty cycle\+: "{}))}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00099}{99}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{namespace_l3___l6206_a06db2de3947ed7502299d58ab335b583}\index{L3\_L6206@{L3\_L6206}!mot\_A@{mot\_A}}
+\index{mot\_A@{mot\_A}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{mot\_A}{mot\_A}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_a06db2de3947ed7502299d58ab335b583} 
+L3\+\_\+\+L6206.\+mot\+\_\+A = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespace_l3___l6206_a866b17d8ffd09cb15c385f989b618f99}{tim\+\_\+A}}, Pin.\+cpu.\+B4, Pin.\+cpu.\+B5, Pin.\+cpu.\+A10)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00106}{106}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{namespace_l3___l6206_aac9ec54a0831040cf1245688f22f5a90}\index{L3\_L6206@{L3\_L6206}!mot\_B@{mot\_B}}
+\index{mot\_B@{mot\_B}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{mot\_B}{mot\_B}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_aac9ec54a0831040cf1245688f22f5a90} 
+L3\+\_\+\+L6206.\+mot\+\_\+B = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespace_l3___l6206_a7326275869cb54129713796d6108e974}{tim\+\_\+B}}, Pin.\+cpu.\+A0, Pin.\+cpu.\+A1, Pin.\+cpu.\+C1)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00120}{120}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{namespace_l3___l6206_a866b17d8ffd09cb15c385f989b618f99}\index{L3\_L6206@{L3\_L6206}!tim\_A@{tim\_A}}
+\index{tim\_A@{tim\_A}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{tim\_A}{tim\_A}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_a866b17d8ffd09cb15c385f989b618f99} 
+L3\+\_\+\+L6206.\+tim\+\_\+A = Timer(3, freq=20\+\_\+000)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00102}{102}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+
+\Hypertarget{namespace_l3___l6206_a7326275869cb54129713796d6108e974}\index{L3\_L6206@{L3\_L6206}!tim\_B@{tim\_B}}
+\index{tim\_B@{tim\_B}!L3\_L6206@{L3\_L6206}}
+\doxysubsubsection{\texorpdfstring{tim\_B}{tim\_B}}
+{\footnotesize\ttfamily \label{namespace_l3___l6206_a7326275869cb54129713796d6108e974} 
+L3\+\_\+\+L6206.\+tim\+\_\+B = Timer(2, freq=20\+\_\+000)}
+
+
+
+Definition at line \mbox{\hyperlink{_l3___l6206_8py_source_l00116}{116}} of file \mbox{\hyperlink{_l3___l6206_8py_source}{L3\+\_\+\+L6206.\+py}}.
+

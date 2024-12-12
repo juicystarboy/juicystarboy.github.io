@@ -1,0 +1,752 @@
+\doxysection{main Namespace Reference}
+\hypertarget{namespacemain}{}\label{namespacemain}\index{main@{main}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99}{run}} (shares)
+\item 
+\mbox{\hyperlink{namespacemain_a09f7fc19b3ee6d28f421268195fe386d}{motor\+\_\+speed}} (shares)
+\item 
+\mbox{\hyperlink{namespacemain_ac5369c245f3bc68e112146a75af9f462}{enc\+\_\+read}} (shares)
+\item 
+\mbox{\hyperlink{namespacemain_a4d9d087312ee0d61eb36ed84e7f77fc6}{circle}} (shares)
+\item 
+\mbox{\hyperlink{namespacemain_aeddba2abafbe79907db8f7fa43030b78}{line\+\_\+read}} (shares)
+\item 
+\mbox{\hyperlink{namespacemain_ab676d7318dfcf1f149cc4c4d5f82761e}{line\+\_\+follow}} (shares)
+\item 
+\mbox{\hyperlink{namespacemain_af7201d99263bb95d0e3a959db5085eff}{go\+\_\+around}} (shares)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemain_a59c02841f8abf9bd4c95b6f38ce36862}{button}} = Pin(Pin.\+cpu.\+C6, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_addc6984dced083d5fd8ecbd7fe1f85da}{ctrl\+\_\+pins}} = Pin(Pin.\+cpu.\+C3, Pin.\+OUT\+\_\+\+PP)
+\item 
+\mbox{\hyperlink{namespacemain_a0c97b5b622eb21b1299ccbda07174241}{snsr\+\_\+0}} = Pin(Pin.\+cpu.\+A5, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0}{snsr\+\_\+1}} = Pin(Pin.\+cpu.\+A6, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d}{snsr\+\_\+2}} = Pin(Pin.\+cpu.\+A7, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_a451faee87375e01094f05e99a9657d23}{snsr\+\_\+3}} = Pin(Pin.\+cpu.\+C1, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_a068ea762e075591def8eb0e2aaa65eb3}{snsr\+\_\+4}} = Pin(Pin.\+cpu.\+B0, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47}{snsr\+\_\+5}} = Pin(Pin.\+cpu.\+A4, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_a49802aac993ca9432fec7506d2371de1}{snsr\+\_\+6}} = Pin(Pin.\+cpu.\+C0, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+\mbox{\hyperlink{namespacemain_a849342ce053ca67a6a92bdba169b163c}{snsr\+\_\+7}} = Pin(Pin.\+cpu.\+A1, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)
+\item 
+list \mbox{\hyperlink{namespacemain_a7715aa12a1b55a89935e78df1dd34449}{pins}} = \mbox{[}\mbox{\hyperlink{namespacemain_a0c97b5b622eb21b1299ccbda07174241}{snsr\+\_\+0}}, \mbox{\hyperlink{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0}{snsr\+\_\+1}}, \mbox{\hyperlink{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d}{snsr\+\_\+2}}, \mbox{\hyperlink{namespacemain_a451faee87375e01094f05e99a9657d23}{snsr\+\_\+3}}, \mbox{\hyperlink{namespacemain_a068ea762e075591def8eb0e2aaa65eb3}{snsr\+\_\+4}}, \mbox{\hyperlink{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47}{snsr\+\_\+5}}, \mbox{\hyperlink{namespacemain_a49802aac993ca9432fec7506d2371de1}{snsr\+\_\+6}}, \mbox{\hyperlink{namespacemain_a849342ce053ca67a6a92bdba169b163c}{snsr\+\_\+7}}\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{cpr}} = 1440
+\item 
+\mbox{\hyperlink{namespacemain_a3451a1c7933a4f55db28de3849103843}{enc\+\_\+A}} = \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(3, 65535, 1, Pin.\+cpu.\+B4, 2, Pin.\+cpu.\+B5, \mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{cpr}})
+\item 
+\mbox{\hyperlink{namespacemain_a04b82945ad36e3738881bfd59335f7b2}{enc\+\_\+B}} = \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(2, 65535, 1, Pin.\+cpu.\+A0, 2, Pin.\+cpu.\+B3, \mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{cpr}})
+\item 
+\mbox{\hyperlink{namespacemain_a7f0c785b9501843c784ba90618d82add}{tim\+\_\+A}} = Timer(1, freq=20\+\_\+000)
+\item 
+\mbox{\hyperlink{namespacemain_a55fdc582338fb45720796fdb53ed9120}{tim\+\_\+B}} = Timer(4, freq=20\+\_\+000)
+\item 
+\mbox{\hyperlink{namespacemain_a3c2ba2013415922fd0c608969c32a877}{mot\+\_\+A}} = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespacemain_a7f0c785b9501843c784ba90618d82add}{tim\+\_\+A}}, 3, Pin.\+cpu.\+C4, Pin.\+cpu.\+A10, Pin.\+cpu.\+B10, 0)
+\item 
+\mbox{\hyperlink{namespacemain_a59e6f5e74166bf5ac333bc74c88049f2}{mot\+\_\+B}} = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespacemain_a55fdc582338fb45720796fdb53ed9120}{tim\+\_\+B}}, 1, Pin.\+cpu.\+C7, Pin.\+cpu.\+B6, Pin.\+cpu.\+B10, 0)
+\item 
+\mbox{\hyperlink{namespacemain_ae701983592736ef095bf138d981fc12a}{imu}} = \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}(1, I2\+C.\+CONTROLLER, 0x08)
+\item 
+\mbox{\hyperlink{namespacemain_a1efbefafeb5f925d60dada589d46e9f2}{duty\+\_\+q\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_a173479a72200561b6236a443b2ede624}{enc\+\_\+q\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_a84c3f46526a5e4bc4f0169d4fd55e082}{i\+\_\+share\+\_\+A}} = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}I Share A"{})
+\item 
+\mbox{\hyperlink{namespacemain_ad140e651d31eef9bf4aeffe3c0e831d2}{t\+\_\+q\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_afb442090ebe8ef19ae7f5256c7e9666d}{t\+\_\+d\+\_\+q\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_ac829ccccdd8e17cc04fd0ae7a2dfc415}{speed\+\_\+share\+\_\+A}} = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}Speed Share A"{})
+\item 
+\mbox{\hyperlink{namespacemain_ae154987b7a77dddd73cac1ba83da14a1}{duty\+\_\+q\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_ae13ea4b9de882b44683807cbcbabc901}{enc\+\_\+q\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_a994a2a0e31a0569bb16f0bd0e53c1d64}{i\+\_\+share\+\_\+B}} = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}I Share B"{})
+\item 
+\mbox{\hyperlink{namespacemain_ad7bd395764f8b7276a543449df58eebc}{t\+\_\+q\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_ad5a0b6958809b02d90b7705cf509ac77}{t\+\_\+d\+\_\+q\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_aee4abeb351581f0907bd80075c17d823}{speed\+\_\+share\+\_\+B}} = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}Speed Share B"{})
+\item 
+\mbox{\hyperlink{namespacemain_aa4413e93bc69ab8e8113bd6b49998850}{line\+\_\+offset}}
+\item 
+\mbox{\hyperlink{namespacemain_a398cd805ee0f43cd44509d15983f8826}{going\+\_\+around}} = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}going around"{})
+\item 
+int \mbox{\hyperlink{namespacemain_a7c3cdf39f52dc4a908637bcca73d3c13}{period}} = 25
+\item 
+\mbox{\hyperlink{namespacemain_ad173fa08cf64a58d7fcbdc3de321c25d}{enc\+\_\+read\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_a5bc031158b9620fed79a57e17cf74123}{motor\+\_\+speed\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_ad9b30c881cfd72149ad954a990e5cdcf}{run\+\_\+A}}
+\item 
+\mbox{\hyperlink{namespacemain_a8f19a2d6a60ec0afdcf470da63121be8}{enc\+\_\+read\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_a36ec666cabd14bd514df20c14efa09a4}{motor\+\_\+speed\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_a717d30431fc8d65a9bd277bba0a02265}{run\+\_\+B}}
+\item 
+\mbox{\hyperlink{namespacemain_acea15b4b9058cec560f7158e5224dda3}{circle}}
+\item 
+\mbox{\hyperlink{namespacemain_a7762871224b88b15c5b27ad023f9d9af}{line\+\_\+sense}}
+\item 
+\mbox{\hyperlink{namespacemain_a0e4fbfb46056460b2338993898b68714}{line\+\_\+follow}}
+\item 
+\mbox{\hyperlink{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8}{go\+\_\+around}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Created on Sun Nov 10 14:11:08 2024
+
+@author: lbq11
+@author: Julian Rubinstein
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemain_a4d9d087312ee0d61eb36ed84e7f77fc6}\index{main@{main}!circle@{circle}}
+\index{circle@{circle}!main@{main}}
+\doxysubsubsection{\texorpdfstring{circle()}{circle()}}
+{\footnotesize\ttfamily \label{namespacemain_a4d9d087312ee0d61eb36ed84e7f77fc6} 
+main.\+circle (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00120}{120}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ac5369c245f3bc68e112146a75af9f462}\index{main@{main}!enc\_read@{enc\_read}}
+\index{enc\_read@{enc\_read}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_read()}{enc\_read()}}
+{\footnotesize\ttfamily \label{namespacemain_ac5369c245f3bc68e112146a75af9f462} 
+main.\+enc\+\_\+read (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00089}{89}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_af7201d99263bb95d0e3a959db5085eff}\index{main@{main}!go\_around@{go\_around}}
+\index{go\_around@{go\_around}!main@{main}}
+\doxysubsubsection{\texorpdfstring{go\_around()}{go\_around()}}
+{\footnotesize\ttfamily \label{namespacemain_af7201d99263bb95d0e3a959db5085eff} 
+main.\+go\+\_\+around (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00286}{286}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ab676d7318dfcf1f149cc4c4d5f82761e}\index{main@{main}!line\_follow@{line\_follow}}
+\index{line\_follow@{line\_follow}!main@{main}}
+\doxysubsubsection{\texorpdfstring{line\_follow()}{line\_follow()}}
+{\footnotesize\ttfamily \label{namespacemain_ab676d7318dfcf1f149cc4c4d5f82761e} 
+main.\+line\+\_\+follow (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00237}{237}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_aeddba2abafbe79907db8f7fa43030b78}\index{main@{main}!line\_read@{line\_read}}
+\index{line\_read@{line\_read}!main@{main}}
+\doxysubsubsection{\texorpdfstring{line\_read()}{line\_read()}}
+{\footnotesize\ttfamily \label{namespacemain_aeddba2abafbe79907db8f7fa43030b78} 
+main.\+line\+\_\+read (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00184}{184}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a09f7fc19b3ee6d28f421268195fe386d}\index{main@{main}!motor\_speed@{motor\_speed}}
+\index{motor\_speed@{motor\_speed}!main@{main}}
+\doxysubsubsection{\texorpdfstring{motor\_speed()}{motor\_speed()}}
+{\footnotesize\ttfamily \label{namespacemain_a09f7fc19b3ee6d28f421268195fe386d} 
+main.\+motor\+\_\+speed (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00045}{45}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99}\index{main@{main}!run@{run}}
+\index{run@{run}!main@{main}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99} 
+main.\+run (\begin{DoxyParamCaption}\item[{}]{shares}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00021}{21}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacemain_a59c02841f8abf9bd4c95b6f38ce36862}\index{main@{main}!button@{button}}
+\index{button@{button}!main@{main}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily \label{namespacemain_a59c02841f8abf9bd4c95b6f38ce36862} 
+main.\+button = Pin(Pin.\+cpu.\+C6, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00117}{117}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_acea15b4b9058cec560f7158e5224dda3}\index{main@{main}!circle@{circle}}
+\index{circle@{circle}!main@{main}}
+\doxysubsubsection{\texorpdfstring{circle}{circle}}
+{\footnotesize\ttfamily \label{namespacemain_acea15b4b9058cec560f7158e5224dda3} 
+main.\+circle}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(circle,\ name=\textcolor{stringliteral}{"{}circle"{}},\ priority=4,\ period=period,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(imu,\ speed\_share\_A,\ speed\_share\_B,\ 304.8,\ (2*math.pi)/10))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00464}{464}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_af64d72a5244eb5ef2286b54b788be96a}\index{main@{main}!cpr@{cpr}}
+\index{cpr@{cpr}!main@{main}}
+\doxysubsubsection{\texorpdfstring{cpr}{cpr}}
+{\footnotesize\ttfamily \label{namespacemain_af64d72a5244eb5ef2286b54b788be96a} 
+int main.\+cpr = 1440}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00374}{374}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_addc6984dced083d5fd8ecbd7fe1f85da}\index{main@{main}!ctrl\_pins@{ctrl\_pins}}
+\index{ctrl\_pins@{ctrl\_pins}!main@{main}}
+\doxysubsubsection{\texorpdfstring{ctrl\_pins}{ctrl\_pins}}
+{\footnotesize\ttfamily \label{namespacemain_addc6984dced083d5fd8ecbd7fe1f85da} 
+main.\+ctrl\+\_\+pins = Pin(Pin.\+cpu.\+C3, Pin.\+OUT\+\_\+\+PP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00169}{169}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a1efbefafeb5f925d60dada589d46e9f2}\index{main@{main}!duty\_q\_A@{duty\_q\_A}}
+\index{duty\_q\_A@{duty\_q\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{duty\_q\_A}{duty\_q\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a1efbefafeb5f925d60dada589d46e9f2} 
+main.\+duty\+\_\+q\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'l'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Duty\ Queue\ A"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00394}{394}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ae154987b7a77dddd73cac1ba83da14a1}\index{main@{main}!duty\_q\_B@{duty\_q\_B}}
+\index{duty\_q\_B@{duty\_q\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{duty\_q\_B}{duty\_q\_B}}
+{\footnotesize\ttfamily \label{namespacemain_ae154987b7a77dddd73cac1ba83da14a1} 
+main.\+duty\+\_\+q\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'l'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Duty\ Queue\ B"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00413}{413}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a3451a1c7933a4f55db28de3849103843}\index{main@{main}!enc\_A@{enc\_A}}
+\index{enc\_A@{enc\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_A}{enc\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a3451a1c7933a4f55db28de3849103843} 
+main.\+enc\+\_\+A = \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(3, 65535, 1, Pin.\+cpu.\+B4, 2, Pin.\+cpu.\+B5, \mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{cpr}})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00378}{378}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a04b82945ad36e3738881bfd59335f7b2}\index{main@{main}!enc\_B@{enc\_B}}
+\index{enc\_B@{enc\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_B}{enc\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a04b82945ad36e3738881bfd59335f7b2} 
+main.\+enc\+\_\+B = \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(2, 65535, 1, Pin.\+cpu.\+A0, 2, Pin.\+cpu.\+B3, \mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{cpr}})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00379}{379}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a173479a72200561b6236a443b2ede624}\index{main@{main}!enc\_q\_A@{enc\_q\_A}}
+\index{enc\_q\_A@{enc\_q\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_q\_A}{enc\_q\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a173479a72200561b6236a443b2ede624} 
+main.\+enc\+\_\+q\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'d'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Enc\ Queue\ A"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00397}{397}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ae13ea4b9de882b44683807cbcbabc901}\index{main@{main}!enc\_q\_B@{enc\_q\_B}}
+\index{enc\_q\_B@{enc\_q\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_q\_B}{enc\_q\_B}}
+{\footnotesize\ttfamily \label{namespacemain_ae13ea4b9de882b44683807cbcbabc901} 
+main.\+enc\+\_\+q\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'d'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Enc\ Queue\ B"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00416}{416}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ad173fa08cf64a58d7fcbdc3de321c25d}\index{main@{main}!enc\_read\_A@{enc\_read\_A}}
+\index{enc\_read\_A@{enc\_read\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_read\_A}{enc\_read\_A}}
+{\footnotesize\ttfamily \label{namespacemain_ad173fa08cf64a58d7fcbdc3de321c25d} 
+main.\+enc\+\_\+read\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(enc\_read,\ name=\textcolor{stringliteral}{"{}enc\_read\_A"{}},\ priority=3,\ period=period,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(enc\_q\_A,\ enc\_A,\ t\_q\_A,\ t\_d\_q\_A))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00440}{440}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a8f19a2d6a60ec0afdcf470da63121be8}\index{main@{main}!enc\_read\_B@{enc\_read\_B}}
+\index{enc\_read\_B@{enc\_read\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{enc\_read\_B}{enc\_read\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a8f19a2d6a60ec0afdcf470da63121be8} 
+main.\+enc\+\_\+read\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(enc\_read,\ name=\textcolor{stringliteral}{"{}enc\_read\_B"{}},\ priority=3,\ period=period,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(enc\_q\_B,\ enc\_B,\ t\_q\_B,\ t\_d\_q\_B))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00452}{452}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8}\index{main@{main}!go\_around@{go\_around}}
+\index{go\_around@{go\_around}!main@{main}}
+\doxysubsubsection{\texorpdfstring{go\_around}{go\_around}}
+{\footnotesize\ttfamily \label{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8} 
+main.\+go\+\_\+around}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(go\_around,\ name=\textcolor{stringliteral}{"{}go\ around"{}},\ priority=4,\ period=period,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(imu,\ speed\_share\_A,\ speed\_share\_B,\ 300,\ (2\ *\ math.pi)\ /\ 10,\ going\_around))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00470}{470}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a398cd805ee0f43cd44509d15983f8826}\index{main@{main}!going\_around@{going\_around}}
+\index{going\_around@{going\_around}!main@{main}}
+\doxysubsubsection{\texorpdfstring{going\_around}{going\_around}}
+{\footnotesize\ttfamily \label{namespacemain_a398cd805ee0f43cd44509d15983f8826} 
+main.\+going\+\_\+around = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}going around"{})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00435}{435}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a84c3f46526a5e4bc4f0169d4fd55e082}\index{main@{main}!i\_share\_A@{i\_share\_A}}
+\index{i\_share\_A@{i\_share\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{i\_share\_A}{i\_share\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a84c3f46526a5e4bc4f0169d4fd55e082} 
+main.\+i\+\_\+share\+\_\+A = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}I Share A"{})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00400}{400}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a994a2a0e31a0569bb16f0bd0e53c1d64}\index{main@{main}!i\_share\_B@{i\_share\_B}}
+\index{i\_share\_B@{i\_share\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{i\_share\_B}{i\_share\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a994a2a0e31a0569bb16f0bd0e53c1d64} 
+main.\+i\+\_\+share\+\_\+B = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}I Share B"{})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00419}{419}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ae701983592736ef095bf138d981fc12a}\index{main@{main}!imu@{imu}}
+\index{imu@{imu}!main@{main}}
+\doxysubsubsection{\texorpdfstring{imu}{imu}}
+{\footnotesize\ttfamily \label{namespacemain_ae701983592736ef095bf138d981fc12a} 
+main.\+imu = \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}(1, I2\+C.\+CONTROLLER, 0x08)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00391}{391}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a0e4fbfb46056460b2338993898b68714}\index{main@{main}!line\_follow@{line\_follow}}
+\index{line\_follow@{line\_follow}!main@{main}}
+\doxysubsubsection{\texorpdfstring{line\_follow}{line\_follow}}
+{\footnotesize\ttfamily \label{namespacemain_a0e4fbfb46056460b2338993898b68714} 
+main.\+line\+\_\+follow}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(line\_follow,\ name=\textcolor{stringliteral}{"{}line\ follow"{}},\ priority=4,\ period=5,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(line\_offset,\ imu,\ speed\_share\_A,\ speed\_share\_B,\ 1,\ going\_around))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00468}{468}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_aa4413e93bc69ab8e8113bd6b49998850}\index{main@{main}!line\_offset@{line\_offset}}
+\index{line\_offset@{line\_offset}!main@{main}}
+\doxysubsubsection{\texorpdfstring{line\_offset}{line\_offset}}
+{\footnotesize\ttfamily \label{namespacemain_aa4413e93bc69ab8e8113bd6b49998850} 
+main.\+line\+\_\+offset}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'f'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Line\ Offset\ Queue"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00432}{432}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a7762871224b88b15c5b27ad023f9d9af}\index{main@{main}!line\_sense@{line\_sense}}
+\index{line\_sense@{line\_sense}!main@{main}}
+\doxysubsubsection{\texorpdfstring{line\_sense}{line\_sense}}
+{\footnotesize\ttfamily \label{namespacemain_a7762871224b88b15c5b27ad023f9d9af} 
+main.\+line\+\_\+sense}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(line\_read,\ name=\textcolor{stringliteral}{"{}line\ read"{}},\ priority=5,\ period=10,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=line\_offset)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00466}{466}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a3c2ba2013415922fd0c608969c32a877}\index{main@{main}!mot\_A@{mot\_A}}
+\index{mot\_A@{mot\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{mot\_A}{mot\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a3c2ba2013415922fd0c608969c32a877} 
+main.\+mot\+\_\+A = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespacemain_a7f0c785b9501843c784ba90618d82add}{tim\+\_\+A}}, 3, Pin.\+cpu.\+C4, Pin.\+cpu.\+A10, Pin.\+cpu.\+B10, 0)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00387}{387}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a59e6f5e74166bf5ac333bc74c88049f2}\index{main@{main}!mot\_B@{mot\_B}}
+\index{mot\_B@{mot\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{mot\_B}{mot\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a59e6f5e74166bf5ac333bc74c88049f2} 
+main.\+mot\+\_\+B = \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(\mbox{\hyperlink{namespacemain_a55fdc582338fb45720796fdb53ed9120}{tim\+\_\+B}}, 1, Pin.\+cpu.\+C7, Pin.\+cpu.\+B6, Pin.\+cpu.\+B10, 0)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00388}{388}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a5bc031158b9620fed79a57e17cf74123}\index{main@{main}!motor\_speed\_A@{motor\_speed\_A}}
+\index{motor\_speed\_A@{motor\_speed\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{motor\_speed\_A}{motor\_speed\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a5bc031158b9620fed79a57e17cf74123} 
+main.\+motor\+\_\+speed\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(motor\_speed,\ name=\textcolor{stringliteral}{"{}motor\_speed\_A"{}},\ priority=2,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ period=period,\ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(duty\_q\_A,\ speed\_share\_A,\ 1,\ enc\_q\_A,\ i\_share\_A,\ t\_d\_q\_A))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00444}{444}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a36ec666cabd14bd514df20c14efa09a4}\index{main@{main}!motor\_speed\_B@{motor\_speed\_B}}
+\index{motor\_speed\_B@{motor\_speed\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{motor\_speed\_B}{motor\_speed\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a36ec666cabd14bd514df20c14efa09a4} 
+main.\+motor\+\_\+speed\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(motor\_speed,\ name=\textcolor{stringliteral}{"{}motor\_speed\_B"{}},\ priority=2,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ period=period,\ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(duty\_q\_B,\ speed\_share\_B,\ 1,\ enc\_q\_B,\ i\_share\_B,\ t\_d\_q\_B))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00456}{456}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a7c3cdf39f52dc4a908637bcca73d3c13}\index{main@{main}!period@{period}}
+\index{period@{period}!main@{main}}
+\doxysubsubsection{\texorpdfstring{period}{period}}
+{\footnotesize\ttfamily \label{namespacemain_a7c3cdf39f52dc4a908637bcca73d3c13} 
+int main.\+period = 25}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00438}{438}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a7715aa12a1b55a89935e78df1dd34449}\index{main@{main}!pins@{pins}}
+\index{pins@{pins}!main@{main}}
+\doxysubsubsection{\texorpdfstring{pins}{pins}}
+{\footnotesize\ttfamily \label{namespacemain_a7715aa12a1b55a89935e78df1dd34449} 
+list main.\+pins = \mbox{[}\mbox{\hyperlink{namespacemain_a0c97b5b622eb21b1299ccbda07174241}{snsr\+\_\+0}}, \mbox{\hyperlink{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0}{snsr\+\_\+1}}, \mbox{\hyperlink{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d}{snsr\+\_\+2}}, \mbox{\hyperlink{namespacemain_a451faee87375e01094f05e99a9657d23}{snsr\+\_\+3}}, \mbox{\hyperlink{namespacemain_a068ea762e075591def8eb0e2aaa65eb3}{snsr\+\_\+4}}, \mbox{\hyperlink{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47}{snsr\+\_\+5}}, \mbox{\hyperlink{namespacemain_a49802aac993ca9432fec7506d2371de1}{snsr\+\_\+6}}, \mbox{\hyperlink{namespacemain_a849342ce053ca67a6a92bdba169b163c}{snsr\+\_\+7}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00182}{182}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ad9b30c881cfd72149ad954a990e5cdcf}\index{main@{main}!run\_A@{run\_A}}
+\index{run\_A@{run\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{run\_A}{run\_A}}
+{\footnotesize\ttfamily \label{namespacemain_ad9b30c881cfd72149ad954a990e5cdcf} 
+main.\+run\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(run,\ name=\textcolor{stringliteral}{"{}run\_A"{}},\ priority=1,\ period=period*.2,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},\ shares=(duty\_q\_A,\ mot\_A))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00448}{448}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a717d30431fc8d65a9bd277bba0a02265}\index{main@{main}!run\_B@{run\_B}}
+\index{run\_B@{run\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{run\_B}{run\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a717d30431fc8d65a9bd277bba0a02265} 
+main.\+run\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(run,\ name=\textcolor{stringliteral}{"{}run\_B"{}},\ priority=1,\ period=period*.2,}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(duty\_q\_B,\ mot\_B))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00460}{460}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a0c97b5b622eb21b1299ccbda07174241}\index{main@{main}!snsr\_0@{snsr\_0}}
+\index{snsr\_0@{snsr\_0}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_0}{snsr\_0}}
+{\footnotesize\ttfamily \label{namespacemain_a0c97b5b622eb21b1299ccbda07174241} 
+main.\+snsr\+\_\+0 = Pin(Pin.\+cpu.\+A5, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00173}{173}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0}\index{main@{main}!snsr\_1@{snsr\_1}}
+\index{snsr\_1@{snsr\_1}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_1}{snsr\_1}}
+{\footnotesize\ttfamily \label{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0} 
+main.\+snsr\+\_\+1 = Pin(Pin.\+cpu.\+A6, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00174}{174}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d}\index{main@{main}!snsr\_2@{snsr\_2}}
+\index{snsr\_2@{snsr\_2}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_2}{snsr\_2}}
+{\footnotesize\ttfamily \label{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d} 
+main.\+snsr\+\_\+2 = Pin(Pin.\+cpu.\+A7, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00175}{175}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a451faee87375e01094f05e99a9657d23}\index{main@{main}!snsr\_3@{snsr\_3}}
+\index{snsr\_3@{snsr\_3}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_3}{snsr\_3}}
+{\footnotesize\ttfamily \label{namespacemain_a451faee87375e01094f05e99a9657d23} 
+main.\+snsr\+\_\+3 = Pin(Pin.\+cpu.\+C1, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00176}{176}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a068ea762e075591def8eb0e2aaa65eb3}\index{main@{main}!snsr\_4@{snsr\_4}}
+\index{snsr\_4@{snsr\_4}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_4}{snsr\_4}}
+{\footnotesize\ttfamily \label{namespacemain_a068ea762e075591def8eb0e2aaa65eb3} 
+main.\+snsr\+\_\+4 = Pin(Pin.\+cpu.\+B0, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00177}{177}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47}\index{main@{main}!snsr\_5@{snsr\_5}}
+\index{snsr\_5@{snsr\_5}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_5}{snsr\_5}}
+{\footnotesize\ttfamily \label{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47} 
+main.\+snsr\+\_\+5 = Pin(Pin.\+cpu.\+A4, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00178}{178}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a49802aac993ca9432fec7506d2371de1}\index{main@{main}!snsr\_6@{snsr\_6}}
+\index{snsr\_6@{snsr\_6}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_6}{snsr\_6}}
+{\footnotesize\ttfamily \label{namespacemain_a49802aac993ca9432fec7506d2371de1} 
+main.\+snsr\+\_\+6 = Pin(Pin.\+cpu.\+C0, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00179}{179}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a849342ce053ca67a6a92bdba169b163c}\index{main@{main}!snsr\_7@{snsr\_7}}
+\index{snsr\_7@{snsr\_7}!main@{main}}
+\doxysubsubsection{\texorpdfstring{snsr\_7}{snsr\_7}}
+{\footnotesize\ttfamily \label{namespacemain_a849342ce053ca67a6a92bdba169b163c} 
+main.\+snsr\+\_\+7 = Pin(Pin.\+cpu.\+A1, Pin.\+IN, Pin.\+PULL\+\_\+\+UP)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00180}{180}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ac829ccccdd8e17cc04fd0ae7a2dfc415}\index{main@{main}!speed\_share\_A@{speed\_share\_A}}
+\index{speed\_share\_A@{speed\_share\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{speed\_share\_A}{speed\_share\_A}}
+{\footnotesize\ttfamily \label{namespacemain_ac829ccccdd8e17cc04fd0ae7a2dfc415} 
+main.\+speed\+\_\+share\+\_\+A = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}Speed Share A"{})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00409}{409}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_aee4abeb351581f0907bd80075c17d823}\index{main@{main}!speed\_share\_B@{speed\_share\_B}}
+\index{speed\_share\_B@{speed\_share\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{speed\_share\_B}{speed\_share\_B}}
+{\footnotesize\ttfamily \label{namespacemain_aee4abeb351581f0907bd80075c17d823} 
+main.\+speed\+\_\+share\+\_\+B = \mbox{\hyperlink{classtask__share_1_1_share}{task\+\_\+share.\+Share}}(\textquotesingle{}d\textquotesingle{}, thread\+\_\+protect=False, name="{}Speed Share B"{})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00428}{428}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_afb442090ebe8ef19ae7f5256c7e9666d}\index{main@{main}!t\_d\_q\_A@{t\_d\_q\_A}}
+\index{t\_d\_q\_A@{t\_d\_q\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{t\_d\_q\_A}{t\_d\_q\_A}}
+{\footnotesize\ttfamily \label{namespacemain_afb442090ebe8ef19ae7f5256c7e9666d} 
+main.\+t\+\_\+d\+\_\+q\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Delta\ Queue\ A"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00406}{406}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ad5a0b6958809b02d90b7705cf509ac77}\index{main@{main}!t\_d\_q\_B@{t\_d\_q\_B}}
+\index{t\_d\_q\_B@{t\_d\_q\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{t\_d\_q\_B}{t\_d\_q\_B}}
+{\footnotesize\ttfamily \label{namespacemain_ad5a0b6958809b02d90b7705cf509ac77} 
+main.\+t\+\_\+d\+\_\+q\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Delta\ Queue\ B"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00425}{425}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ad140e651d31eef9bf4aeffe3c0e831d2}\index{main@{main}!t\_q\_A@{t\_q\_A}}
+\index{t\_q\_A@{t\_q\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{t\_q\_A}{t\_q\_A}}
+{\footnotesize\ttfamily \label{namespacemain_ad140e651d31eef9bf4aeffe3c0e831d2} 
+main.\+t\+\_\+q\+\_\+A}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Queue\ A"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00402}{402}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_ad7bd395764f8b7276a543449df58eebc}\index{main@{main}!t\_q\_B@{t\_q\_B}}
+\index{t\_q\_B@{t\_q\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{t\_q\_B}{t\_q\_B}}
+{\footnotesize\ttfamily \label{namespacemain_ad7bd395764f8b7276a543449df58eebc} 
+main.\+t\+\_\+q\+\_\+B}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Queue\ B"{}})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00421}{421}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a7f0c785b9501843c784ba90618d82add}\index{main@{main}!tim\_A@{tim\_A}}
+\index{tim\_A@{tim\_A}!main@{main}}
+\doxysubsubsection{\texorpdfstring{tim\_A}{tim\_A}}
+{\footnotesize\ttfamily \label{namespacemain_a7f0c785b9501843c784ba90618d82add} 
+main.\+tim\+\_\+A = Timer(1, freq=20\+\_\+000)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00382}{382}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+
+\Hypertarget{namespacemain_a55fdc582338fb45720796fdb53ed9120}\index{main@{main}!tim\_B@{tim\_B}}
+\index{tim\_B@{tim\_B}!main@{main}}
+\doxysubsubsection{\texorpdfstring{tim\_B}{tim\_B}}
+{\footnotesize\ttfamily \label{namespacemain_a55fdc582338fb45720796fdb53ed9120} 
+main.\+tim\+\_\+B = Timer(4, freq=20\+\_\+000)}
+
+
+
+Definition at line \mbox{\hyperlink{main_8py_source_l00383}{383}} of file \mbox{\hyperlink{main_8py_source}{main.\+py}}.
+

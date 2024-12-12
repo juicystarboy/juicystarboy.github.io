@@ -1,0 +1,161 @@
+\doxysection{BNO055.\+BNO055 Class Reference}
+\hypertarget{class_b_n_o055_1_1_b_n_o055}{}\label{class_b_n_o055_1_1_b_n_o055}\index{BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a26feaf59af56778853623cb8b17fee76}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, bus\+\_\+num=1, ctrl\+\_\+mode=pyb.\+I2\+C.\+CONTROLLER, op\+\_\+mode=\mbox{\hyperlink{namespace_b_n_o055_a77c5e6a347f3f46dee8db81c68ced183}{imu\+\_\+mode}})
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d}{set\+\_\+op\+\_\+mode}} (self, op\+\_\+mode)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ad1bea39613d755bcd953841f791fe6da}{get\+\_\+calib\+\_\+sts}} (self)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a71132711cf5c076bdcf8869bf6c02118}{get\+\_\+calib\+\_\+coeffs}} (self)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a2e7df4ca067e70051252a26d50a23573}{write\+\_\+calib\+\_\+coeffs}} (self, offs\+\_\+reg, offs\+\_\+data)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a816821f3074fd3951aa8eba0420715d3}{get\+\_\+e\+\_\+angs}} (self)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8bdbb693347273698be2aa68f8f80b66}{get\+\_\+heading}} (self)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ab4e91fe2ed126ae91fe0cc70a02094a4}{get\+\_\+omegas}} (self)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a39010b231f3c997b1bbb63c930c451e9}{get\+\_\+yaw\+\_\+rate}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}} = pyb.\+I2C(bus\+\_\+num, ctrl\+\_\+mode)
+\item 
+\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}} = \mbox{\hyperlink{namespace_b_n_o055_ae2f45800dcc7616436cd33d4f1c55bd4}{i2c\+\_\+addy}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00042}{42}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a26feaf59af56778853623cb8b17fee76}\index{BNO055.BNO055@{BNO055.BNO055}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a26feaf59af56778853623cb8b17fee76} 
+BNO055.\+BNO055.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{bus\+\_\+num}{ = {\ttfamily 1}, }\item[{}]{ctrl\+\_\+mode}{ = {\ttfamily pyb.I2C.CONTROLLER}, }\item[{}]{op\+\_\+mode}{ = {\ttfamily \mbox{\hyperlink{namespace_b_n_o055_a77c5e6a347f3f46dee8db81c68ced183}{imu\+\_\+mode}}}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00044}{44}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a71132711cf5c076bdcf8869bf6c02118}\index{BNO055.BNO055@{BNO055.BNO055}!get\_calib\_coeffs@{get\_calib\_coeffs}}
+\index{get\_calib\_coeffs@{get\_calib\_coeffs}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{get\_calib\_coeffs()}{get\_calib\_coeffs()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a71132711cf5c076bdcf8869bf6c02118} 
+BNO055.\+BNO055.\+get\+\_\+calib\+\_\+coeffs (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00079}{79}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_ad1bea39613d755bcd953841f791fe6da}\index{BNO055.BNO055@{BNO055.BNO055}!get\_calib\_sts@{get\_calib\_sts}}
+\index{get\_calib\_sts@{get\_calib\_sts}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{get\_calib\_sts()}{get\_calib\_sts()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_ad1bea39613d755bcd953841f791fe6da} 
+BNO055.\+BNO055.\+get\+\_\+calib\+\_\+sts (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00073}{73}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a816821f3074fd3951aa8eba0420715d3}\index{BNO055.BNO055@{BNO055.BNO055}!get\_e\_angs@{get\_e\_angs}}
+\index{get\_e\_angs@{get\_e\_angs}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{get\_e\_angs()}{get\_e\_angs()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a816821f3074fd3951aa8eba0420715d3} 
+BNO055.\+BNO055.\+get\+\_\+e\+\_\+angs (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00089}{89}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a8bdbb693347273698be2aa68f8f80b66}\index{BNO055.BNO055@{BNO055.BNO055}!get\_heading@{get\_heading}}
+\index{get\_heading@{get\_heading}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{get\_heading()}{get\_heading()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a8bdbb693347273698be2aa68f8f80b66} 
+BNO055.\+BNO055.\+get\+\_\+heading (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00100}{100}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_ab4e91fe2ed126ae91fe0cc70a02094a4}\index{BNO055.BNO055@{BNO055.BNO055}!get\_omegas@{get\_omegas}}
+\index{get\_omegas@{get\_omegas}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{get\_omegas()}{get\_omegas()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_ab4e91fe2ed126ae91fe0cc70a02094a4} 
+BNO055.\+BNO055.\+get\+\_\+omegas (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00108}{108}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a39010b231f3c997b1bbb63c930c451e9}\index{BNO055.BNO055@{BNO055.BNO055}!get\_yaw\_rate@{get\_yaw\_rate}}
+\index{get\_yaw\_rate@{get\_yaw\_rate}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{get\_yaw\_rate()}{get\_yaw\_rate()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a39010b231f3c997b1bbb63c930c451e9} 
+BNO055.\+BNO055.\+get\+\_\+yaw\+\_\+rate (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00117}{117}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d}\index{BNO055.BNO055@{BNO055.BNO055}!set\_op\_mode@{set\_op\_mode}}
+\index{set\_op\_mode@{set\_op\_mode}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{set\_op\_mode()}{set\_op\_mode()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d} 
+BNO055.\+BNO055.\+set\+\_\+op\+\_\+mode (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{op\+\_\+mode}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00069}{69}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a2e7df4ca067e70051252a26d50a23573}\index{BNO055.BNO055@{BNO055.BNO055}!write\_calib\_coeffs@{write\_calib\_coeffs}}
+\index{write\_calib\_coeffs@{write\_calib\_coeffs}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{write\_calib\_coeffs()}{write\_calib\_coeffs()}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a2e7df4ca067e70051252a26d50a23573} 
+BNO055.\+BNO055.\+write\+\_\+calib\+\_\+coeffs (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{offs\+\_\+reg}{, }\item[{}]{offs\+\_\+data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00085}{85}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}\index{BNO055.BNO055@{BNO055.BNO055}!address@{address}}
+\index{address@{address}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b} 
+BNO055.\+BNO055.\+address = \mbox{\hyperlink{namespace_b_n_o055_ae2f45800dcc7616436cd33d4f1c55bd4}{i2c\+\_\+addy}}}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00047}{47}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+\Hypertarget{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}\index{BNO055.BNO055@{BNO055.BNO055}!i2c@{i2c}}
+\index{i2c@{i2c}!BNO055.BNO055@{BNO055.BNO055}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily \label{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508} 
+BNO055.\+BNO055.\+i2c = pyb.\+I2C(bus\+\_\+num, ctrl\+\_\+mode)}
+
+
+
+Definition at line \mbox{\hyperlink{_b_n_o055_8py_source_l00046}{46}} of file \mbox{\hyperlink{_b_n_o055_8py_source}{BNO055.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/juicy/\+Documents/\+Git\+Hub/romi/\mbox{\hyperlink{_b_n_o055_8py}{BNO055.\+py}}\end{DoxyCompactItemize}

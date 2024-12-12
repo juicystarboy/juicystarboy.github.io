@@ -1,0 +1,28 @@
+var _b_n_o055_8py =
+[
+    [ "BNO055.BNO055", "class_b_n_o055_1_1_b_n_o055.html", "class_b_n_o055_1_1_b_n_o055" ],
+    [ "_trigger_reg", "_b_n_o055_8py.html#a397b8808ed1ed660af117ce07f484762", null ],
+    [ "accel_offs_reg", "_b_n_o055_8py.html#a55bc6915c2b3496733f6d780dfc2ee92", null ],
+    [ "calib_coeffs", "_b_n_o055_8py.html#aa776f4be7542d5b3cdb57d3e3a7dbc50", null ],
+    [ "calib_sts", "_b_n_o055_8py.html#afc178664958839900b827cc6e22bcac8", null ],
+    [ "calib_sts_reg", "_b_n_o055_8py.html#a4c40b45243cc5be97acd36d755f03f3f", null ],
+    [ "config_mode", "_b_n_o055_8py.html#a5651bec067bb559963934057b82f5a83", null ],
+    [ "e_angs", "_b_n_o055_8py.html#a052c7d5d06f87ba915d4ceae719d9bfb", null ],
+    [ "eul_data_x", "_b_n_o055_8py.html#ad13773990c0ce60984f7c74e79e8d604", null ],
+    [ "eul_data_y", "_b_n_o055_8py.html#a69fb95294d6dd32b5dceab737d950ff3", null ],
+    [ "eul_data_z", "_b_n_o055_8py.html#ae202b68e404e4df43033e56ae76caa95", null ],
+    [ "gyro_data_x", "_b_n_o055_8py.html#a0f982ed17f2e25bc698891cea5328898", null ],
+    [ "gyro_data_y", "_b_n_o055_8py.html#a79eb51cdd445cde4f89b1a576fcfcf0f", null ],
+    [ "gyro_data_z", "_b_n_o055_8py.html#a64c2d1691e6f9b81c38cf970ad730107", null ],
+    [ "gyro_offs_reg", "_b_n_o055_8py.html#a82286f19fe78e297d59deb061312af36", null ],
+    [ "heading", "_b_n_o055_8py.html#a97d8ea820204f56a4c964204c2580cad", null ],
+    [ "i2c_addy", "_b_n_o055_8py.html#ae2f45800dcc7616436cd33d4f1c55bd4", null ],
+    [ "imu", "_b_n_o055_8py.html#a604a3a10f1816cce68837ffd8ad86272", null ],
+    [ "imu_mode", "_b_n_o055_8py.html#a77c5e6a347f3f46dee8db81c68ced183", null ],
+    [ "mag_offs_reg", "_b_n_o055_8py.html#a0ce61c6609dfa6a1b362eebb39c3e9c6", null ],
+    [ "mode_reg", "_b_n_o055_8py.html#a67db30efbfe7a1a69659ce07c836b679", null ],
+    [ "ndof_mode", "_b_n_o055_8py.html#a02dae703391755ed0005324193dc0db0", null ],
+    [ "omegas", "_b_n_o055_8py.html#a88b3988e923c8b6b371d657ac54e5170", null ],
+    [ "unit_sel", "_b_n_o055_8py.html#ac3c0b2cae19cfaba5296a33208dab9dc", null ],
+    [ "yaw_rate", "_b_n_o055_8py.html#ac13fb16282b544358f6d0881fd608ad2", null ]
+];

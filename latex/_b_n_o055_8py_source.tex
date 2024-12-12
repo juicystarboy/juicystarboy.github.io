@@ -1,0 +1,149 @@
+\doxysection{BNO055.\+py}
+\hypertarget{_b_n_o055_8py_source}{}\label{_b_n_o055_8py_source}\index{C:/Users/juicy/Documents/GitHub/romi/BNO055.py@{C:/Users/juicy/Documents/GitHub/romi/BNO055.py}}
+\mbox{\hyperlink{_b_n_o055_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00001}\mbox{\hyperlink{namespace_b_n_o055}{00001}}\ \textcolor{comment}{\#\ -\/*-\/\ coding:\ utf-\/8\ -\/*-\/}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00003}00003\ \textcolor{stringliteral}{Created\ on\ Thu\ Nov\ 14\ 13:20:27\ 2024}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00004}00004\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00005}00005\ \textcolor{stringliteral}{@author:\ lbq11}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00006}00006\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00008}00008\ \textcolor{keyword}{import}\ pyb}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00009}00009\ \textcolor{keyword}{import}\ struct}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00010}00010\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00012}\mbox{\hyperlink{namespace_b_n_o055_ae2f45800dcc7616436cd33d4f1c55bd4}{00012}}\ i2c\_addy\ =\ 0x28\ \textcolor{comment}{\#i2c\ address}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00014}00014\ \textcolor{comment}{\#operating\ modes}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00015}\mbox{\hyperlink{namespace_b_n_o055_a02dae703391755ed0005324193dc0db0}{00015}}\ ndof\_mode\ =\ 0x0c\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00016}\mbox{\hyperlink{namespace_b_n_o055_a77c5e6a347f3f46dee8db81c68ced183}{00016}}\ imu\_mode\ =\ 0x08\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00017}\mbox{\hyperlink{namespace_b_n_o055_a5651bec067bb559963934057b82f5a83}{00017}}\ config\_mode\ =\ 0x00}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00019}00019\ \textcolor{comment}{\#misc\ registers}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00020}\mbox{\hyperlink{namespace_b_n_o055_a67db30efbfe7a1a69659ce07c836b679}{00020}}\ mode\_reg\ =\ 0x3D\ \textcolor{comment}{\#\ mode\ register}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00021}\mbox{\hyperlink{namespace_b_n_o055_a4c40b45243cc5be97acd36d755f03f3f}{00021}}\ calib\_sts\_reg\ =\ 0x35\ \textcolor{comment}{\#calibration\ status}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00022}\mbox{\hyperlink{namespace_b_n_o055_a397b8808ed1ed660af117ce07f484762}{00022}}\ \_trigger\_reg\ =\ 0x3F\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00023}\mbox{\hyperlink{namespace_b_n_o055_ac3c0b2cae19cfaba5296a33208dab9dc}{00023}}\ unit\_sel\ =\ 0x3B\ \textcolor{comment}{\#bit\ 4\ =\ temp,\ bit\ 2\ =\ eul,\ bit\ 1\ =\ gyr,\ bit\ 0\ =\ acc}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00026}00026\ \textcolor{comment}{\#sensor\ calibration\ data\ registers\ (sec\ 3.6.4\ of\ datasheet)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00027}\mbox{\hyperlink{namespace_b_n_o055_a55bc6915c2b3496733f6d780dfc2ee92}{00027}}\ accel\_offs\_reg\ =\ 0x55\ \textcolor{comment}{\#acceleration\ offset\ register\ (0x55\ thru\ 0x5a)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00028}\mbox{\hyperlink{namespace_b_n_o055_a0ce61c6609dfa6a1b362eebb39c3e9c6}{00028}}\ mag\_offs\_reg\ =\ 0x5B\ \textcolor{comment}{\#magnet\ offset\ register}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00029}\mbox{\hyperlink{namespace_b_n_o055_a82286f19fe78e297d59deb061312af36}{00029}}\ gyro\_offs\_reg\ =\ 0x61\ \textcolor{comment}{\#gyro\ offset\ register}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00031}00031\ \textcolor{comment}{\#values\ registers}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00032}00032\ \ \ \ \ \textcolor{comment}{\#euler\ angles}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00033}\mbox{\hyperlink{namespace_b_n_o055_ad13773990c0ce60984f7c74e79e8d604}{00033}}\ eul\_data\_x\ =\ [0x1b,\ 0x1a]\ \textcolor{comment}{\#Euler\ angle\ data\ X,\ MSB,\ LSB}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00034}\mbox{\hyperlink{namespace_b_n_o055_a69fb95294d6dd32b5dceab737d950ff3}{00034}}\ eul\_data\_y\ =\ [0x1d,\ 0x1c]\ \textcolor{comment}{\#Euler\ angle\ data\ Y,\ MSB,\ LSB}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00035}\mbox{\hyperlink{namespace_b_n_o055_ae202b68e404e4df43033e56ae76caa95}{00035}}\ eul\_data\_z\ =\ [0x1f,\ 0x1e]\ \textcolor{comment}{\#Euler\ angle\ data\ Z,\ MSB,\ LSB}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00036}00036\ \ \ \ \ \textcolor{comment}{\#angular\ velocity\ (yaw\ rate)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00037}\mbox{\hyperlink{namespace_b_n_o055_a0f982ed17f2e25bc698891cea5328898}{00037}}\ gyro\_data\_x\ =\ [0x15,\ 0x14]\ \textcolor{comment}{\#yaw\ rate\ X,\ MSB,\ LSB}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00038}\mbox{\hyperlink{namespace_b_n_o055_a79eb51cdd445cde4f89b1a576fcfcf0f}{00038}}\ gyro\_data\_y\ =\ [0x17,\ 0x16]\ \textcolor{comment}{\#yaw\ rate\ Y,\ MSB,\ LSB}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00039}\mbox{\hyperlink{namespace_b_n_o055_a64c2d1691e6f9b81c38cf970ad730107}{00039}}\ gyro\_data\_z\ =\ [0x19,\ 0x18]\ \textcolor{comment}{\#yaw\ rate\ Z,\ MSB,\ LSB}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00042}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{00042}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}:}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00044}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a26feaf59af56778853623cb8b17fee76}{00044}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a26feaf59af56778853623cb8b17fee76}{\_\_init\_\_}}(self,\ bus\_num\ =\ 1\ ,\ ctrl\_mode\ =\ pyb.I2C.CONTROLLER,\ op\_mode\ =\ imu\_mode):\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#self.\_reset()}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00046}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{00046}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}\ =\ pyb.I2C(bus\_num,\ ctrl\_mode)\ \textcolor{comment}{\#create\ i2c\ object\ and\ init\ w/\ bus\ \#\ (default\ is\ 1)\ and\ whether\ in\ controller\ (default)\ or\ peripheral\ mode\ }}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00047}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{00047}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}}\ =\ i2c\_addy}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#self.reset()}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Put\ the\ sensor\ in\ CONFIG\_MODE\ first}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d}{set\_op\_mode}}(config\_mode)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ time.sleep(0.05)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d}{set\_op\_mode}}(op\_mode)\ \ \textcolor{comment}{\#set\ operating\ mode\ to\ choosen\ setting\ \ (defaults\ to\ imu)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#set\ units}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#temp-\/\ 0:C,\ 1:F\ eul-\/\ 0:deg,\ 1:rad\ gyr-\/\ 0:dps,\ 1:rps,\ acc-\/\ 0:m/s2,\ 1:mg}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#1010\ in\ binary\ for\ Fahrenheit\ deg,\ rad/s,\ m/s2,\ A\ in\ hex,\ 10\ in\ dec}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#self.i2c.mem\_write(int(10),\ self.address,\ unit\_sel)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#print(self.i2c.mem\_read(1,\ self.address,\ unit\_sel))}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00062}00062\ \ \ \ \ \textcolor{comment}{\#def\ reset(self):}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#rst\_pin\ =\ pyb.Pin(pyb.Pin.cpu.A5,\ pyb.Pin.OUT)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#rst\_pin.high()\ \ \#\ Hold\ RST\ low\ to\ reset}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#time.sleep\_ms(10)\ \ \#\ Wait\ 10\ ms}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#rst\_pin.low()\ \ \#\ Release\ reset}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00068}00068\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00069}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d}{00069}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a756348862f950ee6556da98555ac6d1d}{set\_op\_mode}}(self,\ op\_mode):}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_write(op\_mode,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ mode\_reg)\ \textcolor{comment}{\#write\ the\ mode\ to\ mode\_reg\ on\ device\ at\ address}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ time.sleep(0.05)\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00073}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ad1bea39613d755bcd953841f791fe6da}{00073}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ad1bea39613d755bcd953841f791fe6da}{get\_calib\_sts}}(self):\ \textcolor{comment}{\#get\ calibration\ status}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#read\ the\ system\ status\ byte\ from\ the\ reg\ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ calib\_sts\ =\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_read(1,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ calib\_sts\_reg)\ \textcolor{comment}{\#1st\ value\ is\ "{}an\ integer\ (number\ of\ bytes\ to\ read)\ or\ a\ buffer\ to\ read\ into"{}}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ calib\_sts\ =\ struct.unpack(\textcolor{stringliteral}{'<b'},\ calib\_sts)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ calib\_sts}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00078}00078\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00079}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a71132711cf5c076bdcf8869bf6c02118}{00079}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a71132711cf5c076bdcf8869bf6c02118}{get\_calib\_coeffs}}(self):\ \textcolor{comment}{\#get\ calibration\ coefficients}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#the\ offsets\ are\ in\ consecutive\ mem\ locations,\ might\ as\ well\ read\ them\ all\ at\ once}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ calib\_coeffs\ =\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_read(18,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ accel\_offs\_reg)\ \textcolor{comment}{\#1st\ value\ is\ "{}an\ integer\ (number\ of\ bytes\ to\ read)\ or\ a\ buffer\ to\ read\ into"{}}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ calib\_coeffs\ =\ struct.unpack(\textcolor{stringliteral}{'<hhhhhhhhh'},\ calib\_coeffs)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ calib\_coeffs}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00084}00084\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00085}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a2e7df4ca067e70051252a26d50a23573}{00085}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a2e7df4ca067e70051252a26d50a23573}{write\_calib\_coeffs}}(self,\ offs\_reg,\ offs\_data):\ \textcolor{comment}{\#feed\ in\ which\ offset\ register\ you\ would\ like\ to\ write\ to,\ mag,\ accel,\ or\ gyro,\ and\ the\ data\ you\ would\ like\ to\ write}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#write\ calibration\ coefficients\ back\ to\ the\ IMU\ from\ pre-\/recorded\ binary\ data}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_write(offs\_data,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ offs\_reg)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00088}00088\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00089}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a816821f3074fd3951aa8eba0420715d3}{00089}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a816821f3074fd3951aa8eba0420715d3}{get\_e\_angs}}(self):\ \textcolor{comment}{\#method\ to\ read\ Euler\ angles\ from\ the\ IMU\ }}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ e\_angs\_data\ =\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_read(6,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ eul\_data\_x[1])}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ combine\ each\ pair\ of\ bytes\ into\ one\ 16-\/bit\ value\ for\ x,\ y,\ and\ z}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ e\_angs\_raw\ =\ struct.unpack(\textcolor{stringliteral}{'<hhh'},\ e\_angs\_data)\ \textcolor{comment}{\#<bc\ written\ lsb,\ msb.\ /16\ to\ convert\ to\ degress\ (datasheet\ sec\ 3.3)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Convert\ to\ degrees\ (the\ raw\ data\ is\ scaled\ by\ 16)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ heading\ =\ e\_angs\_raw[0]/16}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ roll\ =\ e\_angs\_raw[1]/16}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ pitch\ =\ e\_angs\_raw[2]/16}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ e\_angs\ =\ [heading,\ roll,\ pitch]}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ e\_angs\ \textcolor{comment}{\#check\ this}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00100}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8bdbb693347273698be2aa68f8f80b66}{00100}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8bdbb693347273698be2aa68f8f80b66}{get\_heading}}(self):\ \textcolor{comment}{\#returns\ just\ the\ heading}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ heading\_data\ =\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_read(2,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ eul\_data\_x[1])}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ combine\ each\ pair\ of\ bytes\ into\ one\ 16-\/bit\ value\ for\ x,\ y,\ and\ z}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ heading\_raw\ =\ struct.unpack(\textcolor{stringliteral}{'<h'},\ heading\_data)\ \textcolor{comment}{\#<bc\ written\ lsb,\ msb}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Convert\ to\ degrees\ (the\ raw\ data\ is\ scaled\ by\ 16)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ heading\ =\ heading\_raw[0]/16\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ heading\ \textcolor{comment}{\#check\ this}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00107}00107\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00108}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ab4e91fe2ed126ae91fe0cc70a02094a4}{00108}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ab4e91fe2ed126ae91fe0cc70a02094a4}{get\_omegas}}(self):\ \textcolor{comment}{\#method\ to\ read\ angular\ velocity\ from\ the\ IMU\ }}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ omegas\_data\ =\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_read(6,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ gyro\_data\_x[1])}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ omegas\_raw\ =\ struct.unpack\ (\textcolor{stringliteral}{'<hhh'},\ omegas\_data)\textcolor{comment}{\#/16}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ yaw\_rate\ =\ omegas\_raw[2]/900\ \textcolor{comment}{\#yaw\ rate,\ sai,\ rad/s}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ roll\_rate\ =\ omegas\_raw[1]/900\ \textcolor{comment}{\#roll\ dot,\ phi,\ rad/s}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ pitch\_rate\ =\ omegas\_raw[0]/900\ \textcolor{comment}{\#pitch\ dot,\ theta,\ rad/s}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ omegas\ =\ [yaw\_rate,\ roll\_rate,\ pitch\_rate]}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ omegas}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00117}\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a39010b231f3c997b1bbb63c930c451e9}{00117}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a39010b231f3c997b1bbb63c930c451e9}{get\_yaw\_rate}}(self):\ \textcolor{comment}{\#returns\ just\ the\ yaw\ rate}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ yaw\_rate\_data\ =\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_a8eebc88bf7ecfe69323da2b089911508}{i2c}}.mem\_read(2,\ self.\mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055_ac1d8a16815af32d77e29ef86b140f11b}{address}},\ gyro\_data\_z[1])}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ yaw\_rate\ =\ struct.unpack\ (\textcolor{stringliteral}{'<h'},\ yaw\_rate\_data)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ yaw\_rate\ =\ yaw\_rate[0]/900\ \textcolor{comment}{\#\ /900\ for\ rad\ per\ seconds,\ rad/s}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ yaw\_rate}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00122}00122\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00123}00123\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{'\_\_main\_\_'}:}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00124}00124\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00125}00125\ \ \ \ \ \textcolor{comment}{\#configure\ imu\ on\ bus\ 1,\ controller\ mode,\ and\ imu\ operating\ mode}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00126}00126\ \ \ \ \ \textcolor{comment}{\#rst\_pin\ =\ pyb.Pin(pyb.Pin.cpu.A5,\ pyb.Pin.OUT)}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00127}\mbox{\hyperlink{namespace_b_n_o055_a604a3a10f1816cce68837ffd8ad86272}{00127}}\ \ \ \ \ imu\ =\ \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}(1,\ pyb.I2C.CONTROLLER,\ imu\_mode)}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00130}\mbox{\hyperlink{namespace_b_n_o055_afc178664958839900b827cc6e22bcac8}{00130}}\ \ \ \ \ \ \ \ \ calib\_sts\ =\ imu.get\_calib\_sts()\ \textcolor{comment}{\#should\ be\ not\ 0\ but\ won't\ be\ 1\ when\ calibrated\ bc\ of\ bit\ position\ in\ reg\ }}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00131}\mbox{\hyperlink{namespace_b_n_o055_aa776f4be7542d5b3cdb57d3e3a7dbc50}{00131}}\ \ \ \ \ \ \ \ \ calib\_coeffs\ =\ imu.get\_calib\_coeffs()}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00132}\mbox{\hyperlink{namespace_b_n_o055_a052c7d5d06f87ba915d4ceae719d9bfb}{00132}}\ \ \ \ \ \ \ \ \ e\_angs\ =\ imu.get\_e\_angs()}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00133}\mbox{\hyperlink{namespace_b_n_o055_a97d8ea820204f56a4c964204c2580cad}{00133}}\ \ \ \ \ \ \ \ \ heading\ =\ imu.get\_heading()}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00134}\mbox{\hyperlink{namespace_b_n_o055_a88b3988e923c8b6b371d657ac54e5170}{00134}}\ \ \ \ \ \ \ \ \ omegas\ =\ imu.get\_omegas()}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00135}\mbox{\hyperlink{namespace_b_n_o055_ac13fb16282b544358f6d0881fd608ad2}{00135}}\ \ \ \ \ \ \ \ \ yaw\_rate\ =\ imu.get\_yaw\_rate()}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#print(f'calib\ sts\ =\ \{calib\_sts\},\ calib\ coeffs\ =\ \{calib\_coeffs\}')}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#print(f'e\_angs\ =\ \{e\_angs\}')}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#print(f'heading\ =\ \{heading\}')}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{'omegas\ =\ \{omegas\}'})}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#print(f'yaw\ rate\ =\ \{yaw\_rate\}')}}
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_b_n_o055_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ time.sleep(0.1)\ \textcolor{comment}{\#pause\ between\ readings}}
+
+\end{DoxyCode}
