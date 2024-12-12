@@ -2,500 +2,513 @@
 \hypertarget{main_8py_source}{}\label{main_8py_source}\index{C:/Users/juicy/Documents/GitHub/romi/main.py@{C:/Users/juicy/Documents/GitHub/romi/main.py}}
 \mbox{\hyperlink{main_8py}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00001}\mbox{\hyperlink{namespacemain}{00001}}\ \textcolor{comment}{\#\ -\/*-\/\ coding:\ utf-\/8\ -\/*-\/}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00003}00003\ \textcolor{stringliteral}{Created\ on\ Sun\ Nov\ 10\ 14:11:08\ 2024}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00004}00004\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00005}00005\ \textcolor{stringliteral}{@author:\ lbq11}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00006}00006\ \textcolor{stringliteral}{@author:\ Julian\ Rubinstein}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00007}00007\ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00009}00009\ \textcolor{keyword}{from}\ L3\_L6206\ \textcolor{keyword}{import}\ L6206}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00010}00010\ \textcolor{keyword}{from}\ L3\_encoder\ \textcolor{keyword}{import}\ Encoder}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00011}00011\ \textcolor{keyword}{from}\ BNO055\ \textcolor{keyword}{import}\ BNO055}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00012}00012\ \textcolor{keyword}{from}\ line\ \textcolor{keyword}{import}\ Line\_Follower}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00013}00013\ \textcolor{keyword}{import}\ cotask}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00014}00014\ \textcolor{keyword}{import}\ task\_share}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00015}00015\ \textcolor{keyword}{from}\ pyb\ \textcolor{keyword}{import}\ Pin,\ Timer,\ I2C}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00016}00016\ \textcolor{keyword}{from}\ time\ \textcolor{keyword}{import}\ ticks\_us,\ ticks\_add,\ ticks\_diff,\ sleep\_us}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00017}00017\ \textcolor{keyword}{import}\ gc}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00018}00018\ \textcolor{keyword}{import}\ math}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00021}\mbox{\hyperlink{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99}{00021}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99}{run}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00022}00022\ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue,\ motor\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ my\_queue.\_num\_items\ !=\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ my\_queue.get()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ motor.enable()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ duty\ !=\ motor.duty:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'duty:\{duty\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ motor.set\_duty(duty)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00045}\mbox{\hyperlink{namespacemain_a09f7fc19b3ee6d28f421268195fe386d}{00045}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_a09f7fc19b3ee6d28f421268195fe386d}{motor\_speed}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00046}00046\ \ \ \ \ \textcolor{comment}{\#\ print("{}speed"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00047}00047\ \ \ \ \ k\_ff\ =\ .02\ \ \textcolor{comment}{\#\ 240\ rpm\ max:\ 0.0397;\ 150\ rpm\ max:\ 0.0637\ \ \#0.02\ is\ a\ value\ found\ through\ experimentation}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00048}00048\ \ \ \ \ k\_p\ =\ .008}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00049}00049\ \ \ \ \ k\_i\ =\ .05}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00050}00050\ \ \ \ \ k\_d\ =\ .005}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00051}00051\ \ \ \ \ e\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00052}00052\ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue,\ speed\_share,\ dir,\ enc\_queue,\ i\_share,\ t\_d\_queue\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ speed\ *=\ (math.sin((ticks\_us()*math.pi)/1\_000\_000)+2)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ enc\_queue.\_num\_items\ !=\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ speed\ =\ speed\_share.get()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ speed\ =\ 5*(math.sin((ticks\_us()\ *\ math.pi)\ /\ 1\_000\_000)\ +\ 2)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_speed\ =\ enc\_queue.get()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}speed\ got"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ speed\ -\/\ enc\_speed}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ de\ =\ e\_new\ -\/\ e}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ e\_new}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}speed\ error\ \{e\}"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ i\_share.get()\ +\ e\ *\ (t\_d\_queue.get()/1\_000\_000)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}speed\ i\ \{i\}"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ de}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ i\_share.put(i)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ int(((speed\ *\ k\_ff)\ +\ k\_p\ *\ e\ +\ k\_i\ *\ i\ +\ k\_d\ *\ d)*100)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ duty\ >\ 100:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ 100}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ duty\ <\ -\/100:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ -\/100}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}speed\ duty\ \{duty\}"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue.put(duty)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ \textcolor{comment}{\#\ print(f'speed\ =\ \{speed\},\ enc\_speed\ =\ \{enc\_speed\},\ duty\ =\ \{duty\},\ p\ =\ \{e\},\ i\ =\ \{i\},\ d\ \{d\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00087}00087\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00089}\mbox{\hyperlink{namespacemain_ac5369c245f3bc68e112146a75af9f462}{00089}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_ac5369c245f3bc68e112146a75af9f462}{enc\_read}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00090}00090\ \ \ \ \ \textcolor{comment}{\#\ print("{}enc"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00091}00091\ \ \ \ \ enc\_state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00092}00092\ \ \ \ \ t\_delta\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00093}00093\ \ \ \ \ \textcolor{comment}{\#\ print('enc\ state\ =\ \{enc\_state\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}enc\ while"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ enc\_state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_queue,\ enc,\ t\_queue,\ t\_d\_queue\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ enc\_state\ ==\ 1:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ t\_delta\ =\ ticks\_diff(ticks\_us(),\ t\_queue.get())}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ t\_d\_queue.put(t\_delta)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ t\_queue.put(ticks\_us())}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}enc\ update"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ enc.update()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}enc\ updated"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ delta\ =\ enc.get\_delta()\ *\ ((1\_000\_000*2*math.pi)\ /\ t\_delta)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_queue.put(-\/delta)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}enc\ queue\ length:\ \{enc\_queue.\_num\_items\}"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'del\ =\ \{delta\},\ d\ =\ \{d\},\ t\ =\ \{t\_delta\},\ p\ =\ \{enc.get\_position()\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ \textcolor{comment}{\#\ print("{}data\ updated"{})}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00114}00114\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00115}00115\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00116}00116\ \textcolor{comment}{\#\ Configure\ user\ input\ button\ pin\ as\ input}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00117}\mbox{\hyperlink{namespacemain_a59c02841f8abf9bd4c95b6f38ce36862}{00117}}\ button\ =\ Pin(Pin.cpu.C6,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00118}00118\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00119}00119\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00120}\mbox{\hyperlink{namespacemain_a4d9d087312ee0d61eb36ed84e7f77fc6}{00120}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_acea15b4b9058cec560f7158e5224dda3}{circle}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00121}00121\ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ my\_imu,\ a\_speed\_share,\ b\_speed\_share,\ radius,\ omega\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ wheel\_radius\ =\ 35}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ ticks\_add(ticks\_us(),\ 1\_500\_000)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ button.value()\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(initial\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ ticks\_us()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 10\ \textcolor{keywordflow}{or}\ ticks\_diff(ticks\_us(),\ start\_time)\ <\ 1\_000\_000:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(my\_imu.get\_yaw\_rate())}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_radius\ =\ radius\ -\/\ 74.5}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_vc\ =\ inside\_radius\ *\ omega\ \ \ \textcolor{comment}{\#\ omega\ refers\ to\ yaw\ rate}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(inside\_vc/wheel\_radius)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00144}00144\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_radius\ =\ radius\ +\ 74.5}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_vc\ =\ outside\_radius\ *\ omega}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(outside\_vc/wheel\_radius)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00148}00148\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 3}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 3:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00164}00164\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00165}00165\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00166}00166\ \textcolor{comment}{\#\ ctrl\ pins}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00167}00167\ \textcolor{comment}{\#ctrl\_even\ =\ Pin(Pin.cpu.C4,\ Pin.OUT\_PP)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00168}00168\ \textcolor{comment}{\#ctrl\_odd\ =\ Pin(Pin.cpu.C3,\ Pin.OUT\_PP)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00169}\mbox{\hyperlink{namespacemain_addc6984dced083d5fd8ecbd7fe1f85da}{00169}}\ ctrl\_pins\ =\ Pin(Pin.cpu.C3,\ Pin.OUT\_PP)\ \textcolor{comment}{\#set\ all\ led\ ctrl\ on\ 1\ pin}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00170}00170\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00171}00171\ \textcolor{comment}{\#\ sensor\ outputs}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00172}00172\ \textcolor{stringliteral}{'''\ make\ more\ robust\ to\ allow\ feed\ in\ of\ pin\ nums,\ move\ this\ to\ init'''}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00173}\mbox{\hyperlink{namespacemain_a0c97b5b622eb21b1299ccbda07174241}{00173}}\ snsr\_0\ =\ Pin(Pin.cpu.A5,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00174}\mbox{\hyperlink{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0}{00174}}\ snsr\_1\ =\ Pin(Pin.cpu.A6,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00175}\mbox{\hyperlink{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d}{00175}}\ snsr\_2\ =\ Pin(Pin.cpu.A7,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00176}\mbox{\hyperlink{namespacemain_a451faee87375e01094f05e99a9657d23}{00176}}\ snsr\_3\ =\ Pin(Pin.cpu.C1,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00177}\mbox{\hyperlink{namespacemain_a068ea762e075591def8eb0e2aaa65eb3}{00177}}\ snsr\_4\ =\ Pin(Pin.cpu.B0,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00178}\mbox{\hyperlink{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47}{00178}}\ snsr\_5\ =\ Pin(Pin.cpu.A4,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00179}\mbox{\hyperlink{namespacemain_a49802aac993ca9432fec7506d2371de1}{00179}}\ snsr\_6\ =\ Pin(Pin.cpu.C0,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00180}\mbox{\hyperlink{namespacemain_a849342ce053ca67a6a92bdba169b163c}{00180}}\ snsr\_7\ =\ Pin(Pin.cpu.A1,\ Pin.IN,\ Pin.PULL\_UP)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00181}00181\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00182}\mbox{\hyperlink{namespacemain_a7715aa12a1b55a89935e78df1dd34449}{00182}}\ pins\ =\ [snsr\_0,\ snsr\_1,\ snsr\_2,\ snsr\_3,\ snsr\_4,\ snsr\_5,\ snsr\_6,\ snsr\_7]}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00001}\mbox{\hyperlink{namespacemain}{00001}}\ \textcolor{comment}{\#\ @file\ cotask.py}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00002}00002\ \textcolor{comment}{\#\ \ This\ file\ contains\ classes\ to\ run\ cooperatively\ scheduled\ tasks\ in\ a}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00003}00003\ \textcolor{comment}{\#\ \ multitasking\ system.}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00004}00004\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00005}00005\ \textcolor{comment}{\#\ \ Tasks\ are\ created\ as\ generators,\ functions\ which\ have\ infinite\ loops\ and\ call}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00006}00006\ \textcolor{comment}{\#\ \ @c\ yield\ at\ least\ once\ in\ the\ loop.\ References\ to\ all\ the\ tasks\ to\ be\ run}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00007}00007\ \textcolor{comment}{\#\ \ in\ the\ system\ are\ kept\ in\ a\ list\ maintained\ by\ class\ @c\ CoTaskList;\ the}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00008}00008\ \textcolor{comment}{\#\ \ system\ scheduler\ then\ runs\ the\ tasks'\ @c\ run()\ methods\ according\ to\ a}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00009}00009\ \textcolor{comment}{\#\ \ chosen\ scheduling\ algorithm\ such\ as\ round-\/robin\ or\ highest-\/priority-\/first.}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00010}00010\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00011}00011\ \textcolor{comment}{\#\ \ @author\ JR\ Ridgely}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00012}00012\ \textcolor{comment}{\#\ \ @date\ \ \ 2017-\/Jan-\/01\ JRR\ Approximate\ date\ of\ creation\ of\ file}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00013}00013\ \textcolor{comment}{\#\ \ @date\ \ \ 2021-\/Dec-\/18\ JRR\ Docstrings\ modified\ to\ work\ without\ DoxyPyPy}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00015}00015\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00016}00016\ \textcolor{stringliteral}{Created\ on\ Sun\ Nov\ 10\ 14:11:08\ 2024}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00017}00017\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00018}00018\ \textcolor{stringliteral}{@author:\ lbq11}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00019}00019\ \textcolor{stringliteral}{@author:\ Julian\ Rubinstein}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00020}00020\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00022}00022\ \textcolor{keyword}{from}\ L3\_L6206\ \textcolor{keyword}{import}\ L6206}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00023}00023\ \textcolor{keyword}{from}\ L3\_encoder\ \textcolor{keyword}{import}\ Encoder}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00024}00024\ \textcolor{keyword}{from}\ BNO055\ \textcolor{keyword}{import}\ BNO055}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00025}00025\ \textcolor{keyword}{from}\ line\ \textcolor{keyword}{import}\ Line\_Follower}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00026}00026\ \textcolor{keyword}{import}\ cotask}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00027}00027\ \textcolor{keyword}{import}\ task\_share}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00028}00028\ \textcolor{keyword}{from}\ pyb\ \textcolor{keyword}{import}\ Pin,\ Timer,\ I2C}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00029}00029\ \textcolor{keyword}{from}\ time\ \textcolor{keyword}{import}\ ticks\_us,\ ticks\_add,\ ticks\_diff,\ sleep\_us}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00030}00030\ \textcolor{keyword}{import}\ gc}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00031}00031\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00034}\mbox{\hyperlink{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99}{00034}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_add26c31f4d4c80e72c3f61e84caf2d99}{run}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00035}00035\ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue,\ motor\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ my\_queue.\_num\_items\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ my\_queue.get()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ motor.enable()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ duty\ !=\ motor.duty:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'duty:\{duty\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ motor.set\_duty(duty)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00058}\mbox{\hyperlink{namespacemain_a09f7fc19b3ee6d28f421268195fe386d}{00058}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_a09f7fc19b3ee6d28f421268195fe386d}{motor\_speed}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00059}00059\ \ \ \ \ \textcolor{comment}{\#\ print("{}speed"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00060}00060\ \ \ \ \ k\_ff\ =\ .02\ \ \textcolor{comment}{\#\ 240\ rpm\ max:\ 0.0397;\ 150\ rpm\ max:\ 0.0637\ \ \#0.02\ is\ a\ value\ found\ through\ experimentation}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00061}00061\ \ \ \ \ k\_p\ =\ .008}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00062}00062\ \ \ \ \ k\_i\ =\ .05}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00063}00063\ \ \ \ \ k\_d\ =\ .005}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00064}00064\ \ \ \ \ e\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00065}00065\ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue,\ speed\_share,\ dir,\ enc\_queue,\ i\_share,\ t\_d\_queue\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ speed\ *=\ (math.sin((ticks\_us()*math.pi)/1\_000\_000)+2)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ enc\_queue.\_num\_items\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ speed\ =\ speed\_share.get()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ speed\ =\ 5*(math.sin((ticks\_us()\ *\ math.pi)\ /\ 1\_000\_000)\ +\ 2)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_speed\ =\ enc\_queue.get()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}speed\ got"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ speed\ -\/\ enc\_speed}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ de\ =\ e\_new\ -\/\ e}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ e\_new}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}speed\ error\ \{e\}"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ i\_share.get()\ +\ e\ *\ (t\_d\_queue.get()/1\_000\_000)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}speed\ i\ \{i\}"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ de}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ i\_share.put(i)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ int(((speed\ *\ k\_ff)\ +\ k\_p\ *\ e\ +\ k\_i\ *\ i\ +\ k\_d\ *\ d)*100)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ duty\ >\ 100:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ 100}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ duty\ <\ -\/100:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ duty\ =\ -\/100}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}speed\ duty\ \{duty\}"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue.put(duty)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ \textcolor{comment}{\#\ print(f'speed\ =\ \{speed\},\ enc\_speed\ =\ \{enc\_speed\},\ duty\ =\ \{duty\},\ p\ =\ \{e\},\ i\ =\ \{i\},\ d\ \{d\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00102}\mbox{\hyperlink{namespacemain_ac5369c245f3bc68e112146a75af9f462}{00102}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_ac5369c245f3bc68e112146a75af9f462}{enc\_read}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00103}00103\ \ \ \ \ \textcolor{comment}{\#\ print("{}enc"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00104}00104\ \ \ \ \ enc\_state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00105}00105\ \ \ \ \ t\_delta\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00106}00106\ \ \ \ \ \textcolor{comment}{\#\ print('enc\ state\ =\ \{enc\_state\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}enc\ while"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ enc\_state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_queue,\ enc,\ t\_queue,\ t\_d\_queue\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ enc\_state\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ t\_delta\ =\ ticks\_diff(ticks\_us(),\ t\_queue.get())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ t\_d\_queue.put(t\_delta)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ t\_queue.put(ticks\_us())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}enc\ update"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ enc.update()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print("{}enc\ updated"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ delta\ =\ enc.get\_delta()\ *\ ((1\_000\_000*2*math.pi)\ /\ t\_delta)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ enc\_queue.put(-\/delta)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f"{}enc\ queue\ length:\ \{enc\_queue.\_num\_items\}"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'del\ =\ \{delta\},\ d\ =\ \{d\},\ t\ =\ \{t\_delta\},\ p\ =\ \{enc.get\_position()\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ \textcolor{comment}{\#\ print("{}data\ updated"{})}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00129}00129\ \textcolor{comment}{\#\ Configure\ user\ input\ button\ pin\ as\ input}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00130}\mbox{\hyperlink{namespacemain_a59c02841f8abf9bd4c95b6f38ce36862}{00130}}\ button\ =\ Pin(Pin.cpu.C6,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00133}\mbox{\hyperlink{namespacemain_a4d9d087312ee0d61eb36ed84e7f77fc6}{00133}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_acea15b4b9058cec560f7158e5224dda3}{circle}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00134}00134\ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ my\_imu,\ a\_speed\_share,\ b\_speed\_share,\ radius,\ omega\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ wheel\_radius\ =\ 35}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ ticks\_add(ticks\_us(),\ 1\_500\_000)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ button.value()\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(initial\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ ticks\_us()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 10\ \textcolor{keywordflow}{or}\ ticks\_diff(ticks\_us(),\ start\_time)\ <\ 1\_000\_000:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(my\_imu.get\_yaw\_rate())}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_radius\ =\ radius\ -\/\ 74.5}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_vc\ =\ inside\_radius\ *\ omega\ \ \ \textcolor{comment}{\#\ omega\ refers\ to\ yaw\ rate}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(inside\_vc/wheel\_radius)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_radius\ =\ radius\ +\ 74.5}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_vc\ =\ outside\_radius\ *\ omega}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(outside\_vc/wheel\_radius)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 3}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 3:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00179}00179\ \textcolor{comment}{\#\ ctrl\ pins}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00180}00180\ \textcolor{comment}{\#ctrl\_even\ =\ Pin(Pin.cpu.C4,\ Pin.OUT\_PP)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00181}00181\ \textcolor{comment}{\#ctrl\_odd\ =\ Pin(Pin.cpu.C3,\ Pin.OUT\_PP)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00182}\mbox{\hyperlink{namespacemain_addc6984dced083d5fd8ecbd7fe1f85da}{00182}}\ ctrl\_pins\ =\ Pin(Pin.cpu.C3,\ Pin.OUT\_PP)\ \textcolor{comment}{\#set\ all\ led\ ctrl\ on\ 1\ pin}}
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00183}00183\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00184}\mbox{\hyperlink{namespacemain_aeddba2abafbe79907db8f7fa43030b78}{00184}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_aeddba2abafbe79907db8f7fa43030b78}{line\_read}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00185}00185\ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ init\ pins}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ snsr\ =\ \mbox{\hyperlink{classline_1_1_line___follower}{Line\_Follower}}(pins)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00191}00191\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ snsr.enable\_leds(ctrl\_pins)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00193}00193\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ read\ sensor\ data}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_init\_vals\ =\ snsr.snsr\_set()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ ticks\_us()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ dt\ =\ ticks\_diff(ticks\_us(),\ start)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ dt\ <\ 1000:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dt\ =\ ticks\_diff(ticks\_us(),\ start)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsrs\ =\ snsr.snsr\_read(snsr\_init\_vals,\ 0.002)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'\{bin(snsrs)\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print\ ('reset')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ ticks\_us()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_init\_vals\ =\ snsr.snsr\_set()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \textcolor{comment}{\#\ print(bin(sensor\_vals))}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ do\ math}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ sensor\_vals\_temp\ =\ snsrs\ \&\ 0b11111111}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(bin(sensor\_vals\_temp))}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ idx\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ 8):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ value\ =\ (int((sensor\_vals\_temp\ >>\ (7\ -\/\ i))\ \&\ 0b00000001)\ *\ (-\/7\ +\ (2\ *\ i)))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ +=\ value}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ value\ !=\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ idx\ +=\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(bin((sensor\_vals\_temp\ >>\ (7\ -\/\ i))\ \&\ 0b00000001))}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ idx\ !=\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ /=\ idx}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue.put(centroid)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'saved\{my\_queue.get()\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ print(centroid)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00235}00235\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00236}00236\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00237}\mbox{\hyperlink{namespacemain_ab676d7318dfcf1f149cc4c4d5f82761e}{00237}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_a0e4fbfb46056460b2338993898b68714}{line\_follow}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00238}00238\ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00239}00239\ \ \ \ \ k\_p\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00240}00240\ \ \ \ \ k\_i\ =\ 0.15\ \ \textcolor{comment}{\#\ 0.15\ \ \#\ 0.00015}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00241}00241\ \ \ \ \ k\_d\ =\ 0.01\ \ \textcolor{comment}{\#\ 0.0001}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00242}00242\ \ \ \ \ e\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00243}00243\ \ \ \ \ i\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00244}00244\ \ \ \ \ now\ =\ ticks\_us()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00245}00245\ \ \ \ \ dt\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00246}00246\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00247}00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\_q,\ my\_imu,\ a\_speed\_share,\ b\_speed\_share,\ speed,\ around\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1\ \textcolor{keywordflow}{and}\ \textcolor{keywordflow}{not}\ bool(around.get()):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ centroid\_q.\_num\_items\ !=\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2\ \textcolor{keywordflow}{and}\ \textcolor{keywordflow}{not}\ bool(around.get()):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ =\ centroid\_q.get()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'''if\ centroid\ ==\ 0:}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00258}00258\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ 0}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00259}00259\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ else:}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00260}00260\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ ((centroid/abs(centroid))*(centroid\ **\ 2))/4'''}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ centroid}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ de\ =\ e\_new\ -\/\ e}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#if\ e\_new\ !=\ 0\ or\ abs(e)\ <\ 20:}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ e\_new}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(e)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ dt,\ now\ =\ ticks\_diff(ticks\_us(),\ now),\ ticks\_us()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ e*(dt/1\_000\_000)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ de*(1\_000\_000/dt)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ centroid\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'p:\{e\},\ i:\{i\},\ d:\{d\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ speed\_delta\ =\ (speed**0.5)*(k\_p\ *\ e\ +\ k\_i\ *\ i\ +\ k\_d\ *\ d)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(speed\ -\/\ speed\_delta)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(speed\ +\ speed\_delta)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ \textcolor{comment}{\#\ print(f'speed\_delta:\ \{speed\_delta\}')}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ \textcolor{keywordflow}{not}\ bool(around.get()):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00284}00284\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00285}00285\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00286}\mbox{\hyperlink{namespacemain_af7201d99263bb95d0e3a959db5085eff}{00286}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8}{go\_around}}(shares):}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00287}00287\ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00288}00288\ \ \ \ \ back\ =\ 5}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00289}00289\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ my\_imu,\ a\_speed\_share,\ b\_speed\_share,\ radius,\ omega,\ around\ =\ shares}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ wheel\_radius\ =\ 35}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00184}00184\ \textcolor{comment}{\#\ sensor\ outputs}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00185}00185\ \textcolor{stringliteral}{'''\ make\ more\ robust\ to\ allow\ feed\ in\ of\ pin\ nums,\ move\ this\ to\ init'''}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00186}\mbox{\hyperlink{namespacemain_a0c97b5b622eb21b1299ccbda07174241}{00186}}\ snsr\_0\ =\ Pin(Pin.cpu.A5,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00187}\mbox{\hyperlink{namespacemain_aa9b50e331b54ffaf6ab1744dcaec22c0}{00187}}\ snsr\_1\ =\ Pin(Pin.cpu.A6,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00188}\mbox{\hyperlink{namespacemain_a6ac8bbc123807d3ab1485d9d77f3552d}{00188}}\ snsr\_2\ =\ Pin(Pin.cpu.A7,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00189}\mbox{\hyperlink{namespacemain_a451faee87375e01094f05e99a9657d23}{00189}}\ snsr\_3\ =\ Pin(Pin.cpu.C1,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00190}\mbox{\hyperlink{namespacemain_a068ea762e075591def8eb0e2aaa65eb3}{00190}}\ snsr\_4\ =\ Pin(Pin.cpu.B0,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00191}\mbox{\hyperlink{namespacemain_a70a733ce3ab2c1ba39a2f51264465b47}{00191}}\ snsr\_5\ =\ Pin(Pin.cpu.A4,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00192}\mbox{\hyperlink{namespacemain_a49802aac993ca9432fec7506d2371de1}{00192}}\ snsr\_6\ =\ Pin(Pin.cpu.C0,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00193}\mbox{\hyperlink{namespacemain_a849342ce053ca67a6a92bdba169b163c}{00193}}\ snsr\_7\ =\ Pin(Pin.cpu.A1,\ Pin.IN,\ Pin.PULL\_UP)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00195}\mbox{\hyperlink{namespacemain_a7715aa12a1b55a89935e78df1dd34449}{00195}}\ pins\ =\ [snsr\_0,\ snsr\_1,\ snsr\_2,\ snsr\_3,\ snsr\_4,\ snsr\_5,\ snsr\_6,\ snsr\_7]}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00197}\mbox{\hyperlink{namespacemain_aeddba2abafbe79907db8f7fa43030b78}{00197}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_aeddba2abafbe79907db8f7fa43030b78}{line\_read}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00198}00198\ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ init\ pins}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ snsr\ =\ \mbox{\hyperlink{classline_1_1_line___follower}{Line\_Follower}}(pins)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ snsr.enable\_leds(ctrl\_pins)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ read\ sensor\ data}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_init\_vals\ =\ snsr.snsr\_set()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ ticks\_us()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ dt\ =\ ticks\_diff(ticks\_us(),\ start)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ dt\ <\ 1000:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dt\ =\ ticks\_diff(ticks\_us(),\ start)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsrs\ =\ snsr.snsr\_read(snsr\_init\_vals,\ 0.002)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'\{bin(snsrs)\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print\ ('reset')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\ =\ ticks\_us()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ snsr\_init\_vals\ =\ snsr.snsr\_set()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \textcolor{comment}{\#\ print(bin(sensor\_vals))}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ do\ math}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ sensor\_vals\_temp\ =\ snsrs\ \&\ 0b11111111}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(bin(sensor\_vals\_temp))}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ idx\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ 8):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ value\ =\ (int((sensor\_vals\_temp\ >>\ (7\ -\/\ i))\ \&\ 0b00000001)\ *\ (-\/7\ +\ (2\ *\ i)))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ +=\ value}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ value\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ idx\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(bin((sensor\_vals\_temp\ >>\ (7\ -\/\ i))\ \&\ 0b00000001))}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ idx\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ /=\ idx}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ my\_queue.put(centroid)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'saved\{my\_queue.get()\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ print(centroid)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00250}\mbox{\hyperlink{namespacemain_ab676d7318dfcf1f149cc4c4d5f82761e}{00250}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_a0e4fbfb46056460b2338993898b68714}{line\_follow}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00251}00251\ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00252}00252\ \ \ \ \ k\_p\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00253}00253\ \ \ \ \ k\_i\ =\ 0.15\ \ \textcolor{comment}{\#\ 0.15\ \ \#\ 0.00015}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00254}00254\ \ \ \ \ k\_d\ =\ 0.01\ \ \textcolor{comment}{\#\ 0.0001}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00255}00255\ \ \ \ \ e\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00256}00256\ \ \ \ \ i\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00257}00257\ \ \ \ \ now\ =\ ticks\_us()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00258}00258\ \ \ \ \ dt\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00259}00259\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\_q,\ my\_imu,\ a\_speed\_share,\ b\_speed\_share,\ speed,\ around\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1\ \textcolor{keywordflow}{and}\ \textcolor{keywordflow}{not}\ bool(around.get()):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ centroid\_q.\_num\_items\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2\ \textcolor{keywordflow}{and}\ \textcolor{keywordflow}{not}\ bool(around.get()):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ centroid\ =\ centroid\_q.get()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'''if\ centroid\ ==\ 0:}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00271}00271\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00272}00272\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ else:}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00273}00273\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ ((centroid/abs(centroid))*(centroid\ **\ 2))/4'''}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ e\_new\ =\ centroid}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ de\ =\ e\_new\ -\/\ e}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#if\ e\_new\ !=\ 0\ or\ abs(e)\ <\ 20:}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ e\_new}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(e)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ dt,\ now\ =\ ticks\_diff(ticks\_us(),\ now),\ ticks\_us()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ e*(dt/1\_000\_000)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ de*(1\_000\_000/dt)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ centroid\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(f'p:\{e\},\ i:\{i\},\ d:\{d\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ speed\_delta\ =\ (speed**0.5)*(k\_p\ *\ e\ +\ k\_i\ *\ i\ +\ k\_d\ *\ d)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(speed\ -\/\ speed\_delta)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(speed\ +\ speed\_delta)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}\ \ \textcolor{comment}{\#\ print(f'speed\_delta:\ \{speed\_delta\}')}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00292}00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ \textcolor{keywordflow}{not}\ bool(around.get()):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ button.value()\ ==\ 0:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ around.put(1)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}button"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(initial\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ ticks\_us()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}back"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ticks\_diff(ticks\_us(),\ start\_time)\ <\ 2\_000\_000:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(-\/2)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(-\/2)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}went\ back"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 3}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00319}00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 3:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}turn"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(2)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(-\/2)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ d\_heading\ <\ 80:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(d\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}turning"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}turned"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 4}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00340}00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 4:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}circle"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ <\ 150:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}circling"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(my\_imu.get\_yaw\_rate())}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_radius\ =\ radius\ -\/\ 74.5}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_vc\ =\ inside\_radius\ *\ omega\ \ \ \textcolor{comment}{\#\ omega\ refers\ to\ yaw\ rate}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(inside\_vc/wheel\_radius)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00348}00348\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_radius\ =\ radius\ +\ 74.5}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_vc\ =\ outside\_radius\ *\ omega}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(outside\_vc/wheel\_radius)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00352}00352\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 5}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 5:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}done\ going\ around"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ around.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00367}00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00370}00370\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00371}00371\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00372}00372\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{'\_\_main\_\_'}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00373}00373\ \ \ \ \ \textcolor{comment}{\#\ set\ cpr,\ interval\ (period\ [μs]),\ and\ initialize\ variables}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00374}\mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{00374}}\ \ \ \ \ cpr\ =\ 1440}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00375}00375\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00376}00376\ \ \ \ \ \textcolor{comment}{\#\ Create\ encoder\ objects}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00377}00377\ \ \ \ \ \textcolor{comment}{\#\ enc\_A\ is\ left,\ enc\_B\ is\ right}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00378}\mbox{\hyperlink{namespacemain_a3451a1c7933a4f55db28de3849103843}{00378}}\ \ \ \ \ enc\_A\ =\ \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(3,\ 65535,\ 1,\ Pin.cpu.B4,\ 2,\ Pin.cpu.B5,\ cpr)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00379}\mbox{\hyperlink{namespacemain_a04b82945ad36e3738881bfd59335f7b2}{00379}}\ \ \ \ \ enc\_B\ =\ \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(2,\ 65535,\ 1,\ Pin.cpu.A0,\ 2,\ Pin.cpu.B3,\ cpr)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00380}00380\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00381}00381\ \ \ \ \ \textcolor{comment}{\#\ Create\ a\ timer\ object\ to\ use\ for\ motor\ control}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00382}\mbox{\hyperlink{namespacemain_a7f0c785b9501843c784ba90618d82add}{00382}}\ \ \ \ \ tim\_A\ =\ Timer(1,\ freq=20\_000)\ \ \textcolor{comment}{\#\ n=2\ is\ timer\ channel\ number}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00383}\mbox{\hyperlink{namespacemain_a55fdc582338fb45720796fdb53ed9120}{00383}}\ \ \ \ \ tim\_B\ =\ Timer(4,\ freq=20\_000)\ \ \textcolor{comment}{\#\ n=3\ is\ timer\ channel\ number}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00299}\mbox{\hyperlink{namespacemain_af7201d99263bb95d0e3a959db5085eff}{00299}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8}{go\_around}}(shares):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00300}00300\ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00301}00301\ \ \ \ \ back\ =\ 5}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00302}00302\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ state\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ my\_imu,\ a\_speed\_share,\ b\_speed\_share,\ radius,\ omega,\ around\ =\ shares}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ wheel\_radius\ =\ 35}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ button.value()\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ around.put(1)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}button"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(initial\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_time\ =\ ticks\_us()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 2}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}back"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ticks\_diff(ticks\_us(),\ start\_time)\ <\ 2\_000\_000:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(-\/2)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(-\/2)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}went\ back"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 3}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00332}00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 3:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}turn"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(2)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(-\/2)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ d\_heading\ <\ 80:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(d\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}turning"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}turned"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ initial\_heading\ =\ my\_imu.get\_heading()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 4}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 4:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}circle"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ <\ 150:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}circling"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ print(my\_imu.get\_yaw\_rate())}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_radius\ =\ radius\ -\/\ 74.5}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inside\_vc\ =\ inside\_radius\ *\ omega\ \ \ \textcolor{comment}{\#\ omega\ refers\ to\ yaw\ rate}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(inside\_vc/wheel\_radius)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_radius\ =\ radius\ +\ 74.5}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outside\_vc\ =\ outside\_radius\ *\ omega}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(outside\_vc/wheel\_radius)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(my\_imu.get\_heading()\ -\/\ initial\_heading)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ d\_heading\ >\ 180:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_heading\ =\ abs(d\_heading\ -\/\ 360)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 5}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00373}00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ state\ ==\ 5:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}done\ going\ around"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ a\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ b\_speed\_share.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ around.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00380}00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{yield}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00383}00383\ }
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00384}00384\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00385}00385\ \ \ \ \ \textcolor{comment}{\#\ Create\ L6206\ driver\ objects}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00386}00386\ \ \ \ \ \textcolor{comment}{\#\ mot\_A\ is\ left,\ mot\_B\ is\ right}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00387}\mbox{\hyperlink{namespacemain_a3c2ba2013415922fd0c608969c32a877}{00387}}\ \ \ \ \ mot\_A\ =\ \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(tim\_A,\ 3,\ Pin.cpu.C4,\ Pin.cpu.A10,\ Pin.cpu.B10,\ 0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00388}\mbox{\hyperlink{namespacemain_a59e6f5e74166bf5ac333bc74c88049f2}{00388}}\ \ \ \ \ mot\_B\ =\ \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(tim\_B,\ 1,\ Pin.cpu.C7,\ Pin.cpu.B6,\ Pin.cpu.B10,\ 0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00389}00389\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00390}00390\ \ \ \ \ \textcolor{comment}{\#\ Create\ IMU\ object}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00391}\mbox{\hyperlink{namespacemain_ae701983592736ef095bf138d981fc12a}{00391}}\ \ \ \ \ imu\ =\ \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}(1,\ I2C.CONTROLLER,\ 0x08)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00392}00392\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00393}00393\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ duty\ queue\ (duty\ cycle\ 0-\/>100)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00394}\mbox{\hyperlink{namespacemain_a1efbefafeb5f925d60dada589d46e9f2}{00394}}\ \ \ \ \ duty\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'l'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Duty\ Queue\ A"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00396}00396\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ encoder\ speed\ queue\ (rad/s)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00397}\mbox{\hyperlink{namespacemain_a173479a72200561b6236a443b2ede624}{00397}}\ \ \ \ \ enc\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'d'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Enc\ Queue\ A"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00399}00399\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ integral\ term\ share\ (rad)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00400}\mbox{\hyperlink{namespacemain_a84c3f46526a5e4bc4f0169d4fd55e082}{00400}}\ \ \ \ \ i\_share\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}I\ Share\ A"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00401}00401\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ time\ queue\ (μs)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00402}\mbox{\hyperlink{namespacemain_ad140e651d31eef9bf4aeffe3c0e831d2}{00402}}\ \ \ \ \ t\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Queue\ A"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00404}00404\ \ \ \ \ t\_q\_A.put(ticks\_us())}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00405}00405\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ time\ delta\ queue\ (μs)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00406}\mbox{\hyperlink{namespacemain_afb442090ebe8ef19ae7f5256c7e9666d}{00406}}\ \ \ \ \ t\_d\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Delta\ Queue\ A"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00408}00408\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ speed\ share\ (rad/s)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00409}\mbox{\hyperlink{namespacemain_ac829ccccdd8e17cc04fd0ae7a2dfc415}{00409}}\ \ \ \ \ speed\_share\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}Speed\ Share\ A"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00410}00410\ \ \ \ \ speed\_share\_A.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00411}00411\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00412}00412\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ duty\ queue\ (duty\ cycle\ 0-\/>100)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00413}\mbox{\hyperlink{namespacemain_ae154987b7a77dddd73cac1ba83da14a1}{00413}}\ \ \ \ \ duty\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'l'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Duty\ Queue\ B"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00415}00415\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ encoder\ speed\ queue\ (rad/s)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00416}\mbox{\hyperlink{namespacemain_ae13ea4b9de882b44683807cbcbabc901}{00416}}\ \ \ \ \ enc\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'d'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Enc\ Queue\ B"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00418}00418\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ integral\ term\ share\ (rad)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00419}\mbox{\hyperlink{namespacemain_a994a2a0e31a0569bb16f0bd0e53c1d64}{00419}}\ \ \ \ \ i\_share\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}I\ Share\ B"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00420}00420\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ time\ queue\ (μs)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00421}\mbox{\hyperlink{namespacemain_ad7bd395764f8b7276a543449df58eebc}{00421}}\ \ \ \ \ t\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Queue\ B"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00423}00423\ \ \ \ \ t\_q\_B.put(ticks\_us())}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00424}00424\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ time\ delta\ queue\ (μs)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00425}\mbox{\hyperlink{namespacemain_ad5a0b6958809b02d90b7705cf509ac77}{00425}}\ \ \ \ \ t\_d\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Delta\ Queue\ B"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00427}00427\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ speed\ share\ (rad/s)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00428}\mbox{\hyperlink{namespacemain_aee4abeb351581f0907bd80075c17d823}{00428}}\ \ \ \ \ speed\_share\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}Speed\ Share\ B"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00429}00429\ \ \ \ \ speed\_share\_B.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00430}00430\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00431}00431\ \ \ \ \ \textcolor{comment}{\#\ line\ offset\ (mm)}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00432}\mbox{\hyperlink{namespacemain_aa4413e93bc69ab8e8113bd6b49998850}{00432}}\ \ \ \ \ line\_offset\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'f'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Line\ Offset\ Queue"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00434}00434\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00435}\mbox{\hyperlink{namespacemain_a398cd805ee0f43cd44509d15983f8826}{00435}}\ \ \ \ \ going\_around\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}going\ around"{}})}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00436}00436\ \ \ \ \ going\_around.put(0)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00437}00437\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00438}\mbox{\hyperlink{namespacemain_a7c3cdf39f52dc4a908637bcca73d3c13}{00438}}\ \ \ \ \ period\ =\ 25}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00439}00439\ \ \ \ \ \textcolor{comment}{\#\ motor\ 1}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00440}\mbox{\hyperlink{namespacemain_ad173fa08cf64a58d7fcbdc3de321c25d}{00440}}\ \ \ \ \ enc\_read\_A\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(enc\_read,\ name=\textcolor{stringliteral}{"{}enc\_read\_A"{}},\ priority=3,\ period=period,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(enc\_q\_A,\ enc\_A,\ t\_q\_A,\ t\_d\_q\_A))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00385}00385\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{'\_\_main\_\_'}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00386}00386\ \ \ \ \ \textcolor{comment}{\#\ set\ cpr,\ interval\ (period\ [μs]),\ and\ initialize\ variables}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00387}\mbox{\hyperlink{namespacemain_af64d72a5244eb5ef2286b54b788be96a}{00387}}\ \ \ \ \ cpr\ =\ 1440}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00389}00389\ \ \ \ \ \textcolor{comment}{\#\ Create\ encoder\ objects}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00390}00390\ \ \ \ \ \textcolor{comment}{\#\ enc\_A\ is\ left,\ enc\_B\ is\ right}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00391}\mbox{\hyperlink{namespacemain_a3451a1c7933a4f55db28de3849103843}{00391}}\ \ \ \ \ enc\_A\ =\ \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(3,\ 65535,\ 1,\ Pin.cpu.B4,\ 2,\ Pin.cpu.B5,\ cpr)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00392}\mbox{\hyperlink{namespacemain_a04b82945ad36e3738881bfd59335f7b2}{00392}}\ \ \ \ \ enc\_B\ =\ \mbox{\hyperlink{class_l3__encoder_1_1_encoder}{Encoder}}(2,\ 65535,\ 1,\ Pin.cpu.A0,\ 2,\ Pin.cpu.B3,\ cpr)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00394}00394\ \ \ \ \ \textcolor{comment}{\#\ Create\ a\ timer\ object\ to\ use\ for\ motor\ control}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00395}\mbox{\hyperlink{namespacemain_a7f0c785b9501843c784ba90618d82add}{00395}}\ \ \ \ \ tim\_A\ =\ Timer(1,\ freq=20\_000)\ \ \textcolor{comment}{\#\ n=2\ is\ timer\ channel\ number}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00396}\mbox{\hyperlink{namespacemain_a55fdc582338fb45720796fdb53ed9120}{00396}}\ \ \ \ \ tim\_B\ =\ Timer(4,\ freq=20\_000)\ \ \textcolor{comment}{\#\ n=3\ is\ timer\ channel\ number}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00398}00398\ \ \ \ \ \textcolor{comment}{\#\ Create\ L6206\ driver\ objects}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00399}00399\ \ \ \ \ \textcolor{comment}{\#\ mot\_A\ is\ left,\ mot\_B\ is\ right}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00400}\mbox{\hyperlink{namespacemain_a3c2ba2013415922fd0c608969c32a877}{00400}}\ \ \ \ \ mot\_A\ =\ \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(tim\_A,\ 3,\ Pin.cpu.C4,\ Pin.cpu.A10,\ Pin.cpu.B10,\ 0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00401}\mbox{\hyperlink{namespacemain_a59e6f5e74166bf5ac333bc74c88049f2}{00401}}\ \ \ \ \ mot\_B\ =\ \mbox{\hyperlink{class_l3___l6206_1_1_l6206}{L6206}}(tim\_B,\ 1,\ Pin.cpu.C7,\ Pin.cpu.B6,\ Pin.cpu.B10,\ 0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00403}00403\ \ \ \ \ \textcolor{comment}{\#\ Create\ IMU\ object}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00404}\mbox{\hyperlink{namespacemain_ae701983592736ef095bf138d981fc12a}{00404}}\ \ \ \ \ imu\ =\ \mbox{\hyperlink{class_b_n_o055_1_1_b_n_o055}{BNO055}}(1,\ I2C.CONTROLLER,\ 0x08)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00406}00406\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ duty\ queue\ (duty\ cycle\ 0-\/>100)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00407}\mbox{\hyperlink{namespacemain_a1efbefafeb5f925d60dada589d46e9f2}{00407}}\ \ \ \ \ duty\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'l'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Duty\ Queue\ A"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00409}00409\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ encoder\ speed\ queue\ (rad/s)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00410}\mbox{\hyperlink{namespacemain_a173479a72200561b6236a443b2ede624}{00410}}\ \ \ \ \ enc\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'d'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Enc\ Queue\ A"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00412}00412\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ integral\ term\ share\ (rad)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00413}\mbox{\hyperlink{namespacemain_a84c3f46526a5e4bc4f0169d4fd55e082}{00413}}\ \ \ \ \ i\_share\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}I\ Share\ A"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00414}00414\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ time\ queue\ (μs)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00415}\mbox{\hyperlink{namespacemain_ad140e651d31eef9bf4aeffe3c0e831d2}{00415}}\ \ \ \ \ t\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Queue\ A"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00417}00417\ \ \ \ \ t\_q\_A.put(ticks\_us())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00418}00418\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ time\ delta\ queue\ (μs)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00419}\mbox{\hyperlink{namespacemain_afb442090ebe8ef19ae7f5256c7e9666d}{00419}}\ \ \ \ \ t\_d\_q\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Delta\ Queue\ A"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00421}00421\ \ \ \ \ \textcolor{comment}{\#\ motor\ A\ speed\ share\ (rad/s)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00422}\mbox{\hyperlink{namespacemain_ac829ccccdd8e17cc04fd0ae7a2dfc415}{00422}}\ \ \ \ \ speed\_share\_A\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}Speed\ Share\ A"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00423}00423\ \ \ \ \ speed\_share\_A.put(0)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00425}00425\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ duty\ queue\ (duty\ cycle\ 0-\/>100)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00426}\mbox{\hyperlink{namespacemain_ae154987b7a77dddd73cac1ba83da14a1}{00426}}\ \ \ \ \ duty\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'l'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Duty\ Queue\ B"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00428}00428\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ encoder\ speed\ queue\ (rad/s)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00429}\mbox{\hyperlink{namespacemain_ae13ea4b9de882b44683807cbcbabc901}{00429}}\ \ \ \ \ enc\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'d'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Enc\ Queue\ B"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00431}00431\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ integral\ term\ share\ (rad)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00432}\mbox{\hyperlink{namespacemain_a994a2a0e31a0569bb16f0bd0e53c1d64}{00432}}\ \ \ \ \ i\_share\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}I\ Share\ B"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00433}00433\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ time\ queue\ (μs)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00434}\mbox{\hyperlink{namespacemain_ad7bd395764f8b7276a543449df58eebc}{00434}}\ \ \ \ \ t\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Queue\ B"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00436}00436\ \ \ \ \ t\_q\_B.put(ticks\_us())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00437}00437\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ time\ delta\ queue\ (μs)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00438}\mbox{\hyperlink{namespacemain_ad5a0b6958809b02d90b7705cf509ac77}{00438}}\ \ \ \ \ t\_d\_q\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'L'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}T\ Delta\ Queue\ B"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00440}00440\ \ \ \ \ \textcolor{comment}{\#\ motor\ B\ speed\ share\ (rad/s)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00441}\mbox{\hyperlink{namespacemain_aee4abeb351581f0907bd80075c17d823}{00441}}\ \ \ \ \ speed\_share\_B\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}Speed\ Share\ B"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00442}00442\ \ \ \ \ speed\_share\_B.put(0)}
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00443}00443\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00444}\mbox{\hyperlink{namespacemain_a5bc031158b9620fed79a57e17cf74123}{00444}}\ \ \ \ \ motor\_speed\_A\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(motor\_speed,\ name=\textcolor{stringliteral}{"{}motor\_speed\_A"{}},\ priority=2,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ period=period,\ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(duty\_q\_A,\ speed\_share\_A,\ 1,\ enc\_q\_A,\ i\_share\_A,\ t\_d\_q\_A))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00444}00444\ \ \ \ \ \textcolor{comment}{\#\ line\ offset\ (mm)}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00445}\mbox{\hyperlink{namespacemain_aa4413e93bc69ab8e8113bd6b49998850}{00445}}\ \ \ \ \ line\_offset\ =\ \mbox{\hyperlink{classtask__share_1_1_queue}{task\_share.Queue}}(\textcolor{stringliteral}{'f'},\ 16,\ thread\_protect=\textcolor{keyword}{False},\ overwrite=\textcolor{keyword}{True},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{"{}Line\ Offset\ Queue"{}})}
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00447}00447\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00448}\mbox{\hyperlink{namespacemain_ad9b30c881cfd72149ad954a990e5cdcf}{00448}}\ \ \ \ \ run\_A\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(run,\ name=\textcolor{stringliteral}{"{}run\_A"{}},\ priority=1,\ period=period*.2,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},\ shares=(duty\_q\_A,\ mot\_A))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00448}\mbox{\hyperlink{namespacemain_a398cd805ee0f43cd44509d15983f8826}{00448}}\ \ \ \ \ going\_around\ =\ \mbox{\hyperlink{classtask__share_1_1_share}{task\_share.Share}}(\textcolor{stringliteral}{'d'},\ thread\_protect=\textcolor{keyword}{False},\ name=\textcolor{stringliteral}{"{}going\ around"{}})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00449}00449\ \ \ \ \ going\_around.put(0)}
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00450}00450\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00451}00451\ \ \ \ \ \textcolor{comment}{\#\ motor\ 2}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00452}\mbox{\hyperlink{namespacemain_a8f19a2d6a60ec0afdcf470da63121be8}{00452}}\ \ \ \ \ enc\_read\_B\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(enc\_read,\ name=\textcolor{stringliteral}{"{}enc\_read\_B"{}},\ priority=3,\ period=period,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(enc\_q\_B,\ enc\_B,\ t\_q\_B,\ t\_d\_q\_B))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00455}00455\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00456}\mbox{\hyperlink{namespacemain_a36ec666cabd14bd514df20c14efa09a4}{00456}}\ \ \ \ \ motor\_speed\_B\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(motor\_speed,\ name=\textcolor{stringliteral}{"{}motor\_speed\_B"{}},\ priority=2,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ period=period,\ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(duty\_q\_B,\ speed\_share\_B,\ 1,\ enc\_q\_B,\ i\_share\_B,\ t\_d\_q\_B))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00459}00459\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00460}\mbox{\hyperlink{namespacemain_a717d30431fc8d65a9bd277bba0a02265}{00460}}\ \ \ \ \ run\_B\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(run,\ name=\textcolor{stringliteral}{"{}run\_B"{}},\ priority=1,\ period=period*.2,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(duty\_q\_B,\ mot\_B))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00462}00462\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00463}00463\ \ \ \ \ \textcolor{comment}{\#\ both\ motors}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00464}\mbox{\hyperlink{namespacemain_acea15b4b9058cec560f7158e5224dda3}{00464}}\ \ \ \ \ circle\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(circle,\ name=\textcolor{stringliteral}{"{}circle"{}},\ priority=4,\ period=period,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(imu,\ speed\_share\_A,\ speed\_share\_B,\ 304.8,\ (2*math.pi)/10))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00466}\mbox{\hyperlink{namespacemain_a7762871224b88b15c5b27ad023f9d9af}{00466}}\ \ \ \ \ line\_sense\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(line\_read,\ name=\textcolor{stringliteral}{"{}line\ read"{}},\ priority=5,\ period=10,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=line\_offset)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00468}\mbox{\hyperlink{namespacemain_a0e4fbfb46056460b2338993898b68714}{00468}}\ \ \ \ \ line\_follow\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(line\_follow,\ name=\textcolor{stringliteral}{"{}line\ follow"{}},\ priority=4,\ period=5,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(line\_offset,\ imu,\ speed\_share\_A,\ speed\_share\_B,\ 1,\ going\_around))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00470}\mbox{\hyperlink{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8}{00470}}\ \ \ \ \ go\_around\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(go\_around,\ name=\textcolor{stringliteral}{"{}go\ around"{}},\ priority=4,\ period=period,}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(imu,\ speed\_share\_A,\ speed\_share\_B,\ 300,\ (2\ *\ math.pi)\ /\ 10,\ going\_around))}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00472}00472\ \ \ \ \ \textcolor{comment}{\#\ add\ tasks\ to\ task\ list}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00473}00473\ \ \ \ \ cotask.task\_list.append(line\_follow)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00474}00474\ \ \ \ \ cotask.task\_list.append(go\_around)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00475}00475\ \ \ \ \ cotask.task\_list.append(line\_sense)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00476}00476\ \ \ \ \ cotask.task\_list.append(run\_A)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00477}00477\ \ \ \ \ cotask.task\_list.append(run\_B)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00478}00478\ \ \ \ \ cotask.task\_list.append(enc\_read\_A)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00479}00479\ \ \ \ \ cotask.task\_list.append(motor\_speed\_A)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00480}00480\ \ \ \ \ cotask.task\_list.append(enc\_read\_B)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00481}00481\ \ \ \ \ cotask.task\_list.append(motor\_speed\_B)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00482}00482\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00483}00483\ \ \ \ \ \textcolor{comment}{\#\ Run\ the\ memory\ garbage\ collector\ to\ ensure\ memory\ is\ as\ defragmented\ as}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00484}00484\ \ \ \ \ \textcolor{comment}{\#\ possible\ before\ the\ real-\/time\ scheduler\ is\ started}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00485}00485\ \ \ \ \ gc.collect()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00486}00486\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00487}00487\ \ \ \ \ \textcolor{comment}{\#\ Run\ the\ scheduler\ with\ the\ chosen\ scheduling\ algorithm.\ Quit\ if\ \string^C\ pressed}}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00489}00489\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ cotask.task\_list.pri\_sched()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00491}00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ KeyboardInterrupt:}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ mot\_A.disable()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ mot\_B.disable()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ print(cotask.task\_list.\_\_repr\_\_())}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00451}\mbox{\hyperlink{namespacemain_a7c3cdf39f52dc4a908637bcca73d3c13}{00451}}\ \ \ \ \ period\ =\ 25}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00452}00452\ \ \ \ \ \textcolor{comment}{\#\ motor\ 1}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00453}\mbox{\hyperlink{namespacemain_ad173fa08cf64a58d7fcbdc3de321c25d}{00453}}\ \ \ \ \ enc\_read\_A\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(enc\_read,\ name=\textcolor{stringliteral}{"{}enc\_read\_A"{}},\ priority=3,\ period=period,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00455}00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(enc\_q\_A,\ enc\_A,\ t\_q\_A,\ t\_d\_q\_A))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00457}\mbox{\hyperlink{namespacemain_a5bc031158b9620fed79a57e17cf74123}{00457}}\ \ \ \ \ motor\_speed\_A\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(motor\_speed,\ name=\textcolor{stringliteral}{"{}motor\_speed\_A"{}},\ priority=2,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ period=period,\ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(duty\_q\_A,\ speed\_share\_A,\ 1,\ enc\_q\_A,\ i\_share\_A,\ t\_d\_q\_A))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00461}\mbox{\hyperlink{namespacemain_ad9b30c881cfd72149ad954a990e5cdcf}{00461}}\ \ \ \ \ run\_A\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(run,\ name=\textcolor{stringliteral}{"{}run\_A"{}},\ priority=1,\ period=period*.2,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},\ shares=(duty\_q\_A,\ mot\_A))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00463}00463\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00464}00464\ \ \ \ \ \textcolor{comment}{\#\ motor\ 2}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00465}\mbox{\hyperlink{namespacemain_a8f19a2d6a60ec0afdcf470da63121be8}{00465}}\ \ \ \ \ enc\_read\_B\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(enc\_read,\ name=\textcolor{stringliteral}{"{}enc\_read\_B"{}},\ priority=3,\ period=period,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(enc\_q\_B,\ enc\_B,\ t\_q\_B,\ t\_d\_q\_B))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00469}\mbox{\hyperlink{namespacemain_a36ec666cabd14bd514df20c14efa09a4}{00469}}\ \ \ \ \ motor\_speed\_B\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(motor\_speed,\ name=\textcolor{stringliteral}{"{}motor\_speed\_B"{}},\ priority=2,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ period=period,\ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shares=(duty\_q\_B,\ speed\_share\_B,\ 1,\ enc\_q\_B,\ i\_share\_B,\ t\_d\_q\_B))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00473}\mbox{\hyperlink{namespacemain_a717d30431fc8d65a9bd277bba0a02265}{00473}}\ \ \ \ \ run\_B\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(run,\ name=\textcolor{stringliteral}{"{}run\_B"{}},\ priority=1,\ period=period*.2,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(duty\_q\_B,\ mot\_B))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00476}00476\ \ \ \ \ \textcolor{comment}{\#\ both\ motors}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00477}\mbox{\hyperlink{namespacemain_acea15b4b9058cec560f7158e5224dda3}{00477}}\ \ \ \ \ circle\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(circle,\ name=\textcolor{stringliteral}{"{}circle"{}},\ priority=4,\ period=period,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(imu,\ speed\_share\_A,\ speed\_share\_B,\ 304.8,\ (2*math.pi)/10))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00479}\mbox{\hyperlink{namespacemain_a7762871224b88b15c5b27ad023f9d9af}{00479}}\ \ \ \ \ line\_sense\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(line\_read,\ name=\textcolor{stringliteral}{"{}line\ read"{}},\ priority=5,\ period=10,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=line\_offset)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00481}\mbox{\hyperlink{namespacemain_a0e4fbfb46056460b2338993898b68714}{00481}}\ \ \ \ \ line\_follow\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(line\_follow,\ name=\textcolor{stringliteral}{"{}line\ follow"{}},\ priority=4,\ period=5,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(line\_offset,\ imu,\ speed\_share\_A,\ speed\_share\_B,\ 1,\ going\_around))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00483}\mbox{\hyperlink{namespacemain_ad7ce246938c8830ffeeffab7046e5ca8}{00483}}\ \ \ \ \ go\_around\ =\ \mbox{\hyperlink{classcotask_1_1_task}{cotask.Task}}(go\_around,\ name=\textcolor{stringliteral}{"{}go\ around"{}},\ priority=4,\ period=period,}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ profile=\textcolor{keyword}{True},\ trace=\textcolor{keyword}{True},\ shares=(imu,\ speed\_share\_A,\ speed\_share\_B,\ 300,\ (2\ *\ math.pi)\ /\ 10,\ going\_around))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00485}00485\ \ \ \ \ \textcolor{comment}{\#\ add\ tasks\ to\ task\ list}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00486}00486\ \ \ \ \ cotask.task\_list.append(line\_follow)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00487}00487\ \ \ \ \ cotask.task\_list.append(go\_around)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00488}00488\ \ \ \ \ cotask.task\_list.append(line\_sense)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00489}00489\ \ \ \ \ cotask.task\_list.append(run\_A)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00490}00490\ \ \ \ \ cotask.task\_list.append(run\_B)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00491}00491\ \ \ \ \ cotask.task\_list.append(enc\_read\_A)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00492}00492\ \ \ \ \ cotask.task\_list.append(motor\_speed\_A)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00493}00493\ \ \ \ \ cotask.task\_list.append(enc\_read\_B)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00494}00494\ \ \ \ \ cotask.task\_list.append(motor\_speed\_B)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00496}00496\ \ \ \ \ \textcolor{comment}{\#\ Run\ the\ memory\ garbage\ collector\ to\ ensure\ memory\ is\ as\ defragmented\ as}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00497}00497\ \ \ \ \ \textcolor{comment}{\#\ possible\ before\ the\ real-\/time\ scheduler\ is\ started}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00498}00498\ \ \ \ \ gc.collect()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00499}00499\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00500}00500\ \ \ \ \ \textcolor{comment}{\#\ Run\ the\ scheduler\ with\ the\ chosen\ scheduling\ algorithm.\ Quit\ if\ \string^C\ pressed}}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00501}00501\ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \ \ cotask.task\_list.pri\_sched()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}\ KeyboardInterrupt:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ mot\_A.disable()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ mot\_B.disable()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ print(cotask.task\_list.\_\_repr\_\_())}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
 
 \end{DoxyCode}

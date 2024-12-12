@@ -105,9 +105,6 @@ $(function(){initNavTree('cotask_8py.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains classes to run cooperatively scheduled tasks in a multitasking system.  
-<a href="#details">More...</a></p>
-
 <p><a href="cotask_8py_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -127,21 +124,10 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ae54e25f8d14958f642bcc22ddeb6c56f" id="r_ae54e25f8d14958f642bcc22ddeb6c56f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecotask.html#ae54e25f8d14958f642bcc22ddeb6c56f">cotask.task_list</a> = <a class="el" href="classcotask_1_1_task_list.html">TaskList</a>()</td></tr>
-<tr class="memdesc:ae54e25f8d14958f642bcc22ddeb6c56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is <b>the</b> main task list which is created for scheduling when <code><a class="el" href="cotask_8py.html" title="This file contains classes to run cooperatively scheduled tasks in a multitasking system.">cotask.py</a></code> is imported into a program.  <br /></td></tr>
+<tr class="memdesc:ae54e25f8d14958f642bcc22ddeb6c56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is <b>the</b> main task list which is created for scheduling when <code><a class="el" href="cotask_8py.html">cotask.py</a></code> is imported into a program.  <br /></td></tr>
 <tr class="separator:ae54e25f8d14958f642bcc22ddeb6c56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains classes to run cooperatively scheduled tasks in a multitasking system. </p>
-<p>Tasks are created as generators, functions which have infinite loops and call <code>yield</code> at least once in the loop. References to all the tasks to be run in the system are kept in a list maintained by class <code>CoTaskList</code>; the system scheduler then runs the tasks' <code>run()</code> methods according to a chosen scheduling algorithm such as round-robin or highest-priority-first.</p>
-<dl class="section author"><dt>Author</dt><dd>JR Ridgely </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2017-Jan-01 JRR Approximate date of creation of file </dd>
-<dd>
-2021-Dec-18 JRR Docstrings modified to work without DoxyPyPy </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>This program is copyright (c) 2017-2023 by JR Ridgely and released under the GNU Public License, version 3.0.</dd></dl>
-<p>It is intended for educational use only, but its use is not limited thereto. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. </p>
-
-<p class="definition">Definition in file <a class="el" href="cotask_8py_source.html">cotask.py</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

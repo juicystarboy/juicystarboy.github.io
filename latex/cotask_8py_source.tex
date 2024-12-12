@@ -2,7 +2,34 @@
 \hypertarget{cotask_8py_source}{}\label{cotask_8py_source}\index{C:/Users/juicy/Documents/GitHub/romi/cotask.py@{C:/Users/juicy/Documents/GitHub/romi/cotask.py}}
 \mbox{\hyperlink{cotask_8py}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00001}\mbox{\hyperlink{namespacecotask}{00001}}\ }
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00001}\mbox{\hyperlink{namespacecotask}{00001}}\ \textcolor{comment}{\#\ @file\ cotask.py}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00002}00002\ \textcolor{comment}{\#\ \ This\ file\ contains\ classes\ to\ run\ cooperatively\ scheduled\ tasks\ in\ a}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00003}00003\ \textcolor{comment}{\#\ \ multitasking\ system.}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00004}00004\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00005}00005\ \textcolor{comment}{\#\ \ Tasks\ are\ created\ as\ generators,\ functions\ which\ have\ infinite\ loops\ and\ call}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00006}00006\ \textcolor{comment}{\#\ \ @c\ yield\ at\ least\ once\ in\ the\ loop.\ References\ to\ all\ the\ tasks\ to\ be\ run}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00007}00007\ \textcolor{comment}{\#\ \ in\ the\ system\ are\ kept\ in\ a\ list\ maintained\ by\ class\ @c\ CoTaskList;\ the\ }}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00008}00008\ \textcolor{comment}{\#\ \ system\ scheduler\ then\ runs\ the\ tasks'\ @c\ run()\ methods\ according\ to\ a\ }}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00009}00009\ \textcolor{comment}{\#\ \ chosen\ scheduling\ algorithm\ such\ as\ round-\/robin\ or\ highest-\/priority-\/first.\ }}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00010}00010\ \textcolor{comment}{\#\ }}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00011}00011\ \textcolor{comment}{\#\ \ @author\ JR\ Ridgely}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00012}00012\ \textcolor{comment}{\#\ \ @date\ \ \ 2017-\/Jan-\/01\ JRR\ Approximate\ date\ of\ creation\ of\ file}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00013}00013\ \textcolor{comment}{\#\ \ @date\ \ \ 2021-\/Dec-\/18\ JRR\ Docstrings\ modified\ to\ work\ without\ DoxyPyPy}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00014}00014\ \textcolor{comment}{\#\ \ @copyright\ This\ program\ is\ copyright\ (c)\ 2017-\/2023\ by\ JR\ Ridgely\ and}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00015}00015\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ released\ under\ the\ GNU\ Public\ License,\ version\ 3.0.}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00016}00016\ \textcolor{comment}{\#\ }}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00017}00017\ \textcolor{comment}{\#\ \ It\ is\ intended\ for\ educational\ use\ only,\ but\ its\ use\ is\ not\ limited\ thereto.}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00018}00018\ \textcolor{comment}{\#\ \ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ "{}AS\ IS"{}}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00019}00019\ \textcolor{comment}{\#\ \ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00020}00020\ \textcolor{comment}{\#\ \ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00021}00021\ \textcolor{comment}{\#\ \ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR\ CONTRIBUTORS\ BE}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00022}00022\ \textcolor{comment}{\#\ \ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00023}00023\ \textcolor{comment}{\#\ \ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00024}00024\ \textcolor{comment}{\#\ \ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00025}00025\ \textcolor{comment}{\#\ \ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00026}00026\ \textcolor{comment}{\#\ \ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00027}00027\ \textcolor{comment}{\#\ \ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE}}
+\DoxyCodeLine{\Hypertarget{cotask_8py_source_l00028}00028\ \textcolor{comment}{\#\ \ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
 \DoxyCodeLine{\Hypertarget{cotask_8py_source_l00029}00029\ }
 \DoxyCodeLine{\Hypertarget{cotask_8py_source_l00030}00030\ \textcolor{keyword}{import}\ gc\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Memory\ allocation\ garbage\ collector}}
 \DoxyCodeLine{\Hypertarget{cotask_8py_source_l00031}00031\ \textcolor{keyword}{import}\ utime\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Micropython\ version\ of\ time\ library}}
