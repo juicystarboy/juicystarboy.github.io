@@ -5,7 +5,5 @@ var classcotask_1_1_task_list =
     [ "append", "classcotask_1_1_task_list.html#ab6aaf44123a285f4355919a5a8229c39", null ],
     [ "pri_sched", "classcotask_1_1_task_list.html#a53819d1e25955560b7cb06bd21715966", null ],
     [ "rr_sched", "classcotask_1_1_task_list.html#aa048a6b12954d03b8fbf78dff7ace907", null ],
-    [ "pri_list", "classcotask_1_1_task_list.html#aac6e53cb4fec80455198ff85c85a4b51", null ],
-    [ "pri_list", "classcotask_1_1_task_list.html#a0cd55cefb4edf20e4d3aea2874727595", null ],
-    [ "pri_list", "classcotask_1_1_task_list.html#a01f6943fdda428d8ee403e55b2ae9d05", null ]
+    [ "pri_list", "classcotask_1_1_task_list.html#aac6e53cb4fec80455198ff85c85a4b51", null ]
 ];

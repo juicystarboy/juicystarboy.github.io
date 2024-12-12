@@ -109,7 +109,7 @@ $(function(){initNavTree('class_l3___l6206_1_1_l6206.html',''); initResizable(tr
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5fa514af371ab27266c73990e54823d4" id="r_a5fa514af371ab27266c73990e54823d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fa514af371ab27266c73990e54823d4">__init__</a> (self, PWM_tim, PWM_tim_ch, IN1_pin, IN2_pin, EN_pin, dir)</td></tr>
 <tr class="separator:a5fa514af371ab27266c73990e54823d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ead429c4bf4995df1d216ce28837e38" id="r_a0ead429c4bf4995df1d216ce28837e38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ead429c4bf4995df1d216ce28837e38">set_duty</a> (self, <a class="el" href="#aa53cdb6300b19bb3ae34bba0d6655a42">duty</a>)</td></tr>
+<tr class="memitem:a0ead429c4bf4995df1d216ce28837e38" id="r_a0ead429c4bf4995df1d216ce28837e38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ead429c4bf4995df1d216ce28837e38">set_duty</a> (self, duty)</td></tr>
 <tr class="separator:a0ead429c4bf4995df1d216ce28837e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87acf6e04d5364fd5cda8ba03d508d31" id="r_a87acf6e04d5364fd5cda8ba03d508d31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87acf6e04d5364fd5cda8ba03d508d31">enable</a> (self)</td></tr>
 <tr class="separator:a87acf6e04d5364fd5cda8ba03d508d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,26 +118,29 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa2448ef9d7614c6a16a007b144cf97b0" id="r_aa2448ef9d7614c6a16a007b144cf97b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2448ef9d7614c6a16a007b144cf97b0">EN</a> = Pin(EN_pin, Pin.OUT_OD, pull=Pin.PULL_UP)</td></tr>
+<tr class="memitem:aa2448ef9d7614c6a16a007b144cf97b0" id="r_aa2448ef9d7614c6a16a007b144cf97b0"><td class="memItemLeft" align="right" valign="top"><a id="aa2448ef9d7614c6a16a007b144cf97b0" name="aa2448ef9d7614c6a16a007b144cf97b0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EN</b> = Pin(EN_pin, Pin.OUT_OD, pull=Pin.PULL_UP)</td></tr>
 <tr class="separator:aa2448ef9d7614c6a16a007b144cf97b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab12c5f44299e97060c315c8603ec62bf" id="r_ab12c5f44299e97060c315c8603ec62bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab12c5f44299e97060c315c8603ec62bf">IN1</a></td></tr>
 <tr class="separator:ab12c5f44299e97060c315c8603ec62bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36fc7ad2fa2d047cb7f63ef0b9ec3dfe" id="r_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">IN2</a> = Pin(IN2_pin, Pin.OUT_OD)</td></tr>
+<tr class="memitem:a36fc7ad2fa2d047cb7f63ef0b9ec3dfe" id="r_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"><td class="memItemLeft" align="right" valign="top"><a id="a36fc7ad2fa2d047cb7f63ef0b9ec3dfe" name="a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IN2</b> = Pin(IN2_pin, Pin.OUT_OD)</td></tr>
 <tr class="separator:a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ebe9ea5b3f662377508fab9e0b974de" id="r_a5ebe9ea5b3f662377508fab9e0b974de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ebe9ea5b3f662377508fab9e0b974de">PWM_CH2</a> = PWM_tim.channel(PWM_tim_ch, pin=self.IN2, mode=Timer.PWM)</td></tr>
+<tr class="memitem:a5ebe9ea5b3f662377508fab9e0b974de" id="r_a5ebe9ea5b3f662377508fab9e0b974de"><td class="memItemLeft" align="right" valign="top"><a id="a5ebe9ea5b3f662377508fab9e0b974de" name="a5ebe9ea5b3f662377508fab9e0b974de"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PWM_CH2</b> = PWM_tim.channel(PWM_tim_ch, pin=self.IN2, mode=Timer.PWM)</td></tr>
 <tr class="separator:a5ebe9ea5b3f662377508fab9e0b974de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa53cdb6300b19bb3ae34bba0d6655a42" id="r_aa53cdb6300b19bb3ae34bba0d6655a42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa53cdb6300b19bb3ae34bba0d6655a42">duty</a> = 0</td></tr>
+<tr class="memitem:aa53cdb6300b19bb3ae34bba0d6655a42" id="r_aa53cdb6300b19bb3ae34bba0d6655a42"><td class="memItemLeft" align="right" valign="top"><a id="aa53cdb6300b19bb3ae34bba0d6655a42" name="aa53cdb6300b19bb3ae34bba0d6655a42"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>duty</b> = 0</td></tr>
 <tr class="separator:aa53cdb6300b19bb3ae34bba0d6655a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1519c64cddb5fedf512bd3e85744ca0" id="r_af1519c64cddb5fedf512bd3e85744ca0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1519c64cddb5fedf512bd3e85744ca0">direction</a> = dir</td></tr>
+<tr class="memitem:af1519c64cddb5fedf512bd3e85744ca0" id="r_af1519c64cddb5fedf512bd3e85744ca0"><td class="memItemLeft" align="right" valign="top"><a id="af1519c64cddb5fedf512bd3e85744ca0" name="af1519c64cddb5fedf512bd3e85744ca0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> = dir</td></tr>
 <tr class="separator:af1519c64cddb5fedf512bd3e85744ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">    @brief      A driver class for one channel of the L6206.
     @details    Objects of this class can be used to apply PWM to a given
                 DC motor on one channel of the L6206 from ST Microelectronics.
-</pre> 
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00015">15</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5fa514af371ab27266c73990e54823d4" name="a5fa514af371ab27266c73990e54823d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fa514af371ab27266c73990e54823d4">&#9670;&#160;</a></span>__init__()</h2>
 
@@ -190,8 +193,6 @@ Public Attributes</h2></td></tr>
     @param      EN_pin sets motor enable pin
     @param      dir sets default motor direction (1 for CW, 0 for CCW)
 </pre> 
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00022">22</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -213,8 +214,6 @@ Public Attributes</h2></td></tr>
     @details    This method sets the enable pin associated with one
     @details    output of the L6206 low in order to disable that motor.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00083">83</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
 </div>
 </div>
 <a id="a87acf6e04d5364fd5cda8ba03d508d31" name="a87acf6e04d5364fd5cda8ba03d508d31"></a>
@@ -235,8 +234,6 @@ Public Attributes</h2></td></tr>
     @details    This method sets the enable pin associated with one
     @details    output of the L6206 high in order to enable that motor.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00075">75</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
 </div>
 </div>
 <a id="a0ead429c4bf4995df1d216ce28837e38" name="a0ead429c4bf4995df1d216ce28837e38"></a>
@@ -263,59 +260,9 @@ Public Attributes</h2></td></tr>
     @details    Negative values cause effort in the CW direction.
     @param      duty is the duty cycle of the PWM signal sent to the L6206
 </pre> 
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00048">48</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af1519c64cddb5fedf512bd3e85744ca0" name="af1519c64cddb5fedf512bd3e85744ca0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1519c64cddb5fedf512bd3e85744ca0">&#9670;&#160;</a></span>direction</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_L6206.L6206.direction = dir</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00045">45</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
-</div>
-</div>
-<a id="aa53cdb6300b19bb3ae34bba0d6655a42" name="aa53cdb6300b19bb3ae34bba0d6655a42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa53cdb6300b19bb3ae34bba0d6655a42">&#9670;&#160;</a></span>duty</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_L6206.L6206.duty = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00044">44</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
-</div>
-</div>
-<a id="aa2448ef9d7614c6a16a007b144cf97b0" name="aa2448ef9d7614c6a16a007b144cf97b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2448ef9d7614c6a16a007b144cf97b0">&#9670;&#160;</a></span>EN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_L6206.L6206.EN = Pin(EN_pin, Pin.OUT_OD, pull=Pin.PULL_UP)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00034">34</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
-</div>
-</div>
 <a id="ab12c5f44299e97060c315c8603ec62bf" name="ab12c5f44299e97060c315c8603ec62bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab12c5f44299e97060c315c8603ec62bf">&#9670;&#160;</a></span>IN1</h2>
 
@@ -330,44 +277,10 @@ Public Attributes</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">=  Pin(IN1_pin, Pin.OUT_OD,</div>
 <div class="line">                       pull=Pin.PULL_UP)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00037">37</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
-</div>
-</div>
-<a id="a36fc7ad2fa2d047cb7f63ef0b9ec3dfe" name="a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">&#9670;&#160;</a></span>IN2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_L6206.L6206.IN2 = Pin(IN2_pin, Pin.OUT_OD)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00041">41</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
-</div>
-</div>
-<a id="a5ebe9ea5b3f662377508fab9e0b974de" name="a5ebe9ea5b3f662377508fab9e0b974de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ebe9ea5b3f662377508fab9e0b974de">&#9670;&#160;</a></span>PWM_CH2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_L6206.L6206.PWM_CH2 = PWM_tim.channel(PWM_tim_ch, pin=self.IN2, mode=Timer.PWM)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_l3___l6206_8py_source.html#l00042">42</a> of file <a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/juicy/Documents/GitHub/romi/<a class="el" href="_l3___l6206_8py_source.html">L3_L6206.py</a></li>
+<li>C:/Users/juicy/Documents/GitHub/romi/<b>L3_L6206.py</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

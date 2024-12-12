@@ -1,9 +1,9 @@
 var annotated_dup =
 [
     [ "BNO055", "namespace_b_n_o055.html", [
-      [ "BNO055", "class_b_n_o055_1_1_b_n_o055.html", "class_b_n_o055_1_1_b_n_o055" ]
+      [ "BNO055", "class_b_n_o055_1_1_b_n_o055.html", null ]
     ] ],
-    [ "cotask", "namespacecotask.html", [
+    [ "cotask", null, [
       [ "Task", "classcotask_1_1_task.html", "classcotask_1_1_task" ],
       [ "TaskList", "classcotask_1_1_task_list.html", "classcotask_1_1_task_list" ]
     ] ],
@@ -14,9 +14,9 @@ var annotated_dup =
       [ "L6206", "class_l3___l6206_1_1_l6206.html", "class_l3___l6206_1_1_l6206" ]
     ] ],
     [ "line", "namespaceline.html", [
-      [ "Line_Follower", "classline_1_1_line___follower.html", "classline_1_1_line___follower" ]
+      [ "Line_Follower", "classline_1_1_line___follower.html", null ]
     ] ],
-    [ "task_share", "namespacetask__share.html", [
+    [ "task_share", null, [
       [ "BaseShare", "classtask__share_1_1_base_share.html", "classtask__share_1_1_base_share" ],
       [ "Queue", "classtask__share_1_1_queue.html", "classtask__share_1_1_queue" ],
       [ "Share", "classtask__share_1_1_share.html", "classtask__share_1_1_share" ]

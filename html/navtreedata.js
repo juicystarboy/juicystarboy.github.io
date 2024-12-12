@@ -27,12 +27,7 @@ var NAVTREE =
   [ "ME 405 Term Project", "index.html", [
     [ "romi", "md__c_1_2_users_2juicy_2_documents_2_git_hub_2romi_2_r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ]
-      ] ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -52,8 +47,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_b_n_o055_8py.html",
-"classtask__share_1_1_queue.html#ad256c3ac46d8ad097b921c8d448b1b96"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

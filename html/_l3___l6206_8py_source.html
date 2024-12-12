@@ -100,7 +100,7 @@ $(function(){initNavTree('_l3___l6206_8py_source.html',''); initResizable(true);
   <div class="headertitle"><div class="title">L3_L6206.py</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_l3___l6206_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html">    1</a></span><span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html">    1</a></span><span class="comment"># -*- coding: utf-8 -*-</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="stringliteral">    @file       L6206.py</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">    @brief      A driver for one channel of the L6206.</span></div>
@@ -135,18 +135,18 @@ $(function(){initNavTree('_l3___l6206_8py_source.html',''); initResizable(true);
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="stringliteral">            @param      dir sets default motor direction (1 for CW, 0 for CCW)</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_l3___l6206_1_1_l6206.html#aa2448ef9d7614c6a16a007b144cf97b0">   34</a></span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#aa2448ef9d7614c6a16a007b144cf97b0">EN</a> = Pin(EN_pin, Pin.OUT_OD, pull=Pin.PULL_UP)  <span class="comment"># create a class attribute, OD=open drain</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#aa2448ef9d7614c6a16a007b144cf97b0">EN</a> = Pin(EN_pin, Pin.OUT_OD, pull=Pin.PULL_UP)  <span class="comment"># create a class attribute, OD=open drain</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="comment"># set up channel 1</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_l3___l6206_1_1_l6206.html#ab12c5f44299e97060c315c8603ec62bf">   37</a></span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#ab12c5f44299e97060c315c8603ec62bf">IN1</a> = Pin(IN1_pin, Pin.OUT_OD,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#ab12c5f44299e97060c315c8603ec62bf">IN1</a> = Pin(IN1_pin, Pin.OUT_OD,</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                       pull=Pin.PULL_UP)  <span class="comment"># this pin now needs to be a toggle to work w/ the romi motors</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment"># self.PWM_CH1 = PWM_tim.channel(1, pin=self.IN1, mode=Timer.PWM)</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment"># set up channel 2</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_l3___l6206_1_1_l6206.html#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">   41</a></span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">IN2</a> = Pin(IN2_pin, Pin.OUT_OD)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_l3___l6206_1_1_l6206.html#a5ebe9ea5b3f662377508fab9e0b974de">   42</a></span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#a5ebe9ea5b3f662377508fab9e0b974de">PWM_CH2</a> = PWM_tim.channel(PWM_tim_ch, pin=self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">IN2</a>, mode=Timer.PWM)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">IN2</a> = Pin(IN2_pin, Pin.OUT_OD)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#a5ebe9ea5b3f662377508fab9e0b974de">PWM_CH2</a> = PWM_tim.channel(PWM_tim_ch, pin=self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#a36fc7ad2fa2d047cb7f63ef0b9ec3dfe">IN2</a>, mode=Timer.PWM)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_l3___l6206_1_1_l6206.html#aa53cdb6300b19bb3ae34bba0d6655a42">   44</a></span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#aa53cdb6300b19bb3ae34bba0d6655a42">duty</a> = 0</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_l3___l6206_1_1_l6206.html#af1519c64cddb5fedf512bd3e85744ca0">   45</a></span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#af1519c64cddb5fedf512bd3e85744ca0">direction</a> = dir</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#aa53cdb6300b19bb3ae34bba0d6655a42">duty</a> = 0</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#af1519c64cddb5fedf512bd3e85744ca0">direction</a> = dir</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        self.<a class="code hl_variable" href="class_l3___l6206_1_1_l6206.html#aa2448ef9d7614c6a16a007b144cf97b0">EN</a>.low()  <span class="comment"># disable motor on init</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 </div>
@@ -207,15 +207,15 @@ $(function(){initNavTree('_l3___l6206_8py_source.html',''); initResizable(true);
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment"># a module the code block will not run.</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment"># MOTOR A</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#a83e2cbad7ada09f0cb9aaaa79cd25cb8">   98</a></span>    direction = bool(int(input(<span class="stringliteral">&quot;Motor A: Enter 1 for forward or 0 for reverse: &quot;</span>)))</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#a732aac30e33c674af1bc67c2aa0c02f5">   99</a></span>    duty = float(input(<span class="stringliteral">&quot;Enter duty cycle: &quot;</span>))</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    direction = bool(int(input(<span class="stringliteral">&quot;Motor A: Enter 1 for forward or 0 for reverse: &quot;</span>)))</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    duty = float(input(<span class="stringliteral">&quot;Enter duty cycle: &quot;</span>))</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment"># Create a timer object to use for motor control</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#a866b17d8ffd09cb15c385f989b618f99">  102</a></span>    tim_A = Timer(3, freq=20_000)  <span class="comment"># n=3 is timer channel number</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    tim_A = Timer(3, freq=20_000)  <span class="comment"># n=3 is timer channel number</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment"># Create an L6206 driver object. You will need to modify the code to facilitate</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment"># passing in the pins and timer objects needed to run the motors.</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#a06db2de3947ed7502299d58ab335b583">  106</a></span>    mot_A = <a class="code hl_class" href="class_l3___l6206_1_1_l6206.html">L6206</a>(tim_A, Pin.cpu.B4, Pin.cpu.B5, Pin.cpu.A10)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    mot_A = <a class="code hl_class" href="class_l3___l6206_1_1_l6206.html">L6206</a>(tim_A, Pin.cpu.B4, Pin.cpu.B5, Pin.cpu.A10)</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment"># Set the duty cycle of the first L6206 channel</span></div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    mot_A.set_duty(duty, direction)</div>
@@ -225,17 +225,17 @@ $(function(){initNavTree('_l3___l6206_8py_source.html',''); initResizable(true);
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    duty = float(input(<span class="stringliteral">&quot;Enter duty cycle: &quot;</span>))</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment"># Create a timer object to use for motor control</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#a7326275869cb54129713796d6108e974">  116</a></span>    tim_B = Timer(2, freq=20_000)  <span class="comment"># n=2 is timer channel number</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    tim_B = Timer(2, freq=20_000)  <span class="comment"># n=2 is timer channel number</span></div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment"># Create an L6206 driver object. You will need to modify the code to facilitate</span></div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment"># passing in the pins and timer objects needed to run the motors.</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#aac9ec54a0831040cf1245688f22f5a90">  120</a></span>    mot_B = <a class="code hl_class" href="class_l3___l6206_1_1_l6206.html">L6206</a>(tim_B, Pin.cpu.A0, Pin.cpu.A1, Pin.cpu.C1)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    mot_B = <a class="code hl_class" href="class_l3___l6206_1_1_l6206.html">L6206</a>(tim_B, Pin.cpu.A0, Pin.cpu.A1, Pin.cpu.C1)</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="comment"># Set the duty cycle of the first L6206 channel</span></div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    mot_B.set_duty(duty, direction)</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment"># set motor to turn off after [duration]</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespace_l3___l6206.html#aaa558585e394e301f7f69bec86f96fa0">  126</a></span>    duration = int(input(<span class="stringliteral">&quot;Enter duration in milliseconds: &quot;</span>))</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    duration = int(input(<span class="stringliteral">&quot;Enter duration in milliseconds: &quot;</span>))</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment"># Enable the L6206 driver</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    mot_A.enable()</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment"># Enable the L6206 driver</span></div>
@@ -260,7 +260,7 @@ $(function(){initNavTree('_l3___l6206_8py_source.html',''); initResizable(true);
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_5eb94056fa89ab1ad26881310ccb6200.html">romi</a></li><li class="navelem"><a class="el" href="_l3___l6206_8py.html">L3_L6206.py</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_5eb94056fa89ab1ad26881310ccb6200.html">romi</a></li><li class="navelem"><b>L3_L6206.py</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

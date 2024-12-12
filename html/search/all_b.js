@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['mag_5foffs_5freg_0',['mag_offs_reg',['../namespace_b_n_o055.html#a0ce61c6609dfa6a1b362eebb39c3e9c6',1,'BNO055']]],
-  ['main_1',['main',['../namespacemain.html',1,'']]],
-  ['main_2epy_2',['main.py',['../main_8py.html',1,'']]],
-  ['mode_5freg_3',['mode_reg',['../namespace_b_n_o055.html#a67db30efbfe7a1a69659ce07c836b679',1,'BNO055']]],
-  ['mot_5fa_4',['mot_A',['../namespace_l3___l6206.html#a06db2de3947ed7502299d58ab335b583',1,'L3_L6206.mot_A'],['../namespacemain.html#a3c2ba2013415922fd0c608969c32a877',1,'main.mot_A']]],
-  ['mot_5fb_5',['mot_B',['../namespace_l3___l6206.html#aac9ec54a0831040cf1245688f22f5a90',1,'L3_L6206.mot_B'],['../namespacemain.html#a59e6f5e74166bf5ac333bc74c88049f2',1,'main.mot_B']]],
-  ['motor_5fspeed_6',['motor_speed',['../namespacemain.html#a09f7fc19b3ee6d28f421268195fe386d',1,'main']]],
-  ['motor_5fspeed_5fa_7',['motor_speed_A',['../namespacemain.html#a5bc031158b9620fed79a57e17cf74123',1,'main']]],
-  ['motor_5fspeed_5fb_8',['motor_speed_B',['../namespacemain.html#a36ec666cabd14bd514df20c14efa09a4',1,'main']]]
+  ['pri_5flist_0',['pri_list',['../classcotask_1_1_task_list.html#aac6e53cb4fec80455198ff85c85a4b51',1,'cotask::TaskList']]],
+  ['pri_5fsched_1',['pri_sched',['../classcotask_1_1_task_list.html#a53819d1e25955560b7cb06bd21715966',1,'cotask::TaskList']]],
+  ['priority_2',['priority',['../classcotask_1_1_task.html#aeced93c7b7d23e33de9693d278aef88b',1,'cotask::Task']]],
+  ['put_3',['put',['../classtask__share_1_1_queue.html#a0611b4838abb13731d1d487a8178b883',1,'task_share.Queue.put()'],['../classtask__share_1_1_share.html#a6bca473510fc2d28f5b7a32f242e4e18',1,'task_share.Share.put()']]]
 ];
