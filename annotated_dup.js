@@ -1,19 +1,19 @@
 var annotated_dup =
 [
-    [ "BNO055", "namespace_b_n_o055.html", [
+    [ "BNO055", null, [
       [ "BNO055", "class_b_n_o055_1_1_b_n_o055.html", null ]
     ] ],
     [ "cotask", null, [
       [ "Task", "classcotask_1_1_task.html", "classcotask_1_1_task" ],
       [ "TaskList", "classcotask_1_1_task_list.html", "classcotask_1_1_task_list" ]
     ] ],
-    [ "L3_encoder", "namespace_l3__encoder.html", [
+    [ "L3_encoder", null, [
       [ "Encoder", "class_l3__encoder_1_1_encoder.html", "class_l3__encoder_1_1_encoder" ]
     ] ],
-    [ "L3_L6206", "namespace_l3___l6206.html", [
+    [ "L3_L6206", null, [
       [ "L6206", "class_l3___l6206_1_1_l6206.html", "class_l3___l6206_1_1_l6206" ]
     ] ],
-    [ "line", "namespaceline.html", [
+    [ "line", null, [
       [ "Line_Follower", "classline_1_1_line___follower.html", null ]
     ] ],
     [ "task_share", null, [
