@@ -107,14 +107,20 @@ $(function(){initNavTree('class_l3__encoder_1_1_encoder.html',''); initResizable
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3321e2a036317a272e1e00f26fa82274" id="r_a3321e2a036317a272e1e00f26fa82274"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3321e2a036317a272e1e00f26fa82274">__init__</a> (self, tim_n, tim_ar, tim_ch1, tim_pin1, tim_ch2, tim_pin2, enc_cpr, tim_ps=0)</td></tr>
+<tr class="memdesc:a3321e2a036317a272e1e00f26fa82274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an encoder object Initializes variables and timer object.  <br /></td></tr>
 <tr class="separator:a3321e2a036317a272e1e00f26fa82274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af352f6c68dbcf3ab8203c7d62dacbb6c" id="r_af352f6c68dbcf3ab8203c7d62dacbb6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af352f6c68dbcf3ab8203c7d62dacbb6c">update</a> (self)</td></tr>
+<tr class="memdesc:af352f6c68dbcf3ab8203c7d62dacbb6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates encoder position and delta Calculates acceleration by comparing current to previous delta Calculates new delta by comparing current to previous counts Handles and compensates for counter overflow.  <br /></td></tr>
 <tr class="separator:af352f6c68dbcf3ab8203c7d62dacbb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8158274270d2c770a0b70f14badf1af" id="r_ac8158274270d2c770a0b70f14badf1af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8158274270d2c770a0b70f14badf1af">get_position</a> (self)</td></tr>
+<tr class="memdesc:ac8158274270d2c770a0b70f14badf1af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the most recent encoder position This is a simple function that returns position.  <br /></td></tr>
 <tr class="separator:ac8158274270d2c770a0b70f14badf1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cea755a29a2e280d482f30929336491" id="r_a7cea755a29a2e280d482f30929336491"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cea755a29a2e280d482f30929336491">get_delta</a> (self)</td></tr>
+<tr class="memdesc:a7cea755a29a2e280d482f30929336491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the most recent encoder delta This is a simple function that returns delta.  <br /></td></tr>
 <tr class="separator:a7cea755a29a2e280d482f30929336491"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20476a42614cb1c85cfce814dd8381d9" id="r_a20476a42614cb1c85cfce814dd8381d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20476a42614cb1c85cfce814dd8381d9">zero</a> (self)</td></tr>
+<tr class="memitem:a20476a42614cb1c85cfce814dd8381d9" id="r_a20476a42614cb1c85cfce814dd8381d9"><td class="memItemLeft" align="right" valign="top"><a id="a20476a42614cb1c85cfce814dd8381d9" name="a20476a42614cb1c85cfce814dd8381d9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>zero</b> (self)</td></tr>
+<tr class="memdesc:a20476a42614cb1c85cfce814dd8381d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the encoder values Set counts to current counts, set other values to zero. <br /></td></tr>
 <tr class="separator:a20476a42614cb1c85cfce814dd8381d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -159,10 +165,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>acc</b> = 0</td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>tim</b> = pyb.Timer(self.tim_n, period=self.tim_ar, prescaler=self.tim_ps)</td></tr>
 <tr class="separator:a78be6643ef94aeb497304793831c2a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">    @brief      Interface with quadrature encoder
-    @details    Includes init(), update(), get_position(), get_delta(), and zero()
-</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3321e2a036317a272e1e00f26fa82274" name="a3321e2a036317a272e1e00f26fa82274"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3321e2a036317a272e1e00f26fa82274">&#9670;&#160;</a></span>__init__()</h2>
 
@@ -216,17 +219,22 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>acc</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief              Constructs an encoder object
-    @details            Initializes variables and timer object
-    @param              tim_n is timer number
-    @param              tim_ar is auto-reload value for timer
-    @param              tim_ch1 is first channel number
-    @param              tim_pin1 is first channel pin
-    @param              tim_ch2 is second channel number
-    @param              tim_pin2 is second channel pin
-    @param              is cpr (counts/revolution) of encoder
-    @param              tim_ps is timer prescaler; default to 0
-</pre> 
+
+<p>Constructs an encoder object Initializes variables and timer object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tim_n</td><td>Timer number </td></tr>
+    <tr><td class="paramname">tim_ar</td><td>Auto-reload value for timer </td></tr>
+    <tr><td class="paramname">tim_ch1</td><td>First channel number </td></tr>
+    <tr><td class="paramname">tim_pin1</td><td>First channel pin </td></tr>
+    <tr><td class="paramname">tim_ch2</td><td>Second channel number </td></tr>
+    <tr><td class="paramname">tim_pin2</td><td>Second channel pin </td></tr>
+    <tr><td class="paramname">enc_cpr</td><td>CPR (counts/revolution) of encoder </td></tr>
+    <tr><td class="paramname">tim_ps</td><td>Timer prescaler; default to 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -244,10 +252,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>acc</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief              Gets the most recent encoder delta
-    @details            This is a simple function that returns delta
-    @return             delta/cpr
-</pre> 
+
+<p>Gets the most recent encoder delta This is a simple function that returns delta. </p>
+<dl class="section return"><dt>Returns</dt><dd>delta/cpr </dd></dl>
+
 </div>
 </div>
 <a id="ac8158274270d2c770a0b70f14badf1af" name="ac8158274270d2c770a0b70f14badf1af"></a>
@@ -264,10 +272,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>acc</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief              Gets the most recent encoder position
-    @details            This is a simple function that returns position
-    @return             position/cpr
-</pre> 
+
+<p>Gets the most recent encoder position This is a simple function that returns position. </p>
+<dl class="section return"><dt>Returns</dt><dd>position/cpr </dd></dl>
+
 </div>
 </div>
 <a id="af352f6c68dbcf3ab8203c7d62dacbb6c" name="af352f6c68dbcf3ab8203c7d62dacbb6c"></a>
@@ -284,31 +292,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>acc</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief              Updates encoder position and delta
-    @details            Calculates acceleration by comparing current to previous delta
-    @details            Calculates new delta by comparing current to previous counts
-    @details            Handles and compensates for counter overflow
-    @details            Saves new counts value and calculates position by adding delta
-</pre> 
-</div>
-</div>
-<a id="a20476a42614cb1c85cfce814dd8381d9" name="a20476a42614cb1c85cfce814dd8381d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20476a42614cb1c85cfce814dd8381d9">&#9670;&#160;</a></span>zero()</h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_encoder.Encoder.zero </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<pre class="fragment">    @brief              Resets the encoder values
-    @details            Set counts to current counts, set other values to zero
-</pre> 
+<p>Updates encoder position and delta Calculates acceleration by comparing current to previous delta Calculates new delta by comparing current to previous counts Handles and compensates for counter overflow. </p>
+<p>Saves new counts value and calculates position by adding delta </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

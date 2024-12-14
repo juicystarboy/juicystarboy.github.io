@@ -188,6 +188,9 @@ list&#160;</td><td class="memItemRight" valign="bottom"><b>BNO055.gyro_data_z</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains a class for interfacing with a BNO055 IMU through I2C. </p>
+<p>A series of functions are built into the class. These are for initialization, setting the operating mode, and retrieving useful values from the BNO055.<br  />
+ The initialization configures the I2C protocol for the device and runs through the device's configure mode, before setting it to the desired operating mode. There is also a function to just set the operating mode (set_op_mode).<br  />
+ The calibration coefficients of the device can be both read and written. Additionally, the euler angle and angular velocity data can be read. These are ordered yaw, pitch, roll. There are also functions for only calling the heading and yaw rate, to save time when this is the only plane of rotation whose data is desired.</p>
 <dl class="section author"><dt>Author</dt><dd>Lili Boyer-Quick </dd>
 <dd>
 Julian Rubinstein </dd></dl>

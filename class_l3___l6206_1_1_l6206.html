@@ -107,12 +107,16 @@ $(function(){initNavTree('class_l3___l6206_1_1_l6206.html',''); initResizable(tr
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5fa514af371ab27266c73990e54823d4" id="r_a5fa514af371ab27266c73990e54823d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fa514af371ab27266c73990e54823d4">__init__</a> (self, PWM_tim, PWM_tim_ch, IN1_pin, IN2_pin, EN_pin, dir)</td></tr>
+<tr class="memdesc:a5fa514af371ab27266c73990e54823d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and returns an object associated with a DC motor.  <br /></td></tr>
 <tr class="separator:a5fa514af371ab27266c73990e54823d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ead429c4bf4995df1d216ce28837e38" id="r_a0ead429c4bf4995df1d216ce28837e38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ead429c4bf4995df1d216ce28837e38">set_duty</a> (self, duty)</td></tr>
+<tr class="memdesc:a0ead429c4bf4995df1d216ce28837e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the PWM duty cycle for the DC motor.  <br /></td></tr>
 <tr class="separator:a0ead429c4bf4995df1d216ce28837e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87acf6e04d5364fd5cda8ba03d508d31" id="r_a87acf6e04d5364fd5cda8ba03d508d31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87acf6e04d5364fd5cda8ba03d508d31">enable</a> (self)</td></tr>
+<tr class="memdesc:a87acf6e04d5364fd5cda8ba03d508d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the motor associated with the given <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> object.  <br /></td></tr>
 <tr class="separator:a87acf6e04d5364fd5cda8ba03d508d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a183a8f00819132af99c0017e93abfc20" id="r_a183a8f00819132af99c0017e93abfc20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a183a8f00819132af99c0017e93abfc20">disable</a> (self)</td></tr>
+<tr class="memdesc:a183a8f00819132af99c0017e93abfc20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the motor associated with the given <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> object.  <br /></td></tr>
 <tr class="separator:a183a8f00819132af99c0017e93abfc20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -120,7 +124,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa2448ef9d7614c6a16a007b144cf97b0" id="r_aa2448ef9d7614c6a16a007b144cf97b0"><td class="memItemLeft" align="right" valign="top"><a id="aa2448ef9d7614c6a16a007b144cf97b0" name="aa2448ef9d7614c6a16a007b144cf97b0"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EN</b> = Pin(EN_pin, Pin.OUT_OD, pull=Pin.PULL_UP)</td></tr>
 <tr class="separator:aa2448ef9d7614c6a16a007b144cf97b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab12c5f44299e97060c315c8603ec62bf" id="r_ab12c5f44299e97060c315c8603ec62bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab12c5f44299e97060c315c8603ec62bf">IN1</a></td></tr>
+<tr class="memitem:ab12c5f44299e97060c315c8603ec62bf" id="r_ab12c5f44299e97060c315c8603ec62bf"><td class="memItemLeft" align="right" valign="top"><a id="ab12c5f44299e97060c315c8603ec62bf" name="ab12c5f44299e97060c315c8603ec62bf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IN1</b> = Pin(IN1_pin, Pin.OUT_OD, pull=Pin.PULL_UP)</td></tr>
 <tr class="separator:ab12c5f44299e97060c315c8603ec62bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36fc7ad2fa2d047cb7f63ef0b9ec3dfe" id="r_a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"><td class="memItemLeft" align="right" valign="top"><a id="a36fc7ad2fa2d047cb7f63ef0b9ec3dfe" name="a36fc7ad2fa2d047cb7f63ef0b9ec3dfe"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IN2</b> = Pin(IN2_pin, Pin.OUT_OD)</td></tr>
@@ -135,11 +140,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>duty</b> = 0</td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> = dir</td></tr>
 <tr class="separator:af1519c64cddb5fedf512bd3e85744ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">    @brief      A driver class for one channel of the L6206.
-    @details    Objects of this class can be used to apply PWM to a given
-                DC motor on one channel of the L6206 from ST Microelectronics.
-</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5fa514af371ab27266c73990e54823d4" name="a5fa514af371ab27266c73990e54823d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fa514af371ab27266c73990e54823d4">&#9670;&#160;</a></span>__init__()</h2>
 
@@ -183,15 +184,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>duty</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief      Initializes and returns an object associated with a DC motor.
-    @details    Set pin modes and configure two timer channels for PWM
-    @param      PWM_tim sets PWM timer
-    @param      PWM_tim_ch sets PWN timer channel
-    @param      IN1_pin sets motor pin 1
-    @param      IN2_pin sets motor pin 2
-    @param      EN_pin sets motor enable pin
-    @param      dir sets default motor direction (1 for CW, 0 for CCW)
-</pre> 
+
+<p>Initializes and returns an object associated with a DC motor. </p>
+<p>Set pin modes and configure two timer channels for PWM </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">PWM_tim</td><td>sets PWM timer </td></tr>
+    <tr><td class="paramname">PWM_tim_ch</td><td>sets PWN timer channel </td></tr>
+    <tr><td class="paramname">IN1_pin</td><td>sets motor pin 1 </td></tr>
+    <tr><td class="paramname">IN2_pin</td><td>sets motor pin 2 </td></tr>
+    <tr><td class="paramname">EN_pin</td><td>sets motor enable pin </td></tr>
+    <tr><td class="paramname">dir</td><td>sets default motor direction (1 for CW, 0 for CCW) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -209,10 +215,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>duty</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief      Disable the motor associated with the given L6206 object.
-    @details    This method sets the enable pin associated with one
-    @details    output of the L6206 low in order to disable that motor.
-</pre> 
+
+<p>Disable the motor associated with the given <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> object. </p>
+<p>This method sets the enable pin associated with one output of the <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> low in order to disable that motor. </p>
+
 </div>
 </div>
 <a id="a87acf6e04d5364fd5cda8ba03d508d31" name="a87acf6e04d5364fd5cda8ba03d508d31"></a>
@@ -229,10 +235,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>duty</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief      Enable the motor associated with the given L6206 object.
-    @details    This method sets the enable pin associated with one
-    @details    output of the L6206 high in order to enable that motor.
-</pre> 
+
+<p>Enable the motor associated with the given <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> object. </p>
+<p>This method sets the enable pin associated with one output of the <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> high in order to enable that motor. </p>
+
 </div>
 </div>
 <a id="a0ead429c4bf4995df1d216ce28837e38" name="a0ead429c4bf4995df1d216ce28837e38"></a>
@@ -253,29 +259,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>duty</b> = 0</td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">    @brief      Set the PWM duty cycle for the DC motor.
-    @details    This method sets the duty cycle to be sent to the L6206.
-    @details    Positive values cause effort in the CCW direction.
-    @details    Negative values cause effort in the CW direction.
-    @param      duty is the duty cycle of the PWM signal sent to the L6206
-</pre> 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab12c5f44299e97060c315c8603ec62bf" name="ab12c5f44299e97060c315c8603ec62bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab12c5f44299e97060c315c8603ec62bf">&#9670;&#160;</a></span>IN1</h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">L3_L6206.L6206.IN1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=  Pin(IN1_pin, Pin.OUT_OD,</div>
-<div class="line">                       pull=Pin.PULL_UP)</div>
-</div><!-- fragment -->
+<p>Set the PWM duty cycle for the DC motor. </p>
+<p>This method sets the duty cycle to be sent to the <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a>. Positive values cause effort in the CCW direction. Negative values cause effort in the CW direction. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duty</td><td>is the duty cycle of the PWM signal sent to the <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
