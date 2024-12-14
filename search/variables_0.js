@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eul_5fdata_5fx_0',['eul_data_x',['../_b_n_o055_8py.html#ad13773990c0ce60984f7c74e79e8d604',1,'BNO055']]]
+  ['eul_5fdata_5fx_0',['eul_data_x',['../bno055_8py.html#a5c2629a02f8cfc0c197bd38e4fb1fb2c',1,'bno055']]]
 ];

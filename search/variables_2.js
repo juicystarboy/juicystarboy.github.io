@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['i2c_5faddy_0',['i2c_addy',['../_b_n_o055_8py.html#ae2f45800dcc7616436cd33d4f1c55bd4',1,'BNO055']]]
+  ['i2c_5faddy_0',['i2c_addy',['../bno055_8py.html#a77735cdd59613392cb6ec18f9ade637c',1,'bno055']]]
 ];

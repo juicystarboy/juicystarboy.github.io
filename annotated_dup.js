@@ -1,7 +1,7 @@
 var annotated_dup =
 [
-    [ "BNO055", null, [
-      [ "BNO055", "class_b_n_o055_1_1_b_n_o055.html", "class_b_n_o055_1_1_b_n_o055" ]
+    [ "bno055", null, [
+      [ "BNO055", "classbno055_1_1_b_n_o055.html", "classbno055_1_1_b_n_o055" ]
     ] ],
     [ "calibrate", null, [
       [ "Line_Follower", "classcalibrate_1_1_line___follower.html", "classcalibrate_1_1_line___follower" ]
@@ -10,11 +10,11 @@ var annotated_dup =
       [ "Task", "classcotask_1_1_task.html", "classcotask_1_1_task" ],
       [ "TaskList", "classcotask_1_1_task_list.html", "classcotask_1_1_task_list" ]
     ] ],
-    [ "L3_encoder", null, [
-      [ "Encoder", "class_l3__encoder_1_1_encoder.html", "class_l3__encoder_1_1_encoder" ]
+    [ "encoder", null, [
+      [ "Encoder", "classencoder_1_1_encoder.html", "classencoder_1_1_encoder" ]
     ] ],
-    [ "L3_L6206", null, [
-      [ "L6206", "class_l3___l6206_1_1_l6206.html", "class_l3___l6206_1_1_l6206" ]
+    [ "l6206", null, [
+      [ "L6206", "classl6206_1_1_l6206.html", "classl6206_1_1_l6206" ]
     ] ],
     [ "line", null, [
       [ "Line_Follower", "classline_1_1_line___follower.html", "classline_1_1_line___follower" ]

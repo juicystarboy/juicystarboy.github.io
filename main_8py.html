@@ -142,10 +142,10 @@ list&#160;</td><td class="memItemRight" valign="bottom"><b>main.snsr_pins</b> = 
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main.cpr</b> = 1440</td></tr>
 <tr class="separator:af64d72a5244eb5ef2286b54b788be96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3451a1c7933a4f55db28de3849103843" id="r_a3451a1c7933a4f55db28de3849103843"><td class="memItemLeft" align="right" valign="top"><a id="a3451a1c7933a4f55db28de3849103843" name="a3451a1c7933a4f55db28de3849103843"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>main.enc_A</b> = <a class="el" href="class_l3__encoder_1_1_encoder.html">Encoder</a>(3, 65535, 1, Pin.cpu.B4, 2, Pin.cpu.B5, cpr)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>main.enc_A</b> = Encoder(3, 65535, 1, Pin.cpu.B4, 2, Pin.cpu.B5, cpr)</td></tr>
 <tr class="separator:a3451a1c7933a4f55db28de3849103843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04b82945ad36e3738881bfd59335f7b2" id="r_a04b82945ad36e3738881bfd59335f7b2"><td class="memItemLeft" align="right" valign="top"><a id="a04b82945ad36e3738881bfd59335f7b2" name="a04b82945ad36e3738881bfd59335f7b2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>main.enc_B</b> = <a class="el" href="class_l3__encoder_1_1_encoder.html">Encoder</a>(2, 65535, 1, Pin.cpu.A0, 2, Pin.cpu.B3, cpr)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>main.enc_B</b> = Encoder(2, 65535, 1, Pin.cpu.A0, 2, Pin.cpu.B3, cpr)</td></tr>
 <tr class="separator:a04b82945ad36e3738881bfd59335f7b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f0c785b9501843c784ba90618d82add" id="r_a7f0c785b9501843c784ba90618d82add"><td class="memItemLeft" align="right" valign="top"><a id="a7f0c785b9501843c784ba90618d82add" name="a7f0c785b9501843c784ba90618d82add"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>main.tim_A</b> = Timer(1, freq=20_000)</td></tr>
@@ -154,13 +154,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main.cpr</b> = 1440</t
 &#160;</td><td class="memItemRight" valign="bottom"><b>main.tim_B</b> = Timer(4, freq=20_000)</td></tr>
 <tr class="separator:a55fdc582338fb45720796fdb53ed9120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c2ba2013415922fd0c608969c32a877" id="r_a3c2ba2013415922fd0c608969c32a877"><td class="memItemLeft" align="right" valign="top"><a id="a3c2ba2013415922fd0c608969c32a877" name="a3c2ba2013415922fd0c608969c32a877"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>main.mot_A</b> = <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a>(tim_A, 3, Pin.cpu.C4, Pin.cpu.A10, Pin.cpu.B10, 0)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>main.mot_A</b> = L6206(tim_A, 3, Pin.cpu.C4, Pin.cpu.A10, Pin.cpu.B10, 0)</td></tr>
 <tr class="separator:a3c2ba2013415922fd0c608969c32a877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59e6f5e74166bf5ac333bc74c88049f2" id="r_a59e6f5e74166bf5ac333bc74c88049f2"><td class="memItemLeft" align="right" valign="top"><a id="a59e6f5e74166bf5ac333bc74c88049f2" name="a59e6f5e74166bf5ac333bc74c88049f2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>main.mot_B</b> = <a class="el" href="class_l3___l6206_1_1_l6206.html">L6206</a>(tim_B, 1, Pin.cpu.C7, Pin.cpu.B6, Pin.cpu.B10, 0)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>main.mot_B</b> = L6206(tim_B, 1, Pin.cpu.C7, Pin.cpu.B6, Pin.cpu.B10, 0)</td></tr>
 <tr class="separator:a59e6f5e74166bf5ac333bc74c88049f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae701983592736ef095bf138d981fc12a" id="r_ae701983592736ef095bf138d981fc12a"><td class="memItemLeft" align="right" valign="top"><a id="ae701983592736ef095bf138d981fc12a" name="ae701983592736ef095bf138d981fc12a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>main.imu</b> = <a class="el" href="class_b_n_o055_1_1_b_n_o055.html">BNO055</a>(1, I2C.CONTROLLER, 0x08)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>main.imu</b> = BNO055(1, I2C.CONTROLLER, 0x08)</td></tr>
 <tr class="separator:ae701983592736ef095bf138d981fc12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1efbefafeb5f925d60dada589d46e9f2" id="r_a1efbefafeb5f925d60dada589d46e9f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1efbefafeb5f925d60dada589d46e9f2">main.duty_q_A</a></td></tr>
 <tr class="separator:a1efbefafeb5f925d60dada589d46e9f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
