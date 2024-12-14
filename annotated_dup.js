@@ -3,9 +3,6 @@ var annotated_dup =
     [ "bno055", null, [
       [ "BNO055", "classbno055_1_1_b_n_o055.html", "classbno055_1_1_b_n_o055" ]
     ] ],
-    [ "calibrate", null, [
-      [ "Line_Follower", "classcalibrate_1_1_line___follower.html", "classcalibrate_1_1_line___follower" ]
-    ] ],
     [ "cotask", null, [
       [ "Task", "classcotask_1_1_task.html", "classcotask_1_1_task" ],
       [ "TaskList", "classcotask_1_1_task_list.html", "classcotask_1_1_task_list" ]

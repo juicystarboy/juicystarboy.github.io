@@ -7,7 +7,6 @@ var hierarchy =
     [ "bno055.BNO055", "classbno055_1_1_b_n_o055.html", null ],
     [ "encoder.Encoder", "classencoder_1_1_encoder.html", null ],
     [ "l6206.L6206", "classl6206_1_1_l6206.html", null ],
-    [ "calibrate.Line_Follower", "classcalibrate_1_1_line___follower.html", null ],
     [ "line.Line_Follower", "classline_1_1_line___follower.html", null ],
     [ "cotask.Task", "classcotask_1_1_task.html", null ],
     [ "cotask.TaskList", "classcotask_1_1_task_list.html", null ]
