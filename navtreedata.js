@@ -26,6 +26,17 @@ var NAVTREE =
 [
   [ "ME 405 Term Project", "index.html", [
     [ "Classes", "annotated.html", [
+      [ "Hardware:", "index.html#autotoc_md2", [
+        [ "Authors:", "index.html#autotoc_md1", null ],
+        [ "STM32 Nucleo-L476RG", "index.html#autotoc_md3", null ],
+        [ "Shoe of Brian", "index.html#autotoc_md4", null ],
+        [ "Pololu Romi Chassis", "index.html#autotoc_md5", null ],
+        [ "Pololu RC Line Sensor", "index.html#autotoc_md6", null ],
+        [ "Pololu Motors/Encoders", "index.html#autotoc_md7", null ],
+        [ "BNO055 IMU", "index.html#autotoc_md8", null ],
+        [ "Pololu Romi Bump Sensors", "index.html#autotoc_md9", null ],
+        [ "Wiring diagram for the ROMI and required electronic components:", "index.html#autotoc_md10", null ]
+      ] ],
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],

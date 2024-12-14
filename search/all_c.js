@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['name_0',['name',['../classcotask_1_1_task.html#ab54e069dd0b4f0a2f8e7f00c94998a10',1,'cotask::Task']]],
-  ['ndof_5fmode_1',['ndof_mode',['../_b_n_o055_8py.html#a02dae703391755ed0005324193dc0db0',1,'BNO055']]],
-  ['num_5fin_2',['num_in',['../classtask__share_1_1_queue.html#aef595fc4133d297e2b63014c47ac5f27',1,'task_share::Queue']]]
+  ['main_2epy_0',['main.py',['../main_8py.html',1,'']]],
+  ['me_20405_20term_20project_1',['ME 405 Term Project',['../index.html',1,'']]],
+  ['mode_5freg_2',['mode_reg',['../_b_n_o055_8py.html#a67db30efbfe7a1a69659ce07c836b679',1,'BNO055']]],
+  ['motors_20encoders_3',['Pololu Motors/Encoders',['../index.html#autotoc_md7',1,'']]]
 ];
