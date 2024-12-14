@@ -1,10 +1,12 @@
 var searchData=
 [
   ['baseshare_0',['BaseShare',['../classtask__share_1_1_base_share.html',1,'task_share']]],
-  ['bno055_1',['BNO055',['../class_b_n_o055_1_1_b_n_o055.html',1,'BNO055']]],
-  ['bno055_20imu_2',['BNO055 IMU',['../index.html#autotoc_md9',1,'']]],
-  ['bno055_2epy_3',['BNO055.py',['../_b_n_o055_8py.html',1,'']]],
-  ['brian_4',['Shoe of Brian',['../index.html#autotoc_md5',1,'']]],
-  ['brief_3a_5',['Brief:',['../index.html#autotoc_md2',1,'']]],
-  ['bump_20sensors_6',['Pololu Romi Bump Sensors',['../index.html#autotoc_md10',1,'']]]
+  ['begin_20following_20the_20line_20again_20after_20navigating_20the_20obstacle_20and_20were_20unable_20to_20capture_20it_20on_20video_20similarly_20returning_20to_20start_20was_20not_20achieved_20consistently_20either_20although_20attempts_20to_20do_20so_20were_20made_1',['Video showing Romi traveling from the start block to the far side of the obstacle. Romi navigates along the path using its reflectance sensor until it hits the obstacle. Then, Romi uses an IMU to navigate around the wall according to its heading. Unfortunately, we were unable to get Romi to consistently begin following the line again after navigating the obstacle, and were unable to capture it on video. Similarly, returning to start was not achieved consistently either, although attempts to do so were made.',['../index.html#autotoc_md12',1,'']]],
+  ['block_20to_20the_20far_20side_20of_20the_20obstacle_20romi_20navigates_20along_20the_20path_20using_20its_20reflectance_20sensor_20until_20it_20hits_20the_20obstacle_20then_20romi_20uses_20an_20imu_20to_20navigate_20around_20the_20wall_20according_20to_20its_20heading_20unfortunately_20we_20were_20unable_20to_20get_20romi_20to_20consistently_20begin_20following_20the_20line_20again_20after_20navigating_20the_20obstacle_20and_20were_20unable_20to_20capture_20it_20on_20video_20similarly_20returning_20to_20start_20was_20not_20achieved_20consistently_20either_20although_20attempts_20to_20do_20so_20were_20made_2',['Video showing Romi traveling from the start block to the far side of the obstacle. Romi navigates along the path using its reflectance sensor until it hits the obstacle. Then, Romi uses an IMU to navigate around the wall according to its heading. Unfortunately, we were unable to get Romi to consistently begin following the line again after navigating the obstacle, and were unable to capture it on video. Similarly, returning to start was not achieved consistently either, although attempts to do so were made.',['../index.html#autotoc_md12',1,'']]],
+  ['bno055_3',['BNO055',['../class_b_n_o055_1_1_b_n_o055.html',1,'BNO055']]],
+  ['bno055_20imu_4',['BNO055 IMU',['../index.html#autotoc_md9',1,'']]],
+  ['bno055_2epy_5',['BNO055.py',['../_b_n_o055_8py.html',1,'']]],
+  ['brian_6',['Shoe of Brian',['../index.html#autotoc_md5',1,'']]],
+  ['brief_3a_7',['Brief:',['../index.html#autotoc_md2',1,'']]],
+  ['bump_20sensors_8',['Pololu Romi Bump Sensors',['../index.html#autotoc_md10',1,'']]]
 ];

@@ -36,8 +36,10 @@ var NAVTREE =
         [ "Pololu Motors/Encoders", "index.html#autotoc_md8", null ],
         [ "BNO055 IMU", "index.html#autotoc_md9", null ],
         [ "Pololu Romi Bump Sensors", "index.html#autotoc_md10", null ],
-        [ "Wiring diagram for the ROMI and required electronic components:", "index.html#autotoc_md11", null ]
+        [ "Wiring diagram for the ROMI and required electronic components:", "index.html#autotoc_md11", null ],
+        [ "Video showing Romi traveling from the start block to the far side of the obstacle....", "index.html#autotoc_md12", null ]
       ] ],
+      [ "Gallery", "index.html#autotoc_md13", null ],
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
