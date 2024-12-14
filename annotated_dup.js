@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "BNO055", null, [
-      [ "BNO055", "class_b_n_o055_1_1_b_n_o055.html", null ]
+      [ "BNO055", "class_b_n_o055_1_1_b_n_o055.html", "class_b_n_o055_1_1_b_n_o055" ]
     ] ],
     [ "calibrate", null, [
       [ "Line_Follower", "classcalibrate_1_1_line___follower.html", "classcalibrate_1_1_line___follower" ]

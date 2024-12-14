@@ -225,20 +225,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main.period</b> = 50</
  The motor_speed task converts the given speed to a duty cycle for each motor using a PID controller.<br  />
  The motor_run task sets the duty of each motor</p>
 <p>When the bump sensors detect an object, the go_around task is enabled and line_follow is disabled. The go_around task is a routine that consists of a series of motions that cause Romi to go around an object.</p>
-<p><img src="wiring_diagram.jpg" alt="Wiring Diagram" class="inline"/> </p><dl class="section author"><dt>Author</dt><dd>Lili Boyer-Quick </dd>
-<dd>
-Julian Rubinstein </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>Created Sun Nov 10 2024 14:11:08 </dd>
-<dd>
-Modified Thu Dec 12 2024 15:08:00</dd></dl>
-<p>Tasks are defined as generators that are configured as finite state machines, then initialized as task objects using the <a class="el" href="classcotask_1_1_task.html" title="Implements multitasking with scheduling and some performance logging.">cotask.Task</a> class. Shares and queues are defined using the <a class="el" href="classtask__share_1_1_share.html" title="An item which holds data to be shared between tasks.">task_share.Share</a> and <a class="el" href="classtask__share_1_1_queue.html" title="A queue which is used to transfer data from one task to another.">task_share.Queue</a> classes as needed to allow tasks to share information between each other.</p>
-<p>This code causes Romi to follow a line and go around a box of prescribed size.</p>
-<p>The general flow of the file goes as follows:<br  />
- The line_read task uses the line sensors at the front of Romi to find the centroid of a line.<br  />
- The line_follow task converts this centroid to a speed differential using a PID controller.<br  />
- The motor_speed task converts the given speed to a duty cycle for each motor using a PID controller.<br  />
- The motor_run task sets the duty of each motor</p>
-<p>When the bump sensors detect an object, the go_around task is enabled and line_follow is disabled. The go_around task is a routine that consists of a series of motions that cause Romi to go around an object.</p>
 <dl class="section author"><dt>Author</dt><dd>Lili Boyer-Quick </dd>
 <dd>
 Julian Rubinstein </dd></dl>

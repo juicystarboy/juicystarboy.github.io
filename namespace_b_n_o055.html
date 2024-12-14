@@ -18,8 +18,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript" src="darkmode_toggle.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -113,9 +112,11 @@ Classes</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ae2f45800dcc7616436cd33d4f1c55bd4" id="r_ae2f45800dcc7616436cd33d4f1c55bd4"><td class="memItemLeft" align="right" valign="top"><a id="ae2f45800dcc7616436cd33d4f1c55bd4" name="ae2f45800dcc7616436cd33d4f1c55bd4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>i2c_addy</b> = 0x28</td></tr>
+<tr class="memdesc:ae2f45800dcc7616436cd33d4f1c55bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">address of the I2C device <br /></td></tr>
 <tr class="separator:ae2f45800dcc7616436cd33d4f1c55bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02dae703391755ed0005324193dc0db0" id="r_a02dae703391755ed0005324193dc0db0"><td class="memItemLeft" align="right" valign="top"><a id="a02dae703391755ed0005324193dc0db0" name="a02dae703391755ed0005324193dc0db0"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ndof_mode</b> = 0x0c</td></tr>
+<tr class="memdesc:a02dae703391755ed0005324193dc0db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">operating modes, three choices are included here <br /></td></tr>
 <tr class="separator:a02dae703391755ed0005324193dc0db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77c5e6a347f3f46dee8db81c68ced183" id="r_a77c5e6a347f3f46dee8db81c68ced183"><td class="memItemLeft" align="right" valign="top"><a id="a77c5e6a347f3f46dee8db81c68ced183" name="a77c5e6a347f3f46dee8db81c68ced183"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>imu_mode</b> = 0x08</td></tr>
@@ -123,8 +124,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>imu_mode</b> = 0x08</t
 <tr class="memitem:a5651bec067bb559963934057b82f5a83" id="r_a5651bec067bb559963934057b82f5a83"><td class="memItemLeft" align="right" valign="top"><a id="a5651bec067bb559963934057b82f5a83" name="a5651bec067bb559963934057b82f5a83"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>config_mode</b> = 0x00</td></tr>
 <tr class="separator:a5651bec067bb559963934057b82f5a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67db30efbfe7a1a69659ce07c836b679" id="r_a67db30efbfe7a1a69659ce07c836b679"><td class="memItemLeft" align="right" valign="top"><a id="a67db30efbfe7a1a69659ce07c836b679" name="a67db30efbfe7a1a69659ce07c836b679"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>mode_reg</b> = 0x3D</td></tr>
+<tr class="memitem:a67db30efbfe7a1a69659ce07c836b679" id="r_a67db30efbfe7a1a69659ce07c836b679"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67db30efbfe7a1a69659ce07c836b679">mode_reg</a> = 0x3D</td></tr>
+<tr class="memdesc:a67db30efbfe7a1a69659ce07c836b679"><td class="mdescLeft">&#160;</td><td class="mdescRight">misc registers.  <br /></td></tr>
 <tr class="separator:a67db30efbfe7a1a69659ce07c836b679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c40b45243cc5be97acd36d755f03f3f" id="r_a4c40b45243cc5be97acd36d755f03f3f"><td class="memItemLeft" align="right" valign="top"><a id="a4c40b45243cc5be97acd36d755f03f3f" name="a4c40b45243cc5be97acd36d755f03f3f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>calib_sts_reg</b> = 0x35</td></tr>
@@ -146,6 +147,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>gyro_offs_reg</b> = 0x
 <tr class="separator:a82286f19fe78e297d59deb061312af36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad13773990c0ce60984f7c74e79e8d604" id="r_ad13773990c0ce60984f7c74e79e8d604"><td class="memItemLeft" align="right" valign="top"><a id="ad13773990c0ce60984f7c74e79e8d604" name="ad13773990c0ce60984f7c74e79e8d604"></a>
 list&#160;</td><td class="memItemRight" valign="bottom"><b>eul_data_x</b> = [0x1b, 0x1a]</td></tr>
+<tr class="memdesc:ad13773990c0ce60984f7c74e79e8d604"><td class="mdescLeft">&#160;</td><td class="mdescRight">values registers eul_data, euler angles gyro_data, angular velocities <br /></td></tr>
 <tr class="separator:ad13773990c0ce60984f7c74e79e8d604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69fb95294d6dd32b5dceab737d950ff3" id="r_a69fb95294d6dd32b5dceab737d950ff3"><td class="memItemLeft" align="right" valign="top"><a id="a69fb95294d6dd32b5dceab737d950ff3" name="a69fb95294d6dd32b5dceab737d950ff3"></a>
 list&#160;</td><td class="memItemRight" valign="bottom"><b>eul_data_y</b> = [0x1d, 0x1c]</td></tr>
@@ -188,7 +190,25 @@ list&#160;</td><td class="memItemRight" valign="bottom"><b>gyro_data_z</b> = [0x
 <div class="textblock"><pre class="fragment">Created on Thu Nov 14 13:20:27 2024
 
 @author: lbq11
-</pre> </div></div><!-- contents -->
+</pre> </div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a67db30efbfe7a1a69659ce07c836b679" name="a67db30efbfe7a1a69659ce07c836b679"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67db30efbfe7a1a69659ce07c836b679">&#9670;&#160;</a></span>mode_reg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BNO055.mode_reg = 0x3D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>misc registers. </p>
+<p>registers for various values that don't fit nicely in the other groups </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

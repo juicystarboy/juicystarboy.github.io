@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['heading_0',['heading',['../namespace_b_n_o055.html#a97d8ea820204f56a4c964204c2580cad',1,'BNO055']]]
+  ['task_5flist_0',['task_list',['../cotask_8py.html#ae54e25f8d14958f642bcc22ddeb6c56f',1,'cotask']]],
+  ['type_5fcode_5fstrings_1',['type_code_strings',['../task__share_8py.html#af5ee68a35f9ce19aef4c4bd4ab7c2679',1,'task_share']]]
 ];

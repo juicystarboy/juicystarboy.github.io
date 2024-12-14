@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['go_5fflag_0',['go_flag',['../classcotask_1_1_task.html#ad309fae1890bffafa75e9fdb33fae600',1,'cotask::Task']]]
+  ['eul_5fdata_5fx_0',['eul_data_x',['../_b_n_o055_8py.html#ad13773990c0ce60984f7c74e79e8d604',1,'BNO055']]]
 ];

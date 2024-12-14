@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write_5fcalib_5fcoeffs_0',['write_calib_coeffs',['../class_b_n_o055_1_1_b_n_o055.html#a2e7df4ca067e70051252a26d50a23573',1,'BNO055::BNO055']]]
+  ['zero_0',['zero',['../class_l3__encoder_1_1_encoder.html#a20476a42614cb1c85cfce814dd8381d9',1,'L3_encoder::Encoder']]]
 ];
